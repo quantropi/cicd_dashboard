@@ -1,7 +1,12 @@
 const express = require('express');
+const authRoutes = require('./src/routes/authRoutes');
 const app = express();
 require('dotenv').config();
 const { Pool } = require('pg');
+const cors = require('cors');
+app.use(cors({ credentials: true, origin: true }));
+const userRoutes = require('./src/routes/userRoutes');
+
 
 const pool = new Pool({
   user: process.env.DB_USER,
@@ -17,7 +22,11 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-const PORT = process.env.PORT || 3000;
+app.use('/auth', authRoutes);
+
+app.use('/user', userRoutes);
+
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
