@@ -1,47 +1,52 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import ListGroup from 'react-bootstrap/ListGroup';
+import RepositoryWorkflows from '../components/RepositoryWorkflows';
 
 const DashboardPage = () => {
-  const { auth, setAuth } = useContext(AuthContext);
+  const { auth } = useContext(AuthContext);
+  const [repositories, setRepositories] = useState([]);
+  const [selectedRepo, setSelectedRepo] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(`DashboardPage auth`);
-    console.log(auth);
-    if (auth.token) {
-      axios
-        .get(`${process.env.REACT_APP_BACKEND_URL}/user/data`, {
-          headers: {
-            Authorization: `token ${auth.token}`,
-          },
-        })
-        .then((res) => {
-          setAuth((prevAuth) => ({ ...prevAuth, user: res.data }));
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  }, [auth.token, setAuth]);
+    if (!auth.token) navigate('/');
+
+    axios
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/repos`, {
+        headers: { Authorization: auth.token },
+        params: {
+          type: 'private',
+          per_page: 100
+        }
+      })
+      .then(response => {
+        setRepositories(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching repos:', error);
+      });
+  }, [auth, navigate]);
 
   return (
     <div>
       <h1>Dashboard</h1>
-      {auth.user ? (
-        <div>
-          <h1>Welcome, {auth.user.name}!</h1>
-          <p>This is a simple integration between OAuth2 on GitHub with Node.js</p>
-          <div style={{ maxWidth: '25%', margin: 'auto' }}>
-            <img src={auth.user.avatar_url} alt="User profile" />
-            <div>
-              <div>{auth.user.name}</div>
-              <div>{auth.user.bio}</div>
-              <a href={auth.user.html_url}>GitHub Profile</a>
-            </div>
-          </div>
-        </div>
-      ) : (
-        <p>Loading user data...</p>
+      <h2>Your Repositories</h2>
+      <ListGroup>
+        {repositories.map(repo => (
+          <ListGroup.Item
+            key={repo.id}
+            action
+            onClick={() => setSelectedRepo(repo.name)}
+          >
+            {repo.name}
+          </ListGroup.Item>
+        ))}
+      </ListGroup>
+      {selectedRepo && (
+        <RepositoryWorkflows repoName={selectedRepo} token={auth.token} />
       )}
     </div>
   );

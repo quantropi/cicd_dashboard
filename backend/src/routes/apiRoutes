@@ -1,0 +1,9 @@
+const express = require('express');
+const router = express.Router();
+const repoController = require('../controllers/reposController');
+const workflowsController = require('../controllers/workflowsController');
+
+router.get('/repos', repoController.getRepositories);
+router.get('/workflows/:repo', workflowsController.getWorkflows);
+
+module.exports = router;

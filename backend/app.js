@@ -6,6 +6,7 @@ const { Pool } = require('pg');
 const cors = require('cors');
 app.use(cors({ credentials: true, origin: true }));
 const userRoutes = require('./src/routes/userRoutes');
+const apiRoutes = require('./src/routes/apiRoutes');
 
 
 const pool = new Pool({
@@ -25,6 +26,8 @@ app.get('/', (req, res) => {
 app.use('/auth', authRoutes);
 
 app.use('/user', userRoutes);
+
+app.use('/api', apiRoutes);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
