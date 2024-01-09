@@ -14,7 +14,7 @@ exports.getWorkflows = async (req, res) => {
         'X-GitHub-Api-Version': '2022-11-28'
       }
     });
-    console.log(response.data);
+    // console.log(response.data);
     res.json(response.data);
   } catch (error) {
     res.status(500).json({ message: 'Error fetching workflows', error });
