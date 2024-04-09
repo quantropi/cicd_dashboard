@@ -1,0 +1,106 @@
+[
+  {
+    "name": "SDK",
+    "level": "component",
+    "description": "QEEP SDK is a set of QPP enabled crypto functions",
+    "wiki_link": [
+      "https://quantropi.atlassian.net/wiki/spaces/ET/pages/760315909/QiSpace+SDK+aka+QEEP+SDK"
+    ],
+    "github_link": "",
+    "sub": [
+      {
+        "name": "libqeep",
+        "level": "repo",
+        "description": "",
+        "wiki_link": [
+          "https://quantropi.atlassian.net/wiki/spaces/ET/pages/967704719/QiSpace+SEQUR",
+          "https://quantropi.atlassian.net/wiki/spaces/ET/pages/966721751/QiSpace+QEEP"
+        ],
+        "github_link": "https://github.com/quantropi/libqeep",
+        "sub": []
+      },
+      {
+        "name": "MASQ-BN",
+        "level": "repo",
+        "description": "",
+        "wiki_link": [
+          "https://quantropi.atlassian.net/wiki/spaces/ET/pages/1122730273/QiSpace+BigNum"
+        ],
+        "github_link": "https://github.com/quantropi/MASQ-BN",
+        "sub": []
+      },
+      {
+        "name": "MASQ-DS",
+        "level": "repo",
+        "description": "",
+        "wiki_link": [
+          "https://quantropi.atlassian.net/wiki/spaces/ET/pages/1110769665/QiSpace+MASQ+KEM+DS"
+        ],
+        "github_link": "https://github.com/quantropi/MASQ-DS",
+        "sub": []
+      },
+      {
+        "name": "MASQ-KEM",
+        "level": "repo",
+        "description": "",
+        "wiki_link": [
+          "https://quantropi.atlassian.net/wiki/spaces/ET/pages/1110769665/QiSpace+MASQ+KEM+DS"
+        ],
+        "github_link": "https://github.com/quantropi/MASQ-KEM",
+        "sub": []
+      },
+      {
+        "name": "sdk_qa",
+        "level": "repo",
+        "description": "",
+        "wiki_link": [],
+        "github_link": "https://github.com/quantropi/sdk_qa",
+        "sub": []
+      },
+      {
+        "name": "SDK_CICD_pipelines",
+        "level": "repo",
+        "description": "",
+        "wiki_link": [],
+        "github_link": "https://github.com/quantropi/SDK_CICD_pipelines",
+        "sub": []
+      }
+    ]
+  },
+  {
+    "name": "QiSpace",
+    "level": "component",
+    "description": "",
+    "wiki_link": [],
+    "github_link": "",
+    "sub": [
+      {
+        "name": "QiSpace Enterprise (KDS)",
+        "level": "component",
+        "description": "",
+        "wiki_link": [
+          "https://quantropi.atlassian.net/wiki/spaces/ET/pages/847708163/QiSpace+Enterprise+KDS+Service+License+Management+Mechanism"
+        ],
+        "github_link": "",
+        "sub": [
+          {
+            "name": "qiserver",
+            "level": "repo",
+            "description": "",
+            "wiki_link": [],
+            "github_link": "https://github.com/quantropi/qiserver",
+            "sub": []
+          },
+          {
+            "name": "",
+            "level": "repo",
+            "description": "",
+            "wiki_link": [],
+            "github_link": "",
+            "sub": []
+          }
+        ]
+      }
+    ]
+  }
+]
