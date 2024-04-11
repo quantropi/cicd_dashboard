@@ -1,4 +1,4 @@
-# TiTle: CICD Web
+# TiTle: CICD Dashboard
 
 ## Infrusture
 - GitHub Page
@@ -8,7 +8,6 @@
 - Write the structure web page based on React
 - Store data using json
   - components.json
-  - workflows.json
   - details data based on repo name
     - data/libqeep.json
 - GitHub Actions workflows will using curl to trigger the workflow in this repo to add the data
