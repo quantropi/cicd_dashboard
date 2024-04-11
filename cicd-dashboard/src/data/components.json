@@ -1,0 +1,24 @@
+[
+  {
+    "name": "SDK",
+    "level": "component",
+    "description": "QEEP SDK is a set of QPP enabled crypto functions",
+    "github_link": "",
+    "sub": [
+      {
+        "name": "libqeep",
+        "level": "repo",
+        "description": "",
+        "github_link": "https://github.com/quantropi/libqeep",
+        "sub": [],
+        "workflows": [
+          {
+            "file": "cicd_build_api.yml",
+            "name": "libqeep_build_api",
+            "github_link": "https://github.com/quantropi/libqeep/actions/workflows/cicd_build_api.yml"
+          }
+        ]
+      }
+    ]
+  }
+]

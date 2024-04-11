@@ -7,9 +7,9 @@
 ## Details
 - Write the structure web page based on React
 - Store data using json
-  - components.json
+  - data/components.json
   - details data based on repo name
-    - data/libqeep.json
+    - data/repos/libqeep.json
 - GitHub Actions workflows will using curl to trigger the workflow in this repo to add the data
   - If the repo does not exists, 
     - It will be added to components.json with parent component name Others
