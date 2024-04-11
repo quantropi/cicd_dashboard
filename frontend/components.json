@@ -3,19 +3,12 @@
     "name": "SDK",
     "level": "component",
     "description": "QEEP SDK is a set of QPP enabled crypto functions",
-    "wiki_link": [
-      "https://quantropi.atlassian.net/wiki/spaces/ET/pages/760315909/QiSpace+SDK+aka+QEEP+SDK"
-    ],
     "github_link": "",
     "sub": [
       {
         "name": "libqeep",
         "level": "repo",
         "description": "",
-        "wiki_link": [
-          "https://quantropi.atlassian.net/wiki/spaces/ET/pages/967704719/QiSpace+SEQUR",
-          "https://quantropi.atlassian.net/wiki/spaces/ET/pages/966721751/QiSpace+QEEP"
-        ],
         "github_link": "https://github.com/quantropi/libqeep",
         "sub": [],
         "workflows": [
@@ -25,7 +18,23 @@
             "github_link": "https://github.com/quantropi/libqeep/actions/workflows/cicd_build_api.yml"
           }
         ]
-      },
+      }
+    ]
+  }
+]
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    ,
       {
         "name": "MASQ-BN",
         "level": "repo",
