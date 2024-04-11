@@ -20,5 +20,47 @@
         ]
       }
     ]
+  },
+  {
+    "name": "QiSpace",
+    "level": "component",
+    "description": "",
+    "github_link": "",
+    "sub": [
+      {
+        "name": "qiserver",
+        "level": "repo",
+        "description": "",
+        "github_link": "https://github.com/quantropi/qiserver",
+        "sub": [],
+        "workflows": [
+          {
+            "file": "build.yml",
+            "name": "Build",
+            "github_link": "https://github.com/quantropi/qiserver/actions/workflows/build.yml"
+          },
+          {
+            "file": "deploy-qa.yml",
+            "name": "Deploy QA",
+            "github_link": "https://github.com/quantropi/qiserver/actions/workflows/deploy-qa.yml"
+          },
+          {
+            "file": "deploy-quantropi.yml",
+            "name": "Deploy Quantropi",
+            "github_link": "https://github.com/quantropi/qiserver/actions/workflows/deploy-quantropi.yml"
+          },
+          {
+            "file": "deploy-staging.yml",
+            "name": "Deploy Staging",
+            "github_link": "https://github.com/quantropi/qiserver/actions/workflows/deploy-staging.yml"
+          },
+          {
+            "file": "promote-tag.yml",
+            "name": "Promote version",
+            "github_link": "https://github.com/quantropi/qiserver/actions/workflows/promote-tag.yml"
+          }
+        ]
+      }
+    ]
   }
 ]
