@@ -3,19 +3,19 @@
     "name": "SDK",
     "level": "component",
     "description": "QEEP SDK is a set of QPP enabled crypto functions",
-    "github_link": "",
+    "url": "",
     "sub": [
       {
         "name": "libqeep",
         "level": "repo",
         "description": "",
-        "github_link": "https://github.com/quantropi/libqeep",
+        "url": "https://github.com/quantropi/libqeep",
         "sub": [],
         "workflows": [
           {
             "file": "cicd_build_api.yml",
             "name": "libqeep_build_api",
-            "github_link": "https://github.com/quantropi/libqeep/actions/workflows/cicd_build_api.yml"
+            "url": "https://github.com/quantropi/libqeep/actions/workflows/cicd_build_api.yml"
           }
         ]
       }
@@ -25,39 +25,39 @@
     "name": "QiSpace",
     "level": "component",
     "description": "",
-    "github_link": "",
+    "url": "",
     "sub": [
       {
         "name": "qiserver",
         "level": "repo",
         "description": "",
-        "github_link": "https://github.com/quantropi/qiserver",
+        "url": "https://github.com/quantropi/qiserver",
         "sub": [],
         "workflows": [
           {
             "file": "build.yml",
             "name": "Build",
-            "github_link": "https://github.com/quantropi/qiserver/actions/workflows/build.yml"
+            "url": "https://github.com/quantropi/qiserver/actions/workflows/build.yml"
           },
           {
             "file": "deploy-qa.yml",
             "name": "Deploy QA",
-            "github_link": "https://github.com/quantropi/qiserver/actions/workflows/deploy-qa.yml"
+            "url": "https://github.com/quantropi/qiserver/actions/workflows/deploy-qa.yml"
           },
           {
             "file": "deploy-quantropi.yml",
             "name": "Deploy Quantropi",
-            "github_link": "https://github.com/quantropi/qiserver/actions/workflows/deploy-quantropi.yml"
+            "url": "https://github.com/quantropi/qiserver/actions/workflows/deploy-quantropi.yml"
           },
           {
             "file": "deploy-staging.yml",
             "name": "Deploy Staging",
-            "github_link": "https://github.com/quantropi/qiserver/actions/workflows/deploy-staging.yml"
+            "url": "https://github.com/quantropi/qiserver/actions/workflows/deploy-staging.yml"
           },
           {
             "file": "promote-tag.yml",
             "name": "Promote version",
-            "github_link": "https://github.com/quantropi/qiserver/actions/workflows/promote-tag.yml"
+            "url": "https://github.com/quantropi/qiserver/actions/workflows/promote-tag.yml"
           }
         ]
       }
