@@ -17,7 +17,14 @@
           "https://quantropi.atlassian.net/wiki/spaces/ET/pages/966721751/QiSpace+QEEP"
         ],
         "github_link": "https://github.com/quantropi/libqeep",
-        "sub": []
+        "sub": [],
+        "workflows": [
+          {
+            "file": "cicd_build_api.yml",
+            "name": "libqeep_build_api",
+            "github_link": "https://github.com/quantropi/libqeep/actions/workflows/cicd_build_api.yml"
+          }
+        ]
       },
       {
         "name": "MASQ-BN",
