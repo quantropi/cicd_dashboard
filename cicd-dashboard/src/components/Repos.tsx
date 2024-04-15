@@ -1,6 +1,8 @@
 import React from 'react';
 import { Tab, Repo } from '../types/models';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 interface ReposProps {
   selectedTab: string;
@@ -16,20 +18,20 @@ const Repos: React.FC<ReposProps> = ({ selectedTab, tabsData }) => {
   return (
     <ListGroup className="repos-sidebar">
       {repos.map((repo: Repo) => (
-        <ListGroup.Item 
-          key={repo.name} 
-          action 
-          href={repo.url} 
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-          {repo.name}
-          <a href={repo.url}>
-            <i className="bi bi-github"></i>
-          </a>
-        </ListGroup.Item>
-      ))}
-    </ListGroup>
+        <ListGroup.Item key={repo.name} action>
+        <Row>
+          <Col className="text-left" xs={10}>
+            {repo.name}
+          </Col>
+          <Col className="text-right" xs={2}>
+            <a href={repo.url} target="_blank" rel="noopener noreferrer">
+              <i className="bi bi-github"></i>
+            </a>
+          </Col>
+        </Row>
+      </ListGroup.Item>
+    ))}
+  </ListGroup>
   );
 };
 

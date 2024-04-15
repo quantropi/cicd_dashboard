@@ -2,7 +2,6 @@ export interface Tab {
   name: string;
   level: "component";
   description: string;
-  url: string;
   repos?: Repo[];
 }
 

@@ -14,6 +14,7 @@ import { Tab } from './types/models';
 const App: React.FC = () => {
   const [tabsData, setTabsData] = useState<Tab[]>([]);
   const [selectedTab, setSelectedTab] = useState<string>('all');
+  const [selectedRepo, setSelectedRepo] = useState<string>('');
 
   useEffect(() => {
     const fetchTabsData = async () => {
@@ -34,9 +35,10 @@ const App: React.FC = () => {
       <Header />
       <Navbar selectedTab={selectedTab} setSelectedTab={setSelectedTab} tabsData={tabsData} />
       <Row>
-        <Col xs={12} md={3}><Repos selectedTab={selectedTab} tabsData={tabsData} /></Col>
-        {/* <Col xs={12} md={6}><Runs /></Col>
-        <Col xs={12} md={3}><Workflows /></Col> */}
+        <Col xs={12} md={2}><Repos selectedTab={selectedTab} tabsData={tabsData} /></Col>
+        {/* <Col xs={12} md={8}><Runs /></Col>
+        <Col xs={12} md={2}><Workflows /></Col> */}
+        <Col xs={12} md={2}><Workflows selectedTab={selectedTab} selectedRepo={selectedRepo} tabsData={tabsData} /></Col>
       </Row>
     </Container>
   );

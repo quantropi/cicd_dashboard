@@ -3,7 +3,6 @@
     "name": "SDK",
     "level": "component",
     "description": "QEEP SDK is a set of QPP enabled crypto functions",
-    "url": "",
     "repos": [
       {
         "name": "libqeep",
@@ -25,7 +24,6 @@
     "name": "QiSpace",
     "level": "component",
     "description": "",
-    "url": "",
     "repos": [
       {
         "name": "qiserver",
