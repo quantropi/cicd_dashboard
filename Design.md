@@ -26,3 +26,12 @@
   - test_results
   - s3_urls
   - branch
+
+### Workflows
+- Write the json file inside the repos
+- Pass the url to artifact and other parameters to the Workflows in CICD_Dashboard
+- In CICD_Dashboard:
+  - Download the artifact
+  - Read the content
+  - Write into the json files
+  - Commit

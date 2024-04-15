@@ -4,17 +4,17 @@
     "level": "component",
     "description": "QEEP SDK is a set of QPP enabled crypto functions",
     "url": "",
-    "sub": [
+    "repos": [
       {
         "name": "libqeep",
         "level": "repo",
         "description": "",
         "url": "https://github.com/quantropi/libqeep",
-        "sub": [],
         "workflows": [
           {
             "file": "cicd_build_api.yml",
             "name": "libqeep_build_api",
+            "default_display": true,
             "url": "https://github.com/quantropi/libqeep/actions/workflows/cicd_build_api.yml"
           }
         ]
@@ -26,37 +26,41 @@
     "level": "component",
     "description": "",
     "url": "",
-    "sub": [
+    "repos": [
       {
         "name": "qiserver",
         "level": "repo",
         "description": "",
         "url": "https://github.com/quantropi/qiserver",
-        "sub": [],
         "workflows": [
           {
             "file": "build.yml",
             "name": "Build",
+            "default_display": true,
             "url": "https://github.com/quantropi/qiserver/actions/workflows/build.yml"
           },
           {
             "file": "deploy-qa.yml",
             "name": "Deploy QA",
+            "default_display": true,
             "url": "https://github.com/quantropi/qiserver/actions/workflows/deploy-qa.yml"
           },
           {
             "file": "deploy-quantropi.yml",
             "name": "Deploy Quantropi",
+            "default_display": true,
             "url": "https://github.com/quantropi/qiserver/actions/workflows/deploy-quantropi.yml"
           },
           {
             "file": "deploy-staging.yml",
             "name": "Deploy Staging",
+            "default_display": true,
             "url": "https://github.com/quantropi/qiserver/actions/workflows/deploy-staging.yml"
           },
           {
             "file": "promote-tag.yml",
             "name": "Promote version",
+            "default_display": true,
             "url": "https://github.com/quantropi/qiserver/actions/workflows/promote-tag.yml"
           }
         ]

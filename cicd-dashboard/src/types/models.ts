@@ -1,9 +1,16 @@
-export interface Component {
+export interface Tab {
   name: string;
-  level: "component" | "repo";
+  level: "component";
   description: string;
   url: string;
-  sub: Component[];
+  repos?: Repo[];
+}
+
+export interface Repo {
+  name: string;
+  level: "repo";
+  description: string;
+  url: string;
   workflows?: Workflow[];
 }
 
