@@ -15,6 +15,7 @@ const App: React.FC = () => {
   const [tabsData, setTabsData] = useState<Tab[]>([]);
   const [selectedTab, setSelectedTab] = useState<string>('all');
   const [selectedRepo, setSelectedRepo] = useState<string>('');
+  const [selectedWorkflow, setSelectedWorkflow] = useState<string>('');
 
   useEffect(() => {
     const fetchTabsData = async () => {
@@ -36,8 +37,7 @@ const App: React.FC = () => {
       <Navbar selectedTab={selectedTab} setSelectedTab={setSelectedTab} tabsData={tabsData} />
       <Row>
         <Col xs={12} md={2}><Repos selectedTab={selectedTab} tabsData={tabsData} /></Col>
-        {/* <Col xs={12} md={8}><Runs /></Col>
-        <Col xs={12} md={2}><Workflows /></Col> */}
+        <Col xs={12} md={8}><Runs selectedTab={selectedTab} selectedRepo={selectedRepo} selectedWorkflow={selectedWorkflow} tabsData={tabsData} /></Col>
         <Col xs={12} md={2}><Workflows selectedTab={selectedTab} selectedRepo={selectedRepo} tabsData={tabsData} /></Col>
       </Row>
     </Container>

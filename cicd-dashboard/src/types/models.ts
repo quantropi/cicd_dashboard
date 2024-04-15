@@ -17,13 +17,15 @@ export interface Workflow {
   file: string;
   name: string;
   url: string;
+  default_display: boolean;
 }
 
 export interface RunDetails {
   id: number;
   url: string;
+  repo: string;
   workflow: string;
-  run_name: string;
+  workflow_name: string;
   run_number: number;
   time: string;
   user: string;
