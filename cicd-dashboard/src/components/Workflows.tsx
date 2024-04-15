@@ -8,9 +8,10 @@ interface WorkflowsProps {
   selectedTab: string;
   selectedRepo: string;
   tabsData: Tab[];
+  setSelectedWorkflow: (workflow: string) => void;
 }
 
-const Workflows: React.FC<WorkflowsProps> = ({ selectedTab, selectedRepo, tabsData }) => {
+const Workflows: React.FC<WorkflowsProps> = ({ selectedTab, selectedRepo, tabsData, setSelectedWorkflow }) => {
   let workflows: Workflow[] = [];
 
   if (selectedTab === 'all') {
@@ -35,7 +36,7 @@ const Workflows: React.FC<WorkflowsProps> = ({ selectedTab, selectedRepo, tabsDa
   return (
     <ListGroup className="workflows-sidebar">
       {workflows.map(workflow => (
-        <ListGroup.Item key={workflow.name}>
+        <ListGroup.Item key={workflow.name} action onClick={() => setSelectedWorkflow(workflow.file)}>
           <Row>
           <Col className="text-left" xs={10}>
             {workflow.name}

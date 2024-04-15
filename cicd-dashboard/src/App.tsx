@@ -20,7 +20,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const fetchTabsData = async () => {
       try {
-        const response = await fetch(`${process.env.PUBLIC_URL}/data/components.json`);
+        const response = await fetch(`data/components.json`);
         const tabs: Tab[] = await response.json();
         setTabsData(tabs);
       } catch (error) {
@@ -36,9 +36,9 @@ const App: React.FC = () => {
       <Header />
       <Navbar selectedTab={selectedTab} setSelectedTab={setSelectedTab} tabsData={tabsData} />
       <Row>
-        <Col xs={12} md={2}><Repos selectedTab={selectedTab} tabsData={tabsData} /></Col>
+        <Col xs={12} md={2}><Repos selectedTab={selectedTab} tabsData={tabsData} setSelectedRepo={setSelectedRepo} /></Col>
         <Col xs={12} md={8}><Runs selectedTab={selectedTab} selectedRepo={selectedRepo} selectedWorkflow={selectedWorkflow} tabsData={tabsData} /></Col>
-        <Col xs={12} md={2}><Workflows selectedTab={selectedTab} selectedRepo={selectedRepo} tabsData={tabsData} /></Col>
+        <Col xs={12} md={2}><Workflows selectedTab={selectedTab} selectedRepo={selectedRepo} tabsData={tabsData} setSelectedWorkflow={setSelectedWorkflow} /></Col>
       </Row>
     </Container>
   );
