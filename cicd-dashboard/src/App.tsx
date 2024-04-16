@@ -44,9 +44,9 @@ const App: React.FC = () => {
       <Header />
       <Navbar selectedTab={selectedTab} setSelectedTab={setSelectedTab} tabsData={tabsData} clearRepo={clearRepo} clearWorkflow={clearWorkflow}/>
       <Row>
-        <Col xs={12} md={2}><Repos selectedTab={selectedTab} tabsData={tabsData} setSelectedRepo={setSelectedRepo} clearWorkflow={clearWorkflow} /></Col>
+        <Col xs={12} md={2}><Repos selectedTab={selectedTab} tabsData={tabsData} selectedRepo={selectedRepo} setSelectedRepo={setSelectedRepo} clearWorkflow={clearWorkflow} /></Col>
         <Col xs={12} md={8}><Runs selectedTab={selectedTab} selectedRepo={selectedRepo} selectedWorkflow={selectedWorkflow} tabsData={tabsData} /></Col>
-        <Col xs={12} md={2}><Workflows selectedTab={selectedTab} selectedRepo={selectedRepo} tabsData={tabsData} setSelectedWorkflow={setSelectedWorkflow} /></Col>
+        <Col xs={12} md={2}><Workflows selectedTab={selectedTab} selectedRepo={selectedRepo} tabsData={tabsData} selectedWorkflow={selectedWorkflow} setSelectedWorkflow={setSelectedWorkflow} /></Col>
       </Row>
     </Container>
   );

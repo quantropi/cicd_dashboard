@@ -8,10 +8,11 @@ interface WorkflowsProps {
   selectedTab: string;
   selectedRepo: string;
   tabsData: Tab[];
+  selectedWorkflow: string;
   setSelectedWorkflow: (workflow: string) => void;
 }
 
-const Workflows: React.FC<WorkflowsProps> = ({ selectedTab, selectedRepo, tabsData, setSelectedWorkflow }) => {
+const Workflows: React.FC<WorkflowsProps> = ({ selectedTab, selectedRepo, tabsData, selectedWorkflow, setSelectedWorkflow }) => {
   let workflows: Workflow[] = [];
 
   if (selectedTab === 'all' && !selectedRepo) {
@@ -42,7 +43,10 @@ const Workflows: React.FC<WorkflowsProps> = ({ selectedTab, selectedRepo, tabsDa
       <h4 className="mt-3 mb-3">Workflows</h4>
       <ListGroup className="workflows-sidebar">
         {workflows.map(workflow => (
-          <ListGroup.Item key={workflow.name} action onClick={() => setSelectedWorkflow(workflow.file)}>
+          <ListGroup.Item key={workflow.name} action 
+            onClick={() => setSelectedWorkflow(workflow.file)}
+            active={workflow.file === selectedWorkflow}
+          >
             <Row>
             <Col className="text-left" xs={10}>
               {workflow.name}

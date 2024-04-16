@@ -7,11 +7,12 @@ import Col from 'react-bootstrap/Col';
 interface ReposProps {
   selectedTab: string;
   tabsData: Tab[];
+  selectedRepo: string;
   setSelectedRepo: (repo: string) => void;
   clearWorkflow: () => void;
 }
 
-const Repos: React.FC<ReposProps> = ({ selectedTab, tabsData, setSelectedRepo, clearWorkflow }) => {
+const Repos: React.FC<ReposProps> = ({ selectedTab, tabsData, selectedRepo, setSelectedRepo, clearWorkflow }) => {
   // Filter repos based on the selected tab
   const repos = selectedTab === 'all' ?
     tabsData.flatMap(tab => tab.repos || []) :
@@ -26,9 +27,11 @@ const Repos: React.FC<ReposProps> = ({ selectedTab, tabsData, setSelectedRepo, c
       <ListGroup className="repos-sidebar">
         {repos.map((repo: Repo) => (
           <ListGroup.Item key={repo.name} action onClick={() => {
-            setSelectedRepo(repo.name);
-            clearWorkflow();
-          }}>
+              setSelectedRepo(repo.name);
+              clearWorkflow();
+            }}
+            active={repo.name === selectedRepo}
+          >
           <Row>
             <Col className="text-left" xs={10}>
               {repo.name}
