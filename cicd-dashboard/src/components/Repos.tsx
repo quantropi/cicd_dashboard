@@ -23,7 +23,7 @@ const Repos: React.FC<ReposProps> = ({ selectedTab, tabsData, selectedRepo, setS
 
   return (
     <div>
-      <h4 className="mt-3 mb-3">Workflows</h4>
+      <h4 className="mt-3 mb-3">Repositories</h4>
       <ListGroup className="repos-sidebar">
         {repos.map((repo: Repo) => (
           <ListGroup.Item key={repo.name} action onClick={() => {
