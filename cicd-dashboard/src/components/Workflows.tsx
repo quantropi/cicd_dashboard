@@ -15,15 +15,24 @@ interface WorkflowsProps {
 const Workflows: React.FC<WorkflowsProps> = ({ selectedTab, selectedRepo, tabsData, selectedWorkflow, setSelectedWorkflow }) => {
   let workflows: Workflow[] = [];
 
-  if (selectedTab === 'all' && !selectedRepo) {
-    // Get all workflows from all tabs
-    workflows = tabsData.flatMap(tab =>
-      tab.repos?.flatMap(repo =>
-        repo.workflows?.filter(workflow => workflow.default_display) || []
-      ) || []
-    );
+  // Handling the workflows display logic
+  if (selectedTab === 'all') {
+    if (!selectedRepo) {
+      // Get all workflows from all tabs if no specific repo is selected
+      workflows = tabsData.flatMap(tab =>
+        tab.repos?.flatMap(repo =>
+          repo.workflows?.filter(workflow => workflow.default_display) || []
+        ) || []
+      );
+    } else {
+      // Get workflows from all tabs but only for the specified repo
+      workflows = tabsData.flatMap(tab =>
+        tab.repos?.filter(repo => repo.name === selectedRepo).flatMap(repo => 
+          repo.workflows || []
+        ) || []
+      );
+    }
   } else {
-    // Get workflows from the selected tab
     const tab = tabsData.find(tab => tab.name === selectedTab);
     if (selectedRepo) {
       // Get workflows from the selected repo within the selected tab
@@ -31,7 +40,9 @@ const Workflows: React.FC<WorkflowsProps> = ({ selectedTab, selectedRepo, tabsDa
       workflows = repo?.workflows || [];
     } else {
       // Get all workflows within the selected tab
-      workflows = tab?.repos?.flatMap(repo => repo.workflows || []) || [];
+      workflows = tab?.repos?.flatMap(repo => 
+        repo.workflows || []
+      ) || [];
     }
   }
 
