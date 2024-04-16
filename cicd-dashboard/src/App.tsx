@@ -17,6 +17,14 @@ const App: React.FC = () => {
   const [selectedRepo, setSelectedRepo] = useState<string>('');
   const [selectedWorkflow, setSelectedWorkflow] = useState<string>('');
 
+  const clearRepo = async () => {
+    setSelectedRepo('');
+  }
+
+  const clearWorkflow = async () => {
+    setSelectedWorkflow('');
+  }
+
   useEffect(() => {
     const fetchTabsData = async () => {
       try {
@@ -34,9 +42,9 @@ const App: React.FC = () => {
   return (
     <Container fluid>
       <Header />
-      <Navbar selectedTab={selectedTab} setSelectedTab={setSelectedTab} tabsData={tabsData} />
+      <Navbar selectedTab={selectedTab} setSelectedTab={setSelectedTab} tabsData={tabsData} clearRepo={clearRepo} clearWorkflow={clearWorkflow}/>
       <Row>
-        <Col xs={12} md={2}><Repos selectedTab={selectedTab} tabsData={tabsData} setSelectedRepo={setSelectedRepo} /></Col>
+        <Col xs={12} md={2}><Repos selectedTab={selectedTab} tabsData={tabsData} setSelectedRepo={setSelectedRepo} clearWorkflow={clearWorkflow} /></Col>
         <Col xs={12} md={8}><Runs selectedTab={selectedTab} selectedRepo={selectedRepo} selectedWorkflow={selectedWorkflow} tabsData={tabsData} /></Col>
         <Col xs={12} md={2}><Workflows selectedTab={selectedTab} selectedRepo={selectedRepo} tabsData={tabsData} setSelectedWorkflow={setSelectedWorkflow} /></Col>
       </Row>

@@ -8,9 +8,10 @@ interface ReposProps {
   selectedTab: string;
   tabsData: Tab[];
   setSelectedRepo: (repo: string) => void;
+  clearWorkflow: () => void;
 }
 
-const Repos: React.FC<ReposProps> = ({ selectedTab, tabsData, setSelectedRepo }) => {
+const Repos: React.FC<ReposProps> = ({ selectedTab, tabsData, setSelectedRepo, clearWorkflow }) => {
   // Filter repos based on the selected tab
   const repos = selectedTab === 'all' ?
     tabsData.flatMap(tab => tab.repos || []) :
@@ -20,22 +21,28 @@ const Repos: React.FC<ReposProps> = ({ selectedTab, tabsData, setSelectedRepo })
   repos.sort((a, b) => a.name.localeCompare(b.name));
 
   return (
-    <ListGroup className="repos-sidebar">
-      {repos.map((repo: Repo) => (
-        <ListGroup.Item key={repo.name} action onClick={() => setSelectedRepo(repo.name)}>
-        <Row>
-          <Col className="text-left" xs={10}>
-            {repo.name}
-          </Col>
-          <Col className="text-right" xs={2}>
-            <a href={repo.url} target="_blank" rel="noopener noreferrer">
-              <i className="bi bi-github"></i>
-            </a>
-          </Col>
-        </Row>
-      </ListGroup.Item>
-    ))}
-  </ListGroup>
+    <div>
+      <h4 className="mt-3 mb-3">Workflows</h4>
+      <ListGroup className="repos-sidebar">
+        {repos.map((repo: Repo) => (
+          <ListGroup.Item key={repo.name} action onClick={() => {
+            setSelectedRepo(repo.name);
+            clearWorkflow();
+          }}>
+          <Row>
+            <Col className="text-left" xs={10}>
+              {repo.name}
+            </Col>
+            <Col className="text-right" xs={2}>
+              <a href={repo.url} target="_blank" rel="noopener noreferrer">
+                <i className="bi bi-github"></i>
+              </a>
+            </Col>
+          </Row>
+        </ListGroup.Item>
+      ))}
+    </ListGroup>
+  </div>
   );
 };
 

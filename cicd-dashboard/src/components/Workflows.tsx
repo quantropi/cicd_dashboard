@@ -14,9 +14,13 @@ interface WorkflowsProps {
 const Workflows: React.FC<WorkflowsProps> = ({ selectedTab, selectedRepo, tabsData, setSelectedWorkflow }) => {
   let workflows: Workflow[] = [];
 
-  if (selectedTab === 'all') {
+  if (selectedTab === 'all' && !selectedRepo) {
     // Get all workflows from all tabs
-    workflows = tabsData.flatMap(tab => tab.repos?.flatMap(repo => repo.workflows || []) || []);
+    workflows = tabsData.flatMap(tab =>
+      tab.repos?.flatMap(repo =>
+        repo.workflows?.filter(workflow => workflow.default_display) || []
+      ) || []
+    );
   } else {
     // Get workflows from the selected tab
     const tab = tabsData.find(tab => tab.name === selectedTab);
@@ -34,22 +38,25 @@ const Workflows: React.FC<WorkflowsProps> = ({ selectedTab, selectedRepo, tabsDa
   workflows.sort((a, b) => a.name.localeCompare(b.name));
 
   return (
-    <ListGroup className="workflows-sidebar">
-      {workflows.map(workflow => (
-        <ListGroup.Item key={workflow.name} action onClick={() => setSelectedWorkflow(workflow.file)}>
-          <Row>
-          <Col className="text-left" xs={10}>
-            {workflow.name}
-          </Col>
-          <Col className="text-right" xs={2}>
-            <a href={workflow.url} target="_blank" rel="noopener noreferrer">
-              <i className="bi bi-github"></i>
-            </a>
-          </Col>
-        </Row>
-        </ListGroup.Item>
-      ))}
-    </ListGroup>
+    <div>
+      <h4 className="mt-3 mb-3">Workflows</h4>
+      <ListGroup className="workflows-sidebar">
+        {workflows.map(workflow => (
+          <ListGroup.Item key={workflow.name} action onClick={() => setSelectedWorkflow(workflow.file)}>
+            <Row>
+            <Col className="text-left" xs={10}>
+              {workflow.name}
+            </Col>
+            <Col className="text-right" xs={2}>
+              <a href={workflow.url} target="_blank" rel="noopener noreferrer">
+                <i className="bi bi-github"></i>
+              </a>
+            </Col>
+          </Row>
+          </ListGroup.Item>
+        ))}
+      </ListGroup>
+    </div>
   );
 };
 
