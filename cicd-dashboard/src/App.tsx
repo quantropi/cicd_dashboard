@@ -10,6 +10,7 @@ import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Tab } from './types/models';
+import './App.css';
 
 const App: React.FC = () => {
   const [tabsData, setTabsData] = useState<Tab[]>([]);

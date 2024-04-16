@@ -1,25 +1,39 @@
 import React from 'react';
 import { RunDetails } from '../types/models';
+import { Badge, Tooltip, OverlayTrigger } from 'react-bootstrap';
 
 interface RunProps {
   run: RunDetails;
 }
 
 const Run: React.FC<RunProps> = ({ run }) => {
-  const statusClass = run.status === "success" ? "text-success" : "text-danger"; // This can also be background color based on your CSS
+  const renderTooltip = (props: React.ComponentProps<typeof Tooltip>) => (
+    <Tooltip id={`tooltip-${run.id}`} {...props}>
+      Click to view details
+    </Tooltip>
+  );
+
   return (
-    <tr className={statusClass}>
-      <td>
-        <a href={run.url} target="_blank" rel="noopener noreferrer">
-          {run.workflow_name} #{run.run_number}
-        </a>
+    <tr>
+      <td className='col-2'>
+        <OverlayTrigger
+          placement="right"
+          delay={{ show: 250, hide: 400 }}
+          overlay={renderTooltip}
+        >
+          <a href={run.url} target="_blank" rel="noopener noreferrer">
+            {run.workflow_name} #{run.run_number} 
+          </a>
+        </OverlayTrigger>
+        <Badge bg={run.status === "success" ? "success" : "danger"}>
+          {run.status}
+        </Badge>
       </td>
-      <td>{run.time}</td>
-      <td>{run.user}</td>
-      <td>{run.branch}</td>
-      <td>{run.status}</td>
-      {run.isqa && <td>{run.test_result}</td>}
-      <td>{run.s3_urls}</td>
+      <td className='col-2'>{run.time}</td>
+      <td className='col-1'>{run.user}</td>
+      <td className='col-1'>{run.branch}</td>
+      <td className='col-3'>{run.isqa ? run.test_result : 'N/A'}</td>
+      <td className='col-3'>{run.s3_urls}</td>
     </tr>
   );
 };

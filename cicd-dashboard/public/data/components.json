@@ -17,6 +17,38 @@
             "url": "https://github.com/quantropi/libqeep/actions/workflows/cicd_build_api.yml"
           }
         ]
+      },
+      {
+        "name": "sdk_qa",
+        "level": "repo",
+        "description": "",
+        "url": "https://github.com/quantropi/sdk_qa",
+        "workflows": [
+          {
+            "file": "libqeep.yml",
+            "name": "libqeep_qa_test",
+            "default_display": true,
+            "url": "https://github.com/quantropi/sdk_qa/actions/workflows/libqeep.yml"
+          },
+          {
+            "file": "masq_bn.yml",
+            "name": "masq_bn_qa_test",
+            "default_display": true,
+            "url": "https://github.com/quantropi/sdk_qa/actions/workflows/masq_bn.yml"
+          },
+          {
+            "file": "masq_ds.yml",
+            "name": "masq_ds_qa_test",
+            "default_display": true,
+            "url": "https://github.com/quantropi/sdk_qa/actions/workflows/masq_ds.yml"
+          },
+          {
+            "file": "masq_kem.yml",
+            "name": "masq_kem_qa_test",
+            "default_display": true,
+            "url": "https://github.com/quantropi/sdk_qa/actions/workflows/masq_kem.yml"
+          }
+        ]
       }
     ]
   },
@@ -64,5 +96,11 @@
         ]
       }
     ]
+  },
+  {
+    "name": "Others",
+    "level": "component",
+    "description": "",
+    "repos": []
   }
 ]

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Tab, RunDetails } from '../types/models';
 import Run from './Run';
 import Table from 'react-bootstrap/Table';
+import { Pagination } from 'react-bootstrap';
 
 interface RunsProps {
   selectedTab: string;
@@ -12,6 +13,8 @@ interface RunsProps {
 
 const Runs: React.FC<RunsProps> = ({ selectedTab, selectedRepo, selectedWorkflow, tabsData }) => {
   const [runs, setRuns] = useState<RunDetails[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(10);
 
   useEffect(() => {
     const fetchRuns = async () => {
@@ -39,23 +42,41 @@ const Runs: React.FC<RunsProps> = ({ selectedTab, selectedRepo, selectedWorkflow
     fetchRuns();
   }, [selectedTab, selectedRepo, selectedWorkflow, tabsData]);
 
+  // Calculate total pages and setup pagination
+  const lastRunIndex = currentPage * itemsPerPage;
+  const firstRunIndex = lastRunIndex - itemsPerPage;
+  const currentRuns = runs.slice(firstRunIndex, lastRunIndex);
+
+  const totalPages = Math.ceil(runs.length / itemsPerPage);
+
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
   return (
-    <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>Workflow</th>
-          <th>Time</th>
-          <th>User</th>
-          <th>Branch</th>
-          <th>Status</th>
-          {runs.some(run => run.isqa) && <th>Test Results</th>}
-          <th>S3 URLs</th>
-        </tr>
-      </thead>
-      <tbody>
-        {runs.map(run => <Run key={run.id} run={run} />)}
-      </tbody>
-    </Table>
+    <div>
+      <h4 className="mt-3 mb-3">Workflow Runs</h4>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Workflow</th>
+            <th>Time</th>
+            <th>User</th>
+            <th>Branch</th>
+            <th>Test Results</th>
+            <th>S3 URLs</th>
+          </tr>
+        </thead>
+        <tbody>
+          {currentRuns.map(run => <Run key={run.id} run={run} />)}
+        </tbody>
+      </Table>
+      <Pagination>
+        {Array.from(Array(totalPages).keys()).map(number => (
+          <Pagination.Item key={number + 1} active={number + 1 === currentPage} onClick={() => paginate(number + 1)}>
+            {number + 1}
+          </Pagination.Item>
+        ))}
+      </Pagination>
+    </div>
   );
 };
 
