@@ -51,6 +51,34 @@ const Runs: React.FC<RunsProps> = ({ selectedTab, selectedRepo, selectedWorkflow
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
+  const pageNumbers = [];
+
+  if (currentPage === 1) {
+      pageNumbers.push(currentPage);
+      if (totalPages >= currentPage + 1) {
+          pageNumbers.push(currentPage + 1);
+      }
+      if (totalPages >= currentPage + 2) {
+          pageNumbers.push(currentPage + 2);
+      }
+  } else if (currentPage > 1) {
+      if (currentPage >= 3) {
+          pageNumbers.push(currentPage - 2);
+          pageNumbers.push(currentPage - 1);
+      } else {
+          pageNumbers.push(currentPage - 1);
+      }
+
+      pageNumbers.push(currentPage);
+
+      if (totalPages >= currentPage + 1) {
+          pageNumbers.push(currentPage + 1);
+      }
+      if (totalPages >= currentPage + 2) {
+          pageNumbers.push(currentPage + 2);
+      }
+  }
+
   return (
     <div>
       <h4 className="mt-3 mb-3">Workflow Runs</h4>
@@ -69,13 +97,21 @@ const Runs: React.FC<RunsProps> = ({ selectedTab, selectedRepo, selectedWorkflow
           {currentRuns.map(run => <Run key={run.id} run={run} />)}
         </tbody>
       </Table>
+      
       <Pagination>
-        {Array.from(Array(totalPages).keys()).map(number => (
-          <Pagination.Item key={number + 1} active={number + 1 === currentPage} onClick={() => paginate(number + 1)}>
-            {number + 1}
+          <Pagination.Item onClick={() => paginate(1)}>
+            First
           </Pagination.Item>
-        ))}
+          {pageNumbers.map(number => (
+            <Pagination.Item key={number} active={currentPage === number} onClick={() => paginate(number)}>
+              {number}
+            </Pagination.Item>
+          ))}
+          <Pagination.Item onClick={() => paginate(totalPages)}>
+            Last
+          </Pagination.Item>
       </Pagination>
+      
     </div>
   );
 };
