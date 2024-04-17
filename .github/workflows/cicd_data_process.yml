@@ -1,0 +1,33 @@
+name: CICD Data Process
+on:
+  workflow_dispatch:
+
+  repository_dispatch:
+    types: [data_process]
+
+jobs:
+  update_data:
+    runs-on: ott-ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Echo the client_playload
+        run: |
+          echo "${{ github.event.client_payload }}"
+
+      - name: Handle incoming data
+        run: node ${{ github.workspace }}/data_process/data_process.js
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.email "quantropi-devops-agent"
+          git config --global user.name "CI/CD Bot"
+          git add .
+          git commit -m "Automatically update data via repository_dispatch" || echo "No changes to commit"
+          git push
