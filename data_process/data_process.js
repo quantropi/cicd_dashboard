@@ -19,7 +19,7 @@ const incomingData = eventData.client_payload;
 const accessToken = process.env.ACCESS_TOKEN;
 
 // Function to fetch run data using GitHub API
-function fetchRunData(runId) {
+function fetchRunData(runId, callback) {
   const options = {
     hostname: 'api.github.com',
     path: `/repos/${incomingData.repo_owner}/${incomingData.repo}/actions/runs/${runId}`,
@@ -51,7 +51,7 @@ fetchRunData(incomingData.id, (fetchedData, err) => {
     console.error('Error fetching data:', err);
     return;
   }
-  
+
   // Process and integrate fetched data with incomingData if necessary
   console.log(fetchedData);
 
