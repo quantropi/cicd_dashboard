@@ -22,6 +22,8 @@ jobs:
           echo "${{ github.event.client_payload }}"
 
       - name: Handle incoming data
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_DEVOPS_TOKEN }}
         run: node ${{ github.workspace }}/data_process/data_process.js
 
       - name: Commit and Push Changes
