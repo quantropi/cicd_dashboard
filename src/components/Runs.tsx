@@ -14,16 +14,16 @@ interface RunsProps {
 const Runs: React.FC<RunsProps> = ({ selectedTab, selectedRepo, selectedWorkflow, tabsData }) => {
   const [runs, setRuns] = useState<RunDetails[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(10);
+  const [itemsPerPage] = useState(20);
 
   useEffect(() => {
     const fetchRuns = async () => {
       try {
         const response = await fetch(`data/runs.json`);
         const allRuns: RunDetails[] = await response.json();
-        
+
         const filteredRuns = allRuns.filter(run => {
-          const byTab = selectedTab === 'all' || tabsData.some(tab => 
+          const byTab = selectedTab === 'all' || tabsData.some(tab =>
             tab.name === selectedTab && tab.repos?.some(repo => repo.name === run.repo));
           const byRepo = !selectedRepo || run.repo === selectedRepo;
           const byWorkflow = !selectedWorkflow || run.workflow === selectedWorkflow;
@@ -32,7 +32,7 @@ const Runs: React.FC<RunsProps> = ({ selectedTab, selectedRepo, selectedWorkflow
 
         // Sort by time, most recent first
         filteredRuns.sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime());
-        
+
         setRuns(filteredRuns);
       } catch (error) {
         console.error("Failed to fetch runs", error);
@@ -54,33 +54,33 @@ const Runs: React.FC<RunsProps> = ({ selectedTab, selectedRepo, selectedWorkflow
   const pageNumbers = [];
 
   if (currentPage === 1) {
-      pageNumbers.push(currentPage);
-      if (totalPages >= currentPage + 1) {
-          pageNumbers.push(currentPage + 1);
-      }
-      if (totalPages >= currentPage + 2) {
-          pageNumbers.push(currentPage + 2);
-      }
+    pageNumbers.push(currentPage);
+    if (totalPages >= currentPage + 1) {
+      pageNumbers.push(currentPage + 1);
+    }
+    if (totalPages >= currentPage + 2) {
+      pageNumbers.push(currentPage + 2);
+    }
   } else if (currentPage > 1) {
-      if (currentPage >= 3) {
-          pageNumbers.push(currentPage - 2);
-          pageNumbers.push(currentPage - 1);
-      } else {
-          pageNumbers.push(currentPage - 1);
-      }
+    if (currentPage >= 3) {
+      pageNumbers.push(currentPage - 2);
+      pageNumbers.push(currentPage - 1);
+    } else {
+      pageNumbers.push(currentPage - 1);
+    }
 
-      pageNumbers.push(currentPage);
+    pageNumbers.push(currentPage);
 
-      if (totalPages >= currentPage + 1) {
-          pageNumbers.push(currentPage + 1);
-      }
-      if (totalPages >= currentPage + 2) {
-          pageNumbers.push(currentPage + 2);
-      }
+    if (totalPages >= currentPage + 1) {
+      pageNumbers.push(currentPage + 1);
+    }
+    if (totalPages >= currentPage + 2) {
+      pageNumbers.push(currentPage + 2);
+    }
   }
 
   return (
-    <div>
+    <div className="d-flex flex-column" style={{ minHeight: '90vh' }}>
       <h4 className="mt-3 mb-3">Workflow Runs</h4>
       <Table striped bordered hover>
         <thead>
@@ -97,8 +97,10 @@ const Runs: React.FC<RunsProps> = ({ selectedTab, selectedRepo, selectedWorkflow
           {currentRuns.map(run => <Run key={run.id} run={run} />)}
         </tbody>
       </Table>
-      
-      <Pagination>
+
+      <div className="mt-auto d-flex justify-content-between align-items-center p-3">
+        <div>Showing {Math.min(runs.length, (currentPage - 1) * itemsPerPage + 1)} to {Math.min(currentPage * itemsPerPage, runs.length)} of {runs.length} entries</div>
+        <Pagination className="flex-grow-1 justify-content-center">
           <Pagination.Item onClick={() => paginate(1)}>
             First
           </Pagination.Item>
@@ -110,8 +112,9 @@ const Runs: React.FC<RunsProps> = ({ selectedTab, selectedRepo, selectedWorkflow
           <Pagination.Item onClick={() => paginate(totalPages)}>
             Last
           </Pagination.Item>
-      </Pagination>
-      
+        </Pagination>
+      </div>
+
     </div>
   );
 };
