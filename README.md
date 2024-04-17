@@ -55,7 +55,6 @@ This job should be included in any GitHub Actions workflow where you want to rep
     - name: Send results to dashboard
       env:
         REPO_NAME: ${{ github.repository }}
-        WORKFLOW_FILE: 'test_wf.yml'  # Manually specify the workflow file name
       run: |
         echo "Original Repo Name: $REPO_NAME"
         REPO_NAME="${REPO_NAME#*/}"  # Bash to remove the owner part from the repo name
