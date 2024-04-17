@@ -49,31 +49,31 @@ To integrate other workflows with this dashboard, use the provided GitHub Action
 This job should be included in any GitHub Actions workflow where you want to report the results back to the CI/CD Dashboard.
   ```yml
   send-results-to-dashboard:
-  runs-on: ott-ubuntu-latest
-  if: always()
-  steps:
-    - name: Send results to dashboard
-      env:
-        REPO_NAME: ${{ github.repository }}
-      run: |
-        REPO_NAME="${REPO_NAME#*/}"  # Bash to remove the owner part from the repo name
-        
-        curl -L \
-          -X POST \
-          -H "Accept: application/vnd.github+json" \
-          -H "Authorization: Bearer ${{ secrets.ACCESS_DEVOPS_TOKEN }}" \
-          -H "X-GitHub-Api-Version: 2022-11-28" \
-          https://api.github.com/repos/quantropi/cicd_dashboard/dispatches \
-          -d '{
-              "event_type": "data_process",
-              "client_payload": {
-                  "id": "${{ github.run_id }}",
-                  "repo": "'"$REPO_NAME"'",
-                  "isqa": false,
-                  "test_result": "",
-                  "s3_urls": ""
-              }
-          }'
+    runs-on: ott-ubuntu-latest
+    if: always()
+    steps:
+      - name: Send results to dashboard
+        env:
+          REPO_NAME: ${{ github.repository }}
+        run: |
+          REPO_NAME="${REPO_NAME#*/}"  # Bash to remove the owner part from the repo name
+          
+          curl -L \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.ACCESS_DEVOPS_TOKEN }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/quantropi/cicd_dashboard/dispatches \
+            -d '{
+                "event_type": "data_process",
+                "client_payload": {
+                    "id": "${{ github.run_id }}",
+                    "repo": "'"$REPO_NAME"'",
+                    "isqa": false,
+                    "test_result": "",
+                    "s3_urls": ""
+                }
+            }'
 
   ```
 
