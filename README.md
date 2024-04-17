@@ -1,46 +1,84 @@
-# Getting Started with Create React App
+# CI/CD Dashboard Repository
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository hosts the CI/CD Dashboard, an integrated dashboard for tracking the progress and results of continuous integration and deployment pipelines.
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+The CI/CD Dashboard provides a centralized view of the workflows and their statuses across different repositories. It aims to enhance visibility and monitoring capabilities for development teams, ensuring timely feedback on the build and deployment processes.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Real-Time Updates**: The dashboard updates in real-time as new data is received from various CI/CD processes.
+- **Workflow Tracking**: Track the status and results of each workflow execution.
+- **Error Logging**: Quickly view and investigate errors and failures within your CI/CD pipelines.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Setup Instructions
 
-### `npm test`
+To set up the CI/CD Dashboard, clone this repository and follow the setup instructions outlined below:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+- Node.js (v18 or later)
+- GitHub account with access to Actions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/quantropi/cicd_dashboard.git
+    cd cicd_dashboard
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-### `npm run eject`
+3. Start the dashboard server:
+    ```bash
+    npm start
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Using the Dashboard
+The dashboard can be accessed via a web browser at http://localhost:3000 after starting the server.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### GitHub Actions Job Template
+To integrate other workflows with this dashboard, use the provided GitHub Actions job template. This template includes steps to send workflow results to the dashboard for visualization and monitoring.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Job Template `send-results-to-dashboard`
+This job should be included in any GitHub Actions workflow where you want to report the results back to the CI/CD Dashboard.
+  ```yml
+  send-results-to-dashboard:
+  runs-on: ott-ubuntu-latest
+  if: always()
+  steps:
+    - name: Send results to dashboard
+      env:
+        REPO_NAME: ${{ github.repository }}
+        WORKFLOW_FILE: 'test_wf.yml'  # Manually specify the workflow file name
+      run: |
+        echo "Original Repo Name: $REPO_NAME"
+        REPO_NAME="${REPO_NAME#*/}"  # Bash to remove the owner part from the repo name
+        echo "Modified Repo Name: $REPO_NAME"
+        
+        curl -L \
+          -X POST \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer ${{ secrets.ACCESS_DEVOPS_TOKEN }}" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          https://api.github.com/repos/quantropi/cicd_dashboard/dispatches \
+          -d '{
+              "event_type": "data_process",
+              "client_payload": {
+                  "id": "${{ github.run_id }}",
+                  "repo": "'"$REPO_NAME"'",
+                  "isqa": false,
+                  "test_result": "",
+                  "s3_urls": ""
+              }
+          }'
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  ```
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Security
+Make sure to secure your GitHub secrets and environmental variables properly to prevent unauthorized access to your dashboard and repositories.
