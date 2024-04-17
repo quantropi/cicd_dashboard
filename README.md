@@ -56,9 +56,7 @@ This job should be included in any GitHub Actions workflow where you want to rep
       env:
         REPO_NAME: ${{ github.repository }}
       run: |
-        echo "Original Repo Name: $REPO_NAME"
         REPO_NAME="${REPO_NAME#*/}"  # Bash to remove the owner part from the repo name
-        echo "Modified Repo Name: $REPO_NAME"
         
         curl -L \
           -X POST \
