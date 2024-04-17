@@ -39,10 +39,10 @@ To set up the CI/CD Dashboard, clone this repository and follow the setup instru
     npm start
     ```
 
-### Using the Dashboard
+## Using the Dashboard
 The dashboard can be accessed via a web browser at http://localhost:3000 after starting the server.
 
-### GitHub Actions Job Template
+## GitHub Actions Job Template
 To integrate other workflows with this dashboard, use the provided GitHub Actions job template. This template includes steps to send workflow results to the dashboard for visualization and monitoring.
 
 ### Job Template `send-results-to-dashboard`
