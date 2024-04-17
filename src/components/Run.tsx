@@ -33,7 +33,7 @@ const Run: React.FC<RunProps> = ({ run }) => {
       <td className='col-1'>{run.user}</td>
       <td className='col-1'>{run.branch}</td>
       <td className='col-3'>{run.isqa ? run.test_result : 'N/A'}</td>
-      <td className='col-3'>{run.s3_urls}</td>
+      <td className='col-3'>{run.s3_urls != "" ? run.s3_urls : 'N/A'}</td>
     </tr>
   );
 };
