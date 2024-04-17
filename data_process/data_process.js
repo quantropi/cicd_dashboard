@@ -111,7 +111,7 @@ function updateComponentsAndRuns(incomingData, fetchedData) {
     workflow_name: fetchedData.name,
     run_number: fetchedData.run_number,
     time: fetchedData.run_started_at,
-    user: fetchedData.actor.quantropi-yyang,
+    user: fetchedData.actor.login,
     branch: fetchedData.head_branch,
     status: fetchedData.conclusion,
     isqa: incomingData.isqa,
