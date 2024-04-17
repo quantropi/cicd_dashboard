@@ -22,7 +22,7 @@ const accessToken = process.env.ACCESS_TOKEN;
 function fetchRunData(runId, callback) {
   const options = {
     hostname: 'api.github.com',
-    path: `/repos/${incomingData.repo_owner}/${incomingData.repo}/actions/runs/${runId}`,
+    path: `/repos/quantropi/${incomingData.repo}/actions/runs/${runId}`,
     method: 'GET',
     headers: {
       'User-Agent': 'Node.js',
