@@ -1,0 +1,106 @@
+[
+  {
+    "name": "SDK",
+    "level": "component",
+    "description": "QEEP SDK is a set of QPP enabled crypto functions",
+    "repos": [
+      {
+        "name": "libqeep",
+        "level": "repo",
+        "description": "",
+        "url": "https://github.com/quantropi/libqeep",
+        "workflows": [
+          {
+            "file": "cicd_build_api.yml",
+            "name": "libqeep_build_api",
+            "default_display": true,
+            "url": "https://github.com/quantropi/libqeep/actions/workflows/cicd_build_api.yml"
+          }
+        ]
+      },
+      {
+        "name": "sdk_qa",
+        "level": "repo",
+        "description": "",
+        "url": "https://github.com/quantropi/sdk_qa",
+        "workflows": [
+          {
+            "file": "libqeep.yml",
+            "name": "libqeep_qa_test",
+            "default_display": true,
+            "url": "https://github.com/quantropi/sdk_qa/actions/workflows/libqeep.yml"
+          },
+          {
+            "file": "masq_bn.yml",
+            "name": "masq_bn_qa_test",
+            "default_display": true,
+            "url": "https://github.com/quantropi/sdk_qa/actions/workflows/masq_bn.yml"
+          },
+          {
+            "file": "masq_ds.yml",
+            "name": "masq_ds_qa_test",
+            "default_display": true,
+            "url": "https://github.com/quantropi/sdk_qa/actions/workflows/masq_ds.yml"
+          },
+          {
+            "file": "masq_kem.yml",
+            "name": "masq_kem_qa_test",
+            "default_display": true,
+            "url": "https://github.com/quantropi/sdk_qa/actions/workflows/masq_kem.yml"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "QiSpace",
+    "level": "component",
+    "description": "",
+    "repos": [
+      {
+        "name": "qiserver",
+        "level": "repo",
+        "description": "",
+        "url": "https://github.com/quantropi/qiserver",
+        "workflows": [
+          {
+            "file": "build.yml",
+            "name": "Build",
+            "default_display": true,
+            "url": "https://github.com/quantropi/qiserver/actions/workflows/build.yml"
+          },
+          {
+            "file": "deploy-qa.yml",
+            "name": "Deploy QA",
+            "default_display": true,
+            "url": "https://github.com/quantropi/qiserver/actions/workflows/deploy-qa.yml"
+          },
+          {
+            "file": "deploy-quantropi.yml",
+            "name": "Deploy Quantropi",
+            "default_display": true,
+            "url": "https://github.com/quantropi/qiserver/actions/workflows/deploy-quantropi.yml"
+          },
+          {
+            "file": "deploy-staging.yml",
+            "name": "Deploy Staging",
+            "default_display": true,
+            "url": "https://github.com/quantropi/qiserver/actions/workflows/deploy-staging.yml"
+          },
+          {
+            "file": "promote-tag.yml",
+            "name": "Promote version",
+            "default_display": true,
+            "url": "https://github.com/quantropi/qiserver/actions/workflows/promote-tag.yml"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Others",
+    "level": "component",
+    "description": "",
+    "repos": []
+  }
+]
