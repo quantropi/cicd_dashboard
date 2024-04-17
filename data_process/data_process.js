@@ -34,16 +34,24 @@ function fetchRunData(runId) {
   https.request(options, res => {
     let data = '';
     res.on('data', chunk => { data += chunk; });
-    res.on('end', () => { callback(JSON.parse(data)); });
+    res.on('end', () => { 
+      callback(JSON.parse(data));
+    });
   })
     .on('error', e => {
       console.error(`Problem with request: ${e.message}`);
+      callback(null, e);
     })
     .end();
 }
 
 // Function call
-fetchRunData(incomingData.id, fetchedData => {
+fetchRunData(incomingData.id, (fetchedData, err) => {
+  if (err) {
+    console.error('Error fetching data:', err);
+    return;
+  }
+  
   // Process and integrate fetched data with incomingData if necessary
   console.log(fetchedData);
 
