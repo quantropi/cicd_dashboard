@@ -3,8 +3,8 @@ const path = require('path');
 const https = require('https');
 
 // Path to the JSON files
-const componentsPath = path.join(__dirname, '..', 'src', 'public', 'data', 'components.json');
-const runsPath = path.join(__dirname, '..', 'src', 'public', 'data', 'runs.json');
+const componentsPath = path.join(__dirname, '..', 'public', 'data', 'components.json');
+const runsPath = path.join(__dirname, '..', 'public', 'data', 'runs.json');
 
 // Load existing data
 const components = JSON.parse(fs.readFileSync(componentsPath, 'utf8'));
