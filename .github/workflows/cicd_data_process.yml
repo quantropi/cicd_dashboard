@@ -17,10 +17,6 @@ jobs:
         with:
           node-version: 18
 
-      - name: Echo the client_playload
-        run: |
-          echo "${{ github.event.client_payload }}"
-
       - name: Handle incoming data
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_DEVOPS_TOKEN }}
