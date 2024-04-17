@@ -28,5 +28,20 @@
     "isqa": true,
     "test_result": "PASSED \nDetailed: QEEP-macARM: PASSED,  QEEP-macos: PASSED,  QEEP-ubuntu: PASSED,  QEEP-windows: PASSED,\nSEQUR-macARM: PASSED,  SEQUR-macos: PASSED,  SEQUR-ubuntu: PASSED,  SEQUR-windows: PASSED,",
     "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/200"
+  },
+  {
+    "id": "8728430405",
+    "url": "https://github.com/quantropi/SDK_CICD_pipelines/actions/runs/8728430405",
+    "repo": "SDK_CICD_pipelines",
+    "workflow": "test_wf.yml",
+    "workflow_name": "test_workflow",
+    "run_number": 417,
+    "time": "2024-04-17T20:41:57Z",
+    "user": "quantropi-yyang",
+    "branch": "PE-1509-yyang",
+    "status": "success",
+    "isqa": false,
+    "test_result": "",
+    "s3_urls": ""
   }
 ]

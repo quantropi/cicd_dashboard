@@ -101,6 +101,21 @@
     "name": "Others",
     "level": "component",
     "description": "",
-    "repos": []
+    "repos": [
+      {
+        "name": "SDK_CICD_pipelines",
+        "level": "repo",
+        "description": "",
+        "url": "https://github.com/quantropi/SDK_CICD_pipelines",
+        "workflows": [
+          {
+            "file": "test_wf.yml",
+            "name": "test_workflow",
+            "default_display": true,
+            "url": "https://github.com/quantropi/SDK_CICD_pipelines/actions/workflows/test_wf.yml"
+          }
+        ]
+      }
+    ]
   }
 ]
