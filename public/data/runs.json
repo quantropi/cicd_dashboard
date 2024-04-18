@@ -26,7 +26,7 @@
     "branch": "PE-1486",
     "status": "success",
     "isqa": true,
-    "test_result": "PASSED \nDetailed: QEEP-macARM: PASSED,  QEEP-macos: PASSED,  QEEP-ubuntu: PASSED,  QEEP-windows: PASSED,\nSEQUR-macARM: PASSED,  SEQUR-macos: PASSED,  SEQUR-ubuntu: PASSED,  SEQUR-windows: PASSED,",
+    "test_result": "PASSED",
     "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/200"
   },
   {

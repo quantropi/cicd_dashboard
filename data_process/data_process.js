@@ -102,6 +102,11 @@ function updateComponentsAndRuns(incomingData, fetchedData) {
     });
   }
 
+  // Validate test_result
+  const validResults = ["PASSED", "FAILED", "ABORTED"];
+  let validatedTestResult = validResults.includes(incomingData.test_result.toUpperCase()) ? incomingData.test_result.toUpperCase() : "";
+
+
   // Add the new run to runs.json
   runs.push({
     id: incomingData.id,
@@ -115,7 +120,7 @@ function updateComponentsAndRuns(incomingData, fetchedData) {
     branch: fetchedData.head_branch,
     status: fetchedData.conclusion,
     isqa: incomingData.isqa,
-    test_result: incomingData.test_result,
+    test_result: validatedTestResult,
     s3_urls: incomingData.s3_urls
   });
 
@@ -123,4 +128,3 @@ function updateComponentsAndRuns(incomingData, fetchedData) {
   fs.writeFileSync(componentsPath, JSON.stringify(components, null, 2));
   fs.writeFileSync(runsPath, JSON.stringify(runs, null, 2));
 }
-
