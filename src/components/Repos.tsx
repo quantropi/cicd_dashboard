@@ -27,25 +27,22 @@ const Repos: React.FC<ReposProps> = ({ selectedTab, tabsData, selectedRepo, setS
       <ListGroup className="repos-sidebar">
         {repos.map((repo: Repo) => (
           <ListGroup.Item key={repo.name} action onClick={() => {
-              setSelectedRepo(repo.name);
-              clearWorkflow();
-            }}
+            setSelectedRepo(repo.name);
+            clearWorkflow();
+          }}
             active={repo.name === selectedRepo}
+            className="d-flex justify-content-between align-items-center"
           >
-          <Row>
-            <Col className="text-left" xs={10}>
+            <span className="text-truncate" style={{ maxWidth: '85%' }}>
               {repo.name}
-            </Col>
-            <Col className="text-right" xs={2}>
-              <a href={repo.url} target="_blank" rel="noopener noreferrer">
-                <i className="bi bi-github"></i>
-              </a>
-            </Col>
-          </Row>
-        </ListGroup.Item>
-      ))}
-    </ListGroup>
-  </div>
+            </span>
+            <a href={repo.url} target="_blank" rel="noopener noreferrer">
+              <i className="bi bi-github"></i>
+            </a>
+          </ListGroup.Item>
+        ))}
+      </ListGroup>
+    </div>
   );
 };
 

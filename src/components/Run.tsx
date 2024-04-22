@@ -15,25 +15,43 @@ const Run: React.FC<RunProps> = ({ run }) => {
 
   return (
     <tr>
-      <td className='col-2'>
+      <td>
         <OverlayTrigger
           placement="right"
           delay={{ show: 250, hide: 400 }}
           overlay={renderTooltip}
         >
-          <a href={run.url} target="_blank" rel="noopener noreferrer">
-            {run.workflow_name} #{run.run_number} 
+          <a href={run.url} target="_blank" rel="noopener noreferrer" className="text-truncate" style={{ maxWidth: '200px' }}>
+            {run.workflow_name} #{run.run_number}
           </a>
         </OverlayTrigger>
         <Badge bg={run.status === "success" ? "success" : "danger"}>
           {run.status}
         </Badge>
       </td>
-      <td className='col-2'>{run.time}</td>
-      <td className='col-1'>{run.user}</td>
-      <td className='col-2'>{run.branch}</td>
-      <td className='col-1'>{run.isqa ? run.test_result : 'N/A'}</td>
-      <td className='col-4'>{run.s3_urls !== "" ? run.s3_urls : 'N/A'}</td>
+      <td>
+        <div className="text-truncate" style={{ maxWidth: '200px' }}>
+          {run.time}
+        </div>
+      </td>
+      <td>
+        <div className="text-truncate" style={{ maxWidth: '150px' }}>
+          {run.user}
+        </div>
+      </td>
+      <td>
+        <div className="text-truncate" style={{ maxWidth: '150px' }}>
+          {run.branch}
+        </div>
+      </td>
+      <td>
+        {run.isqa ? (
+          <div className="text-truncate" style={{ maxWidth: '150px' }}>
+            {run.test_result}
+          </div>
+        ) : 'N/A'}
+      </td>
+      <td>{run.s3_urls !== "" ? run.s3_urls : 'N/A'}</td>
     </tr>
   );
 };

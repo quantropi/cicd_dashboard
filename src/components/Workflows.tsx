@@ -57,17 +57,14 @@ const Workflows: React.FC<WorkflowsProps> = ({ selectedTab, selectedRepo, tabsDa
           <ListGroup.Item key={workflow.name} action 
             onClick={() => setSelectedWorkflow(workflow.file)}
             active={workflow.file === selectedWorkflow}
+            className="d-flex justify-content-between align-items-center"
           >
-            <Row>
-            <Col className="text-left" xs={10}>
+          <span className="text-truncate" style={{ maxWidth: '85%' }}>
               {workflow.name}
-            </Col>
-            <Col className="text-right" xs={2}>
-              <a href={workflow.url} target="_blank" rel="noopener noreferrer">
-                <i className="bi bi-github"></i>
-              </a>
-            </Col>
-          </Row>
+          </span>
+          <a href={workflow.url} target="_blank" rel="noopener noreferrer">
+            <i className="bi bi-github"></i>
+          </a>
           </ListGroup.Item>
         ))}
       </ListGroup>
