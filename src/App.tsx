@@ -29,7 +29,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const fetchTabsData = async () => {
       try {
-        const response = await fetch(`data/components.json`);
+        const response = await fetch('/cicd_dashboard/data/components.json');
         const tabs: Tab[] = await response.json();
         setTabsData(tabs);
       } catch (error) {

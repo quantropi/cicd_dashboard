@@ -19,7 +19,7 @@ const Runs: React.FC<RunsProps> = ({ selectedTab, selectedRepo, selectedWorkflow
   useEffect(() => {
     const fetchRuns = async () => {
       try {
-        const response = await fetch(`data/runs.json`);
+        const response = await fetch('/cicd_dashboard/data/runs.json');
         const allRuns: RunDetails[] = await response.json();
 
         const filteredRuns = allRuns.filter(run => {
