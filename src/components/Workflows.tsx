@@ -1,8 +1,6 @@
 import React from 'react';
 import { Tab, Workflow } from '../types/models';
 import ListGroup from 'react-bootstrap/ListGroup';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 interface WorkflowsProps {
   selectedTab: string;
