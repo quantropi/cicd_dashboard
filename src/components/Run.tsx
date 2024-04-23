@@ -30,6 +30,11 @@ const Run: React.FC<RunProps> = ({ run }) => {
         </Badge>
       </td>
       <td>
+        <div className="text-truncate" style={{ maxWidth: '150px' }}>
+          {run.repo}
+        </div>
+      </td>
+      <td>
         <div className="text-truncate" style={{ maxWidth: '200px' }}>
           {run.time}
         </div>
