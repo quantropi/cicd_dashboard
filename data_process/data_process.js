@@ -62,6 +62,12 @@ fetchRunData(incomingData.id, (fetchedData, err) => {
 // Handle update Components and Runs json files
 function updateComponentsAndRuns(incomingData, fetchedData) {
 
+  // Check if the run already exists
+  const runExists = runs.some(run => run.id === incomingData.id && run.repo === incomingData.repo);
+  if (runExists) {
+    throw new Error(`Run with ID ${incomingData.id} for repository ${incomingData.repo} already exists.`);
+  }
+
   // Get workflow file name
   let workflow_file = fetchedData.path.split('/').pop();
 
