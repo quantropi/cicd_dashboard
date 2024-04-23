@@ -97,7 +97,14 @@
         "level": "repo",
         "description": "",
         "url": "https://github.com/quantropi/MASQ-KEM",
-        "workflows": []
+        "workflows": [
+          {
+            "file": "cicd_build_api.yml",
+            "name": "masq_kem_build_api",
+            "default_display": true,
+            "url": "https://github.com/quantropi/MASQ-KEM/actions/workflows/cicd_build_api.yml"
+          }
+        ]
       }
     ]
   },
