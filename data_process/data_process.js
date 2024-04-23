@@ -80,9 +80,6 @@ fetchRunData(incomingData.id, (fetchedData, err) => {
     return;
   }
 
-  // Process and integrate fetched data with incomingData if necessary
-  console.log(fetchedData);
-
   // Update components and runs
   updateComponentsAndRuns(incomingData, fetchedData);
 });
@@ -125,11 +122,20 @@ function updateComponentsAndRuns(incomingData, fetchedData) {
     component.repos.push(repo);
   }
 
-  // Check if the workflow exists in the repository, add if not
+  // Check if the workflow exists in the repository, add if not add one
   const workflowExists = repo.workflows.some(wf => wf.file === workflow_file);
+  console.log(repo);
+  console.log(workflowExists);
   let workflow_name = "";
   if (!workflowExists) {
     fetchWorkflowData(fetchedData.workflow_id, (fetchedWorkflowData, err) => {
+      if (err) {
+        console.error('Error fetching data:', err);
+        return;
+      }
+
+      console.log(fetchedWorkflowData);
+
       workflow_name = fetchedWorkflowData.name;
       repo.workflows.push({
         file: workflow_file,
