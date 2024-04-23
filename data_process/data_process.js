@@ -129,7 +129,7 @@ function updateComponentsAndRuns(incomingData, fetchedData) {
   const workflowExists = repo.workflows.some(wf => wf.file === workflow_file);
   let workflow_name = "";
   if (!workflowExists) {
-    fetchWorkflowData(fetchRunData.workflow_id, (fetchedWorkflowData, err) => {
+    fetchWorkflowData(fetchedData.workflow_id, (fetchedWorkflowData, err) => {
       workflow_name = fetchedWorkflowData.name;
       repo.workflows.push({
         file: workflow_file,
