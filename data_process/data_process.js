@@ -126,7 +126,7 @@ function updateComponentsAndRuns(incomingData, fetchedData) {
   const workflowExists = repo.workflows.some(wf => wf.file === workflow_file);
   console.log(repo);
   console.log(workflowExists);
-  var workflow_name = "";
+  let workflow_name = "";
   if (!workflowExists) {
     fetchWorkflowData(fetchedData.workflow_id, (fetchedWorkflowData, err) => {
       if (err) {
@@ -137,12 +137,17 @@ function updateComponentsAndRuns(incomingData, fetchedData) {
       console.log(fetchedWorkflowData);
 
       workflow_name = fetchedWorkflowData.name;
+
+      console.log(workflow_name);
+
       repo.workflows.push({
         file: workflow_file,
         name: workflow_name,
         default_display: true,
         url: `https://github.com/quantropi/${incomingData.repo}/actions/workflows/${workflow_file}`
       });
+
+      console.log(repo);
     })
   } else {
     // Set workflow_name be the name inside the components.json
