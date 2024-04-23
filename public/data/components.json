@@ -91,6 +91,13 @@
             "url": "https://github.com/quantropi/MASQ-BN/actions/workflows/cicd_build_api.yml"
           }
         ]
+      },
+      {
+        "name": "MASQ-KEM",
+        "level": "repo",
+        "description": "",
+        "url": "https://github.com/quantropi/MASQ-KEM",
+        "workflows": []
       }
     ]
   },
@@ -144,13 +151,7 @@
     "level": "component",
     "description": "",
     "repos": [
-      {
-        "name": "MASQ-KEM",
-        "level": "repo",
-        "description": "",
-        "url": "https://github.com/quantropi/MASQ-KEM",
-        "workflows": []
-      }
+      
     ]
   }
 ]

@@ -126,9 +126,9 @@ function updateComponentsAndRuns(incomingData, fetchedData) {
   }
 
   // Check if the workflow exists in the repository, add if not
-  const existingWorkflow = repo.workflows.find(wf => wf.file === workflow_file);
+  const workflowExists = repo.workflows.some(wf => wf.file === workflow_file);
   let workflow_name = "";
-  if (!existingWorkflow) {
+  if (!workflowExists) {
     fetchWorkflowData(fetchRunData.workflow_id, (fetchedWorkflowData, err) => {
       workflow_name = fetchedWorkflowData.name;
       repo.workflows.push({
@@ -140,6 +140,7 @@ function updateComponentsAndRuns(incomingData, fetchedData) {
     })
   } else {
     // Set workflow_name be the name inside the components.json
+    const existingWorkflow = repo.workflows.find(wf => wf.file === workflow_file);
     workflow_name = existingWorkflow.name;
   }
 
