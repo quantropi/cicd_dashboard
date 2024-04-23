@@ -79,7 +79,7 @@
     "url": "https://github.com/quantropi/MASQ-DS/actions/runs/8803155417",
     "repo": "MASQ-DS",
     "workflow": "cicd_build_api.yml",
-    "workflow_name": "masq ds build (bn-latest & libqeep-latest)",
+    "workflow_name": "masq_ds_build_api",
     "run_number": 275,
     "time": "2024-04-23T15:31:47Z",
     "user": "quantropi-yyang",

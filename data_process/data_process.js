@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
+const { hostname } = require('os');
 
 // Path to the JSON files
 const componentsPath = path.join(__dirname, '..', 'public', 'data', 'components.json');
@@ -23,6 +24,33 @@ function fetchRunData(runId, callback) {
   const options = {
     hostname: 'api.github.com',
     path: `/repos/quantropi/${incomingData.repo}/actions/runs/${runId}`,
+    method: 'GET',
+    headers: {
+      'User-Agent': 'Node.js',
+      'Authorization': `Bearer ${accessToken}`,
+      'Accept': 'application/vnd.github.v3+json'
+    }
+  };
+
+  https.request(options, res => {
+    let data = '';
+    res.on('data', chunk => { data += chunk; });
+    res.on('end', () => { 
+      callback(JSON.parse(data));
+    });
+  })
+    .on('error', e => {
+      console.error(`Problem with request: ${e.message}`);
+      callback(null, e);
+    })
+    .end();
+}
+
+// Function to fetch workflow data using GitHub API
+function fetchWorkflowData(workflowId, callback) {
+  const options = {
+    hostname: 'api.github.com',
+    path: `/repos/quantropi/${incomingData.repo}/actions/workflows/${workflowId}`,
     method: 'GET',
     headers: {
       'User-Agent': 'Node.js',
@@ -98,14 +126,21 @@ function updateComponentsAndRuns(incomingData, fetchedData) {
   }
 
   // Check if the workflow exists in the repository, add if not
-  const workflowExists = repo.workflows.some(wf => wf.file === workflow_file);
-  if (!workflowExists) {
-    repo.workflows.push({
-      file: workflow_file,
-      name: fetchedData.name,
-      default_display: true,
-      url: `https://github.com/quantropi/${incomingData.repo}/actions/workflows/${workflow_file}`
-    });
+  const existingWorkflow = repo.workflows.find(wf => wf.file === workflow_file);
+  let workflow_name = "";
+  if (!existingWorkflow) {
+    fetchWorkflowData(fetchRunData.workflow_id, (fetchedWorkflowData, err) => {
+      workflow_name = fetchedWorkflowData.name;
+      repo.workflows.push({
+        file: workflow_file,
+        name: workflow_name,
+        default_display: true,
+        url: `https://github.com/quantropi/${incomingData.repo}/actions/workflows/${workflow_file}`
+      });
+    })
+  } else {
+    // Set workflow_name be the name inside the components.json
+    workflow_name = existingWorkflow.name;
   }
 
   // Validate test_result
@@ -119,7 +154,7 @@ function updateComponentsAndRuns(incomingData, fetchedData) {
     url: fetchedData.html_url,
     repo: incomingData.repo,
     workflow: workflow_file,
-    workflow_name: fetchedData.name,
+    workflow_name: workflow_name,
     run_number: fetchedData.run_number,
     time: fetchedData.run_started_at,
     user: fetchedData.actor.login,
