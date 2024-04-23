@@ -30,8 +30,8 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
-          git config --global user.email "quantropi-devops-agent"
-          git config --global user.name "CI/CD Bot"
+          git config --global user.email "devops-agent@quantropi.com"
+          git config --global user.name "quantropi-devops-agent"
           git pull
           git add ./public/data
           git commit -m "Automatically update data via repository_dispatch" || echo "No changes to commit"
