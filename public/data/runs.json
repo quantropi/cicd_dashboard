@@ -88,5 +88,20 @@
     "isqa": false,
     "test_result": "",
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/275"
+  },
+  {
+    "id": "8802961696",
+    "url": "https://github.com/quantropi/MASQ-BN/actions/runs/8802961696",
+    "repo": "MASQ-BN",
+    "workflow": "cicd_build_api.yml",
+    "workflow_name": "masq_bn_build_api",
+    "run_number": 188,
+    "time": "2024-04-23T15:18:37Z",
+    "user": "quantropi-yyang",
+    "branch": "PE-1506-yyang",
+    "status": "success",
+    "isqa": false,
+    "test_result": "",
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/188"
   }
 ]

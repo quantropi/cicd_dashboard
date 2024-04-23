@@ -129,6 +129,20 @@
             "url": "https://github.com/quantropi/MASQ-DS/actions/workflows/cicd_build_api.yml"
           }
         ]
+      },
+      {
+        "name": "MASQ-BN",
+        "level": "repo",
+        "description": "",
+        "url": "https://github.com/quantropi/MASQ-BN",
+        "workflows": [
+          {
+            "file": "cicd_build_api.yml",
+            "name": "masq_bn_build_api",
+            "default_display": true,
+            "url": "https://github.com/quantropi/MASQ-BN/actions/workflows/cicd_build_api.yml"
+          }
+        ]
       }
     ]
   }
