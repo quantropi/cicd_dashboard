@@ -73,5 +73,20 @@
     "isqa": false,
     "test_result": "",
     "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/207"
+  },
+  {
+    "id": "8803155417",
+    "url": "https://github.com/quantropi/MASQ-DS/actions/runs/8803155417",
+    "repo": "MASQ-DS",
+    "workflow": "cicd_build_api.yml",
+    "workflow_name": "masq ds build (bn-latest & libqeep-latest)",
+    "run_number": 275,
+    "time": "2024-04-23T15:31:47Z",
+    "user": "quantropi-yyang",
+    "branch": "PE-1506-yyang",
+    "status": "failure",
+    "isqa": false,
+    "test_result": "",
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/275"
   }
 ]

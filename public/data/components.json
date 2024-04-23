@@ -115,6 +115,21 @@
     "name": "Others",
     "level": "component",
     "description": "",
-    "repos": []
+    "repos": [
+      {
+        "name": "MASQ-DS",
+        "level": "repo",
+        "description": "",
+        "url": "https://github.com/quantropi/MASQ-DS",
+        "workflows": [
+          {
+            "file": "cicd_build_api.yml",
+            "name": "masq ds build (bn-latest & libqeep-latest)",
+            "default_display": true,
+            "url": "https://github.com/quantropi/MASQ-DS/actions/workflows/cicd_build_api.yml"
+          }
+        ]
+      }
+    ]
   }
 ]
