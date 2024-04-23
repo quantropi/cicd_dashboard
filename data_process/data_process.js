@@ -160,6 +160,9 @@ function updateComponentsAndRuns(incomingData, fetchedData) {
   let validatedTestResult = validResults.includes(incomingData.test_result.toUpperCase()) ? incomingData.test_result.toUpperCase() : "";
 
 
+  console.log(workflow_name);
+  console.log(repo);
+
   // Add the new run to runs.json
   runs.push({
     id: incomingData.id,
@@ -176,6 +179,8 @@ function updateComponentsAndRuns(incomingData, fetchedData) {
     test_result: validatedTestResult,
     s3_urls: incomingData.s3_urls
   });
+
+  console.log(runs);
 
   // Save updated data back to JSON files
   fs.writeFileSync(componentsPath, JSON.stringify(components, null, 2));
