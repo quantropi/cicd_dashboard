@@ -20,73 +20,85 @@ const incomingData = eventData.client_payload;
 const accessToken = process.env.ACCESS_TOKEN;
 
 // Function to fetch run data using GitHub API
-function fetchRunData(runId, callback) {
-  const options = {
-    hostname: 'api.github.com',
-    path: `/repos/quantropi/${incomingData.repo}/actions/runs/${runId}`,
-    method: 'GET',
-    headers: {
-      'User-Agent': 'Node.js',
-      'Authorization': `Bearer ${accessToken}`,
-      'Accept': 'application/vnd.github.v3+json'
-    }
-  };
+function fetchRunData(runId) {
+  return new Promise((resolve, reject) => {
+    const options = {
+      hostname: 'api.github.com',
+      path: `/repos/quantropi/${incomingData.repo}/actions/runs/${runId}`,
+      method: 'GET',
+      headers: {
+        'User-Agent': 'Node.js',
+        'Authorization': `Bearer ${accessToken}`,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    };
 
-  https.request(options, res => {
-    let data = '';
-    res.on('data', chunk => { data += chunk; });
-    res.on('end', () => { 
-      callback(JSON.parse(data));
-    });
-  })
-    .on('error', e => {
-      console.error(`Problem with request: ${e.message}`);
-      callback(null, e);
+    https.request(options, res => {
+      let data = '';
+      res.on('data', chunk => { data += chunk; });
+      res.on('end', () => {
+        try {
+          resolve(JSON.parse(data));
+        } catch (e) {
+          reject(e);
+        }
+      });
     })
-    .end();
+      .on('error', e => {
+        reject(e);
+      })
+      .end();
+  });
 }
 
 // Function to fetch workflow data using GitHub API
-function fetchWorkflowData(workflowId, callback) {
-  const options = {
-    hostname: 'api.github.com',
-    path: `/repos/quantropi/${incomingData.repo}/actions/workflows/${workflowId}`,
-    method: 'GET',
-    headers: {
-      'User-Agent': 'Node.js',
-      'Authorization': `Bearer ${accessToken}`,
-      'Accept': 'application/vnd.github.v3+json'
-    }
-  };
+function fetchWorkflowData(workflowId) {
+  return new Promise((resolve, reject) => {
+    const options = {
+      hostname: 'api.github.com',
+      path: `/repos/quantropi/${incomingData.repo}/actions/workflows/${workflowId}`,
+      method: 'GET',
+      headers: {
+        'User-Agent': 'Node.js',
+        'Authorization': `Bearer ${accessToken}`,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    };
 
-  https.request(options, res => {
-    let data = '';
-    res.on('data', chunk => { data += chunk; });
-    res.on('end', () => { 
-      callback(JSON.parse(data));
-    });
-  })
-    .on('error', e => {
-      console.error(`Problem with request: ${e.message}`);
-      callback(null, e);
+    https.request(options, res => {
+      let data = '';
+      res.on('data', chunk => { data += chunk; });
+      res.on('end', () => {
+        try {
+          resolve(JSON.parse(data));
+        } catch (e) {
+          reject(e);
+        }
+      });
     })
-    .end();
+      .on('error', e => {
+        reject(e);
+      })
+      .end();
+  });
 }
 
-// Function call
-fetchRunData(incomingData.id, (fetchedData, err) => {
-  if (err) {
-    console.error('Error fetching data:', err);
-    return;
+async function fetchDataAndUpdateComponents() {
+  try {
+    const fetchedData = await fetchRunData(incomingData.id);
+
+    // Update components and runs
+    await updateComponentsAndRuns(incomingData, fetchedData);
+
+  } catch (err) {
+    console.error('Error fetching or updating data:', err);
   }
+}
 
-  // Update components and runs
-  updateComponentsAndRuns(incomingData, fetchedData);
-});
+// Execute the function
+fetchDataAndUpdateComponents();
 
-// Handle update Components and Runs json files
-function updateComponentsAndRuns(incomingData, fetchedData) {
-
+async function updateComponentsAndRuns(incomingData, fetchedData) {
   // Check if the run already exists
   const runExists = runs.some(run => run.id === incomingData.id && run.repo === incomingData.repo);
   if (runExists) {
@@ -122,35 +134,25 @@ function updateComponentsAndRuns(incomingData, fetchedData) {
     component.repos.push(repo);
   }
 
-  // Check if the workflow exists in the repository, add if not add one
-  const workflowExists = repo.workflows.some(wf => wf.file === workflow_file);
-  console.log(repo);
-  console.log(workflowExists);
+  // Check if the workflow exists in the repository, and add if not
   let workflow_name = "";
+  const workflowExists = repo.workflows.some(wf => wf.file === workflow_file);
   if (!workflowExists) {
-    fetchWorkflowData(fetchedData.workflow_id, (fetchedWorkflowData, err) => {
-      if (err) {
-        console.error('Error fetching data:', err);
-        return;
-      }
-
-      console.log(fetchedWorkflowData);
-
+    try {
+      const fetchedWorkflowData = await fetchWorkflowData(fetchedData.workflow_id);
       workflow_name = fetchedWorkflowData.name;
-
-      console.log(workflow_name);
-
       repo.workflows.push({
         file: workflow_file,
         name: workflow_name,
         default_display: true,
         url: `https://github.com/quantropi/${incomingData.repo}/actions/workflows/${workflow_file}`
       });
-
-      console.log(repo);
-    })
+    } catch (err) {
+      console.error('Error fetching workflow data:', err);
+      return;
+    }
   } else {
-    // Set workflow_name be the name inside the components.json
+    // Set workflow_name to be the name inside the components.json
     const existingWorkflow = repo.workflows.find(wf => wf.file === workflow_file);
     workflow_name = existingWorkflow.name;
   }
@@ -158,10 +160,6 @@ function updateComponentsAndRuns(incomingData, fetchedData) {
   // Validate test_result
   const validResults = ["PASSED", "FAILED", "ABORTED"];
   let validatedTestResult = validResults.includes(incomingData.test_result.toUpperCase()) ? incomingData.test_result.toUpperCase() : "";
-
-
-  console.log(workflow_name);
-  console.log(repo);
 
   // Add the new run to runs.json
   runs.push({
@@ -179,8 +177,6 @@ function updateComponentsAndRuns(incomingData, fetchedData) {
     test_result: validatedTestResult,
     s3_urls: incomingData.s3_urls
   });
-
-  console.log(runs);
 
   // Save updated data back to JSON files
   fs.writeFileSync(componentsPath, JSON.stringify(components, null, 2));
