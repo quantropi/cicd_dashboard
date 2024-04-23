@@ -5,6 +5,10 @@ on:
     branches:
       - master
   workflow_dispatch:
+  
+  repository_dispatch:
+    types: 
+      - deoloy_pages
 
 permissions:
   contents: read
