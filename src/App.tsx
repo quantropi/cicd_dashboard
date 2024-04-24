@@ -16,14 +16,14 @@ const App: React.FC = () => {
   const [tabsData, setTabsData] = useState<Tab[]>([]);
   const [selectedTab, setSelectedTab] = useState<string>('all');
   const [selectedRepo, setSelectedRepo] = useState<string>('');
-  const [selectedWorkflow, setSelectedWorkflow] = useState<string>('');
+  const [selectedWorkflow, setSelectedWorkflow] = useState<number>(0);
 
   const clearRepo = async () => {
     setSelectedRepo('');
   }
 
   const clearWorkflow = async () => {
-    setSelectedWorkflow('');
+    setSelectedWorkflow(0);
   }
 
   useEffect(() => {

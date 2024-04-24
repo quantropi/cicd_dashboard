@@ -142,6 +142,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
       const fetchedWorkflowData = await fetchWorkflowData(fetchedData.workflow_id);
       workflow_name = fetchedWorkflowData.name;
       repo.workflows.push({
+        id: fetchedData.workflow_id,
         file: workflow_file,
         name: workflow_name,
         default_display: true,
@@ -168,6 +169,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     repo: incomingData.repo,
     workflow: workflow_file,
     workflow_name: workflow_name,
+    workflow_id: fetchedData.workflow_id,
     run_number: fetchedData.run_number,
     time: fetchedData.run_started_at,
     user: fetchedData.actor.login,

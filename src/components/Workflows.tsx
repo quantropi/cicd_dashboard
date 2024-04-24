@@ -6,8 +6,8 @@ interface WorkflowsProps {
   selectedTab: string;
   selectedRepo: string;
   tabsData: Tab[];
-  selectedWorkflow: string;
-  setSelectedWorkflow: (workflow: string) => void;
+  selectedWorkflow: number;
+  setSelectedWorkflow: (workflow_id: number) => void;
 }
 
 const Workflows: React.FC<WorkflowsProps> = ({ selectedTab, selectedRepo, tabsData, selectedWorkflow, setSelectedWorkflow }) => {
@@ -52,9 +52,9 @@ const Workflows: React.FC<WorkflowsProps> = ({ selectedTab, selectedRepo, tabsDa
       <h4 className="mt-3 mb-3">Workflows</h4>
       <ListGroup className="workflows-sidebar">
         {workflows.map(workflow => (
-          <ListGroup.Item key={workflow.name} action 
-            onClick={() => setSelectedWorkflow(workflow.file)}
-            active={workflow.file === selectedWorkflow}
+          <ListGroup.Item key={workflow.id} action 
+            onClick={() => setSelectedWorkflow(workflow.id)}
+            active={workflow.id === selectedWorkflow}
             className="d-flex justify-content-between align-items-center"
           >
           <span className="text-truncate" style={{ maxWidth: '85%' }}>

@@ -7,7 +7,7 @@ import { Pagination } from 'react-bootstrap';
 interface RunsProps {
   selectedTab: string;
   selectedRepo: string;
-  selectedWorkflow: string;
+  selectedWorkflow: number;
   tabsData: Tab[];
 }
 
@@ -26,7 +26,7 @@ const Runs: React.FC<RunsProps> = ({ selectedTab, selectedRepo, selectedWorkflow
           const byTab = selectedTab === 'all' || tabsData.some(tab =>
             tab.name === selectedTab && tab.repos?.some(repo => repo.name === run.repo));
           const byRepo = !selectedRepo || run.repo === selectedRepo;
-          const byWorkflow = !selectedWorkflow || run.workflow === selectedWorkflow;
+          const byWorkflow = !selectedWorkflow || run.workflow_id === selectedWorkflow;
           return byTab && byRepo && byWorkflow;
         });
 
