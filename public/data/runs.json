@@ -237,6 +237,6 @@
     "status": "cancelled",
     "isqa": true,
     "test_result": "FAILED",
-    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/179/test-186"
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-kem/179/test-186"
   }
 ]
