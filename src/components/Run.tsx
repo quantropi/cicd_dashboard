@@ -13,6 +13,12 @@ const Run: React.FC<RunProps> = ({ run }) => {
     </Tooltip>
   );
 
+  // Function to format UTC date string to local Ottawa time
+  const formatLocalTime = (utcTime: string) => {
+    const date = new Date(utcTime);
+    return date.toLocaleString('en-CA', { timeZone: 'America/Toronto' });
+  };
+
   return (
     <tr>
       <td>
@@ -25,6 +31,7 @@ const Run: React.FC<RunProps> = ({ run }) => {
             {run.workflow_name} #{run.run_number}
           </a>
         </OverlayTrigger>
+        <br/>
         <Badge bg={run.status === "success" ? "success" : "danger"}>
           {run.status}
         </Badge>
@@ -35,8 +42,8 @@ const Run: React.FC<RunProps> = ({ run }) => {
         </div>
       </td>
       <td>
-        <div className="text-truncate" style={{ maxWidth: '200px' }}>
-          {run.time}
+        <div className="time-display" style={{ maxWidth: '100px' }}>
+          {formatLocalTime(run.time)}
         </div>
       </td>
       <td>
@@ -51,7 +58,12 @@ const Run: React.FC<RunProps> = ({ run }) => {
       </td>
       <td>
         {run.isqa ? (
-          <div className="text-truncate" style={{ maxWidth: '150px' }}>
+          <div 
+            className="text-truncate" 
+            style={{ 
+              maxWidth: '150px',
+              color: run.test_result === 'FAILED' ? 'red' : 'inherit',
+            }}>
             {run.test_result}
           </div>
         ) : 'N/A'}
