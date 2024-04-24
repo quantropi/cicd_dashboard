@@ -42,7 +42,7 @@ const Run: React.FC<RunProps> = ({ run }) => {
         </div>
       </td>
       <td>
-        <div className="time-display" style={{ maxWidth: '100px' }}>
+        <div className="time-display" style={{ maxWidth: '150px' }}>
           {formatLocalTime(run.time)}
         </div>
       </td>
