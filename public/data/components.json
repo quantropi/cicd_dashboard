@@ -74,6 +74,13 @@
             "name": "cicd_build_post",
             "default_display": true,
             "url": "https://github.com/quantropi/SDK_CICD_pipelines/actions/workflows/cicd_build_post.yml"
+          },
+          {
+            "id": 71830484,
+            "file": "cicd_qa_post.yml",
+            "name": "cicd_qa_post",
+            "default_display": true,
+            "url": "https://github.com/quantropi/SDK_CICD_pipelines/actions/workflows/cicd_qa_post.yml"
           }
         ]
       },
