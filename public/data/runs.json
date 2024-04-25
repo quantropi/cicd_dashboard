@@ -286,5 +286,21 @@
     "isqa": true,
     "test_result": "FAILED",
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-kem/179/test-187"
+  },
+  {
+    "id": "8836827282",
+    "url": "https://github.com/quantropi/MASQ-KEM/actions/runs/8836827282",
+    "repo": "MASQ-KEM",
+    "workflow": "cicd_build_api.yml",
+    "workflow_name": "masq_kem_build_api",
+    "workflow_id": 70319405,
+    "run_number": 188,
+    "time": "2024-04-25T17:25:12Z",
+    "user": "quantropi-yyang",
+    "branch": "master",
+    "status": "failure",
+    "isqa": false,
+    "test_result": "",
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-kem/188"
   }
 ]
