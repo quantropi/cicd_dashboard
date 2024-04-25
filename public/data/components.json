@@ -67,6 +67,13 @@
             "name": "test_workflow",
             "default_display": true,
             "url": "https://github.com/quantropi/SDK_CICD_pipelines/actions/workflows/test_wf.yml"
+          },
+          {
+            "id": 71822034,
+            "file": "cicd_build_post.yml",
+            "name": "cicd_build_post",
+            "default_display": true,
+            "url": "https://github.com/quantropi/SDK_CICD_pipelines/actions/workflows/cicd_build_post.yml"
           }
         ]
       },
