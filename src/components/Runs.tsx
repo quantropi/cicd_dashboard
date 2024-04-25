@@ -87,10 +87,10 @@ const Runs: React.FC<RunsProps> = ({ selectedTab, selectedRepo, selectedWorkflow
           <tr>
             <th>Workflow</th>
             <th>Repo</th>
-            <th>Time</th>
+            <th>QA Test</th>
             <th>User</th>
             <th>Branch</th>
-            <th>QA Test</th>
+            <th>Time</th>
             <th>S3 URLs</th>
           </tr>
         </thead>

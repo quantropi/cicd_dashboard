@@ -160,7 +160,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
 
   // Validate test_result
   const validResults = ["PASSED", "FAILED", "ABORTED"];
-  let validatedTestResult = validResults.includes(incomingData.test_result.toUpperCase()) ? incomingData.test_result.toUpperCase() : "";
+  let validatedTestResult = fetchedData.conclusion != "cancelled" && validResults.includes(incomingData.test_result.toUpperCase()) ? incomingData.test_result.toUpperCase() : "";
 
   // Add the new run to runs.json
   runs.push({

@@ -236,7 +236,7 @@
     "branch": "PE-1506-yyang",
     "status": "cancelled",
     "isqa": true,
-    "test_result": "FAILED",
+    "test_result": "",
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-kem/179/test-186"
   },
   {

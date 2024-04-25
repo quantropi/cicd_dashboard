@@ -61,7 +61,7 @@ const Workflows: React.FC<WorkflowsProps> = ({ selectedTab, selectedRepo, tabsDa
               {workflow.name}
           </span>
           <a href={workflow.url} target="_blank" rel="noopener noreferrer">
-            <i className="bi bi-github"></i>
+            <i className="bi bi-check-all"></i>
           </a>
           </ListGroup.Item>
         ))}

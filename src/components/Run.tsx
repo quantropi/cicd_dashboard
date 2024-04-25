@@ -32,7 +32,7 @@ const Run: React.FC<RunProps> = ({ run }) => {
           </a>
         </OverlayTrigger>
         <br/>
-        <Badge bg={run.status === "success" ? "success" : "danger"}>
+        <Badge bg={run.status === "success" ? "success" : run.status === "cancelled" ? "secondary" : "danger"}>
           {run.status}
         </Badge>
       </td>
@@ -42,9 +42,16 @@ const Run: React.FC<RunProps> = ({ run }) => {
         </div>
       </td>
       <td>
-        <div className="time-display" style={{ maxWidth: '200px' }}>
-          {formatLocalTime(run.time)}
-        </div>
+        {run.test_result !== "" ? (
+          <div 
+            className="text-truncate" 
+            style={{ 
+              maxWidth: '150px',
+              color: run.test_result === 'FAILED' ? 'red' : 'inherit',
+            }}>
+            {run.test_result}
+          </div>
+        ) : 'N/A'}
       </td>
       <td>
         <div className="text-truncate" style={{ maxWidth: '150px' }}>
@@ -57,16 +64,9 @@ const Run: React.FC<RunProps> = ({ run }) => {
         </div>
       </td>
       <td>
-        {run.isqa ? (
-          <div 
-            className="text-truncate" 
-            style={{ 
-              maxWidth: '150px',
-              color: run.test_result === 'FAILED' ? 'red' : 'inherit',
-            }}>
-            {run.test_result}
-          </div>
-        ) : 'N/A'}
+        <div className="time-display" style={{ maxWidth: '200px' }}>
+          {formatLocalTime(run.time)}
+        </div>
       </td>
       <td>{run.s3_urls !== "" ? run.s3_urls : 'N/A'}</td>
     </tr>
