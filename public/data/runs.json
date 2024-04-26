@@ -862,5 +862,21 @@
     "isqa": true,
     "test_result": "PASSED",
     "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/latest/test-110"
+  },
+  {
+    "id": "8853218170",
+    "url": "https://github.com/quantropi/MASQ-KEM/actions/runs/8853218170",
+    "repo": "MASQ-KEM",
+    "workflow": "cicd_build_api.yml",
+    "workflow_name": "masq_kem_build_api",
+    "workflow_id": 70319405,
+    "run_number": 191,
+    "time": "2024-04-26T19:16:53Z",
+    "user": "quantropi-btank",
+    "branch": "PE-1504-SDK-Kyber-create-new-KAT-using-libqeep-as-random-generator",
+    "status": "failure",
+    "isqa": false,
+    "test_result": "",
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-kem/191"
   }
 ]
