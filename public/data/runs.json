@@ -638,5 +638,21 @@
     "isqa": true,
     "test_result": "FAILED",
     "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/195/test-105"
+  },
+  {
+    "id": "8840085743",
+    "url": "https://github.com/quantropi/sdk_qa/actions/runs/8840085743",
+    "repo": "sdk_qa",
+    "workflow": "masq_bn.yml",
+    "workflow_name": "masq_bn_qa_test",
+    "workflow_id": 68583426,
+    "run_number": 352,
+    "time": "2024-04-25T22:15:17Z",
+    "user": "quantropi-Alexis",
+    "branch": "PE-1518",
+    "status": "success",
+    "isqa": true,
+    "test_result": "PASSED",
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/187/test-352"
   }
 ]
