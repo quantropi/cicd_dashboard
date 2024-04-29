@@ -302,5 +302,21 @@
     "isqa": false,
     "test_result": "",
     "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/214"
+  },
+  {
+    "id": "8884579796",
+    "url": "https://github.com/quantropi/MASQ-BN/actions/runs/8884579796",
+    "repo": "MASQ-BN",
+    "workflow": "cicd_build_api.yml",
+    "workflow_name": "masq_bn_build_api",
+    "workflow_id": 67497867,
+    "run_number": 193,
+    "time": "2024-04-29T19:53:26Z",
+    "user": "quantropi-btank",
+    "branch": "PE-1490-SDK-Make-internal-build-consistently-contain-all-the-dynamic-libraries",
+    "status": "failure",
+    "isqa": false,
+    "test_result": "",
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/193"
   }
 ]
