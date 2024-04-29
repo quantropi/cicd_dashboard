@@ -286,5 +286,21 @@
     "isqa": false,
     "test_result": "",
     "s3_urls": ""
+  },
+  {
+    "id": "8884422235",
+    "url": "https://github.com/quantropi/libqeep/actions/runs/8884422235",
+    "repo": "libqeep",
+    "workflow": "cicd_build_api.yml",
+    "workflow_name": "libqeep_build_api",
+    "workflow_id": 71075656,
+    "run_number": 214,
+    "time": "2024-04-29T19:39:01Z",
+    "user": "quantropi-btank",
+    "branch": "PE-1490-SDK-Make-internal-build-consistently-contain-all-the-dynamic-libraries",
+    "status": "failure",
+    "isqa": false,
+    "test_result": "",
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/214"
   }
 ]
