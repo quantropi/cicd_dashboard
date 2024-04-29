@@ -46,5 +46,21 @@
     "isqa": true,
     "test_result": "FAILED",
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/187/test-357"
+  },
+  {
+    "id": "8881199608",
+    "url": "https://github.com/quantropi/sdk_qa/actions/runs/8881199608",
+    "repo": "sdk_qa",
+    "workflow": "masq_ds.yml",
+    "workflow_name": "masq_ds_qa_test",
+    "workflow_id": 37459142,
+    "run_number": 227,
+    "time": "2024-04-29T15:25:13Z",
+    "user": "quantropi-Alexis",
+    "branch": "master",
+    "status": "success",
+    "isqa": true,
+    "test_result": "PASSED",
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/latest/test-227"
   }
 ]
