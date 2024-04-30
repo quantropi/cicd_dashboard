@@ -702,5 +702,21 @@
     "isqa": false,
     "test_result": "",
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-kem/194"
+  },
+  {
+    "id": "8896966339",
+    "url": "https://github.com/quantropi/SDK_CICD_pipelines/actions/runs/8896966339",
+    "repo": "SDK_CICD_pipelines",
+    "workflow": "cicd_build_post.yml",
+    "workflow_name": "cicd_build_post",
+    "workflow_id": 71822034,
+    "run_number": 433,
+    "time": "2024-04-30T14:55:13Z",
+    "user": "quantropi-devops-agent",
+    "branch": "master",
+    "status": "failure",
+    "isqa": false,
+    "test_result": "",
+    "s3_urls": ""
   }
 ]
