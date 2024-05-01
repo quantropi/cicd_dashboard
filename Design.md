@@ -1,5 +1,8 @@
 # TiTle: CICD Dashboard
 
+## GitHub Pages URL
+https://quantropi.github.io/cicd_dashboard/
+
 ## Infrusture
 - GitHub Page
 - GitHub Actions Workflows
