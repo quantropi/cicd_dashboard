@@ -81,15 +81,13 @@ const Runs: React.FC<RunsProps> = ({ selectedTab, selectedRepo, selectedWorkflow
 
   return (
     <div className="d-flex flex-column" style={{ minHeight: '90vh' }}>
-      <h4 className="mt-3 mb-3">Workflow Runs</h4>
+      <h4 className="mt-3 mb-3">Build on Master</h4>
       <Table striped bordered hover responsive>
         <thead>
           <tr>
             <th>Workflow</th>
             <th>Repo</th>
             <th>QA Test</th>
-            <th>User</th>
-            <th>Branch</th>
             <th>Time</th>
             <th>S3 URL</th>
           </tr>

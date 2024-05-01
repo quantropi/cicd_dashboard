@@ -54,16 +54,6 @@ const Run: React.FC<RunProps> = ({ run }) => {
         ) : 'N/A'}
       </td>
       <td>
-        <div className="text-truncate" style={{ maxWidth: '150px' }}>
-          {run.user}
-        </div>
-      </td>
-      <td>
-        <div className="text-truncate" style={{ maxWidth: '150px' }}>
-          {run.branch}
-        </div>
-      </td>
-      <td>
         <div className="time-display" style={{ maxWidth: '200px' }}>
           {formatLocalTime(run.time)}
         </div>
