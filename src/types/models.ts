@@ -9,7 +9,7 @@ export interface Repo {
   name: string;
   level: "repo";
   description: string;
-  category: "product" | "qa";
+  category: "product" | "qa" | "tool";
   url: string;
   workflows?: Workflow[];
 }
@@ -20,7 +20,7 @@ export interface Workflow {
   name: string;
   build_repo: string;
   url: string;
-  default_display: boolean;
+  category: "build" | "release" | "qa" | "tool";
 }
 
 export interface RunDetails {
@@ -34,7 +34,8 @@ export interface RunDetails {
   user: string;
   branch: string;
   status: string;
-  isqa: boolean;
   test_result: string;
+  build_run_number: number;
+  version: string;
   s3_urls: string;
 }

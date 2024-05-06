@@ -16,7 +16,7 @@
             "file": "cicd_build_api.yml",
             "name": "libqeep_build_api",
             "build_repo": null,
-            "default_display": true,
+            "cateogry": "build",
             "url": "https://github.com/quantropi/libqeep/actions/workflows/cicd_build_api.yml"
           }
         ]
@@ -33,7 +33,7 @@
             "file": "libqeep.yml",
             "name": "libqeep_qa_test",
             "build_repo": "libqeep",
-            "default_display": true,
+            "cateogry": "qa",
             "url": "https://github.com/quantropi/sdk_qa/actions/workflows/libqeep.yml"
           },
           {
@@ -41,7 +41,7 @@
             "file": "masq_bn.yml",
             "name": "masq_bn_qa_test",
             "build_repo": "MASQ-BN",
-            "default_display": true,
+            "cateogry": "qa",
             "url": "https://github.com/quantropi/sdk_qa/actions/workflows/masq_bn.yml"
           },
           {
@@ -49,7 +49,7 @@
             "file": "masq_ds.yml",
             "name": "masq_ds_qa_test",
             "build_repo": "MASQ-DS",
-            "default_display": true,
+            "cateogry": "qa",
             "url": "https://github.com/quantropi/sdk_qa/actions/workflows/masq_ds.yml"
           },
           {
@@ -57,7 +57,7 @@
             "file": "masq_kem.yml",
             "name": "masq_kem_qa_test",
             "build_repo": "MASQ-KEM",
-            "default_display": true,
+            "cateogry": "qa",
             "url": "https://github.com/quantropi/sdk_qa/actions/workflows/masq_kem.yml"
           }
         ]
@@ -74,7 +74,7 @@
             "file": "cicd_build_api.yml",
             "name": "masq_ds_build_api",
             "build_repo": null,
-            "default_display": true,
+            "cateogry": "build",
             "url": "https://github.com/quantropi/MASQ-DS/actions/workflows/cicd_build_api.yml"
           }
         ]
@@ -91,7 +91,7 @@
             "file": "cicd_build_api.yml",
             "name": "masq_bn_build_api",
             "build_repo": null,
-            "default_display": true,
+            "cateogry": "build",
             "url": "https://github.com/quantropi/MASQ-BN/actions/workflows/cicd_build_api.yml"
           }
         ]
@@ -108,8 +108,25 @@
             "file": "cicd_build_api.yml",
             "name": "masq_kem_build_api",
             "build_repo": null,
-            "default_display": true,
+            "cateogry": "build",
             "url": "https://github.com/quantropi/MASQ-KEM/actions/workflows/cicd_build_api.yml"
+          }
+        ]
+      },
+      {
+        "name": "SDK_CICD_pipelines",
+        "level": "repo",
+        "description": "",
+        "cateogry": "tool",
+        "url": "https://github.com/quantropi/SDK_CICD_pipelines",
+        "workflows": [
+          {
+            "id": 73625002,
+            "file": "cicd_release_promote.yml",
+            "name": "cicd_release_promote",
+            "build_repo": null,
+            "cateogry": "release",
+            "url": "https://github.com/quantropi/SDK_CICD_pipelines/actions/workflows/cicd_release_promote.yml"
           }
         ]
       }
@@ -132,7 +149,7 @@
             "file": "build.yml",
             "name": "Build",
             "build_repo": null,
-            "default_display": true,
+            "cateogry": "build",
             "url": "https://github.com/quantropi/qiserver/actions/workflows/build.yml"
           },
           {
@@ -140,7 +157,7 @@
             "file": "deploy-qa.yml",
             "name": "Deploy QA",
             "build_repo": null,
-            "default_display": true,
+            "cateogry": "build",
             "url": "https://github.com/quantropi/qiserver/actions/workflows/deploy-qa.yml"
           },
           {
@@ -148,7 +165,7 @@
             "file": "deploy-quantropi.yml",
             "name": "Deploy Quantropi",
             "build_repo": null,
-            "default_display": true,
+            "cateogry": "build",
             "url": "https://github.com/quantropi/qiserver/actions/workflows/deploy-quantropi.yml"
           },
           {
@@ -156,7 +173,7 @@
             "file": "deploy-staging.yml",
             "name": "Deploy Staging",
             "build_repo": null,
-            "default_display": true,
+            "cateogry": "build",
             "url": "https://github.com/quantropi/qiserver/actions/workflows/deploy-staging.yml"
           },
           {
@@ -164,7 +181,7 @@
             "file": "promote-tag.yml",
             "name": "Promote version",
             "build_repo": null,
-            "default_display": true,
+            "cateogry": "release",
             "url": "https://github.com/quantropi/qiserver/actions/workflows/promote-tag.yml"
           }
         ]

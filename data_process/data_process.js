@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
-const { hostname } = require('os');
 
 // Path to the JSON files
 const componentsPath = path.join(__dirname, '..', 'public', 'data', 'components.json');
@@ -140,7 +139,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
       name: incomingData.repo,
       level: "repo",
       description: "",
-      cateogry: "product",
+      category: "product",
       url: fetchedData.repository.html_url,
       workflows: []
     };
@@ -154,13 +153,31 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     try {
       const fetchedWorkflowData = await fetchWorkflowData(fetchedData.workflow_id);
       workflow_name = fetchedWorkflowData.name;
+
+      // Assign a category based on repo's category
+      let workflowCategory;
+      switch (repo.category) {
+        case "product":
+          workflowCategory = "build";
+          break;
+        case "qa":
+          workflowCategory = "qa";
+          break;
+        case "tool":
+          workflowCategory = "tool";
+          break;
+        default:
+          workflowCategory = "tool";
+          break;
+      }
+
       repo.workflows.push({
         id: fetchedData.workflow_id,
         file: workflow_file,
         name: workflow_name,
         build_repo: null,
-        default_display: true,
-        url: `https://github.com/quantropi/${incomingData.repo}/actions/workflows/${workflow_file}`
+        url: `https://github.com/quantropi/${incomingData.repo}/actions/workflows/${workflow_file}`,
+        category: workflowCategory,
       });
     } catch (err) {
       console.error('Error fetching workflow data:', err);
@@ -174,7 +191,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
 
   // Validate test_result
   const validResults = ["PASSED", "FAILED", "ABORTED"];
-  let validatedTestResult = fetchedData.conclusion != "cancelled" && validResults.includes(incomingData.test_result.toUpperCase()) ? incomingData.test_result.toUpperCase() : "";
+  let validatedTestResult = fetchedData.conclusion !== "cancelled" && validResults.includes(incomingData.test_result.toUpperCase()) ? incomingData.test_result.toUpperCase() : "";
 
   // Add the new run to runs.json
   runs.push({
@@ -188,8 +205,9 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     user: fetchedData.actor.login,
     branch: fetchedData.head_branch,
     status: fetchedData.conclusion,
-    isqa: incomingData.isqa,
     test_result: validatedTestResult,
+    build_run_number: incomingData.build_run_number || null,
+    version: incomingData.version || null,
     s3_urls: incomingData.s3_urls
   });
 
