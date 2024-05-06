@@ -1086,5 +1086,21 @@
     "isqa": false,
     "test_result": "",
     "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/217"
+  },
+  {
+    "id": "8969510451",
+    "url": "https://github.com/quantropi/MASQ-BN/actions/runs/8969510451",
+    "repo": "MASQ-BN",
+    "workflow": "cicd_build_api.yml",
+    "workflow_name": "masq_bn_build_api",
+    "workflow_id": 67497867,
+    "run_number": 196,
+    "time": "2024-05-06T12:58:54Z",
+    "user": "quantropi-btank",
+    "branch": "PE-1488-SDK-Refactor-MASQ-Makefiles",
+    "status": "success",
+    "isqa": false,
+    "test_result": "",
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/196"
   }
 ]
