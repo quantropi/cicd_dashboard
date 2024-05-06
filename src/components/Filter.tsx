@@ -151,8 +151,11 @@ const Filter: React.FC<FilterProps> = ({
             onChange={e => setEndTime(e.target.value)}
           />
         </Form.Group>
-        <Button variant="primary" type="button" onClick={() => setSelectedWorkflow(0)}>
-          Clear Workflow
+        <br />
+        <Button variant="primary" type="button" onClick={() => 
+          setSelectedWorkflow(0)
+        }>
+          Clear
         </Button>
       </Form>
     </div>

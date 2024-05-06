@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Runs from './components/Runs';
 import Filter from './components/Filter';
+import Divider from './components/Divider';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -18,9 +19,12 @@ const App: React.FC = () => {
   const [selectedWorkflow, setSelectedWorkflow] = useState<number>(0);
   const [release, setRelease] = useState<boolean | undefined>(undefined);
   const [releaseVersion, setReleaseVersion] = useState<string>('');
-  const [qaTest, setQaTest] = useState<string>('N/A');
+  const [qaTest, setQaTest] = useState<string>('All');
   const [startTime, setStartTime] = useState<string>('');
   const [endTime, setEndTime] = useState<string>('');
+  const [filterVisible, setFilterVisible] = useState<boolean>(true);
+
+  const toggleFilter = () => setFilterVisible(!filterVisible);
 
   const clearRepo = async () => {
     setSelectedRepo('');
@@ -55,7 +59,7 @@ const App: React.FC = () => {
         clearWorkflow={clearWorkflow}
       />
       <Row>
-        <Col xs={12} md={10}>
+        <Col xs={12} md={filterVisible ? 9 : 11}>
           <Runs 
             selectedTab={selectedTab}
             selectedRepo={selectedRepo}
@@ -68,26 +72,29 @@ const App: React.FC = () => {
             endTime={endTime}
           />
         </Col>
-        <Col xs={12} md={2}>
-          <Filter 
-            selectedTab={selectedTab}
-            selectedRepo={selectedRepo}
-            tabsData={tabsData}
-            selectedWorkflow={selectedWorkflow}
-            setSelectedWorkflow={setSelectedWorkflow}
-            release={release}
-            setRelease={setRelease}
-            releaseVersion={releaseVersion}
-            setReleaseVersion={setReleaseVersion}
-            qaTest={qaTest}
-            setQaTest={setQaTest}
-            startTime={startTime}
-            setStartTime={setStartTime}
-            endTime={endTime}
-            setEndTime={setEndTime}
-            setSelectedRepo={setSelectedRepo}
-          />
-        </Col>
+        <Divider isOpen={filterVisible} toggle={toggleFilter} /> {/* Divider */}
+        {filterVisible && (
+          <Col xs={12} md={2}>
+            <Filter 
+              selectedTab={selectedTab}
+              selectedRepo={selectedRepo}
+              tabsData={tabsData}
+              selectedWorkflow={selectedWorkflow}
+              setSelectedWorkflow={setSelectedWorkflow}
+              release={release}
+              setRelease={setRelease}
+              releaseVersion={releaseVersion}
+              setReleaseVersion={setReleaseVersion}
+              qaTest={qaTest}
+              setQaTest={setQaTest}
+              startTime={startTime}
+              setStartTime={setStartTime}
+              endTime={endTime}
+              setEndTime={setEndTime}
+              setSelectedRepo={setSelectedRepo}
+            />
+          </Col>
+        )}
       </Row>
     </Container>
   );
