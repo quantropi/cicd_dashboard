@@ -19,6 +19,12 @@ const incomingData = eventData.client_payload;
 // Environment variable for the secret token
 const accessToken = process.env.ACCESS_TOKEN;
 
+// Exit early if event_name is "workflow_dispatch"
+if (incomingData.event_name === 'workflow_dispatch') {
+  console.log('Exiting script because event_name is workflow_dispatch');
+  process.exit(0);
+}
+
 // Function to fetch run data using GitHub API
 function fetchRunData(runId) {
   return new Promise((resolve, reject) => {
@@ -87,6 +93,12 @@ async function fetchDataAndUpdateComponents() {
   try {
     const fetchedData = await fetchRunData(incomingData.id);
 
+    // Exit early if the branch is not "master"
+    if (fetchedData.head_branch !== 'master') {
+      console.log('Exiting script because branch is not master');
+      return;
+    }
+
     // Update components and runs
     await updateComponentsAndRuns(incomingData, fetchedData);
 
@@ -128,6 +140,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
       name: incomingData.repo,
       level: "repo",
       description: "",
+      cateogry: "product",
       url: fetchedData.repository.html_url,
       workflows: []
     };
@@ -145,6 +158,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
         id: fetchedData.workflow_id,
         file: workflow_file,
         name: workflow_name,
+        build_repo: null,
         default_display: true,
         url: `https://github.com/quantropi/${incomingData.repo}/actions/workflows/${workflow_file}`
       });
@@ -167,7 +181,6 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     id: incomingData.id,
     url: fetchedData.html_url,
     repo: incomingData.repo,
-    workflow: workflow_file,
     workflow_name: workflow_name,
     workflow_id: fetchedData.workflow_id,
     run_number: fetchedData.run_number,

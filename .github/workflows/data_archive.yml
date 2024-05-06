@@ -1,4 +1,4 @@
-name: data clean
+name: data archive
 on:
   schedule:
     - cron: '0 8 * * 1-5'
@@ -24,7 +24,7 @@ jobs:
       - name: Handle incoming data
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_DEVOPS_TOKEN }}
-        run: node ${{ github.workspace }}/data_process/clean_data.js
+        run: node ${{ github.workspace }}/data_process/archive_data.js
 
       - name: Commit and Push Changes
         run: |
