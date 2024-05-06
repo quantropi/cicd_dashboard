@@ -25,11 +25,11 @@ if (incomingData.event_name === 'workflow_dispatch') {
 }
 
 // Function to fetch run data using GitHub API
-function fetchRunData(runId) {
+function fetchRunData(repo, runId) {
   return new Promise((resolve, reject) => {
     const options = {
       hostname: 'api.github.com',
-      path: `/repos/quantropi/${incomingData.repo}/actions/runs/${runId}`,
+      path: `/repos/quantropi/${repo}/actions/runs/${runId}`,
       method: 'GET',
       headers: {
         'User-Agent': 'Node.js',
@@ -57,11 +57,11 @@ function fetchRunData(runId) {
 }
 
 // Function to fetch workflow data using GitHub API
-function fetchWorkflowData(workflowId) {
+function fetchWorkflowData(repo, workflowId) {
   return new Promise((resolve, reject) => {
     const options = {
       hostname: 'api.github.com',
-      path: `/repos/quantropi/${incomingData.repo}/actions/workflows/${workflowId}`,
+      path: `/repos/quantropi/${repo}/actions/workflows/${workflowId}`,
       method: 'GET',
       headers: {
         'User-Agent': 'Node.js',
@@ -88,9 +88,52 @@ function fetchWorkflowData(workflowId) {
   });
 }
 
+// Function to fetch workflows using GitHub API
+function fetchWorkflows(repoName) {
+  return new Promise((resolve, reject) => {
+    const options = {
+      hostname: 'api.github.com',
+      path: `/repos/${repoName}/actions/workflows`,
+      method: 'GET',
+      headers: {
+        'User-Agent': 'Node.js',
+        'Authorization': `Bearer ${accessToken}`,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    };
+
+    https.request(options, res => {
+      let data = '';
+      res.on('data', chunk => { data += chunk; });
+      res.on('end', () => {
+        try {
+          resolve(JSON.parse(data).workflows);
+        } catch (e) {
+          reject(e);
+        }
+      });
+    })
+      .on('error', e => {
+        reject(e);
+      })
+      .end();
+  });
+}
+
+async function getBuildWorkflowId(repoName, workflowFile) {
+  try {
+    const workflows = await fetchWorkflows(repoName);
+    const workflow = workflows.find(wf => wf.path === `.github/workflows/${workflowFile}`);
+    return workflow ? workflow.id : null;
+  } catch (err) {
+    console.error('Error fetching workflows:', err);
+    return null;
+  }
+}
+
 async function fetchDataAndUpdateComponents() {
   try {
-    const fetchedData = await fetchRunData(incomingData.id);
+    const fetchedData = await fetchRunData(incomingData.repo, incomingData.id);
 
     // Exit early if the branch is not "master"
     if (fetchedData.head_branch !== 'master') {
@@ -148,11 +191,18 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
 
   // Check if the workflow exists in the repository, and add if not
   let workflow_name = "";
+  let build_workflow_id = null;
   const workflowExists = repo.workflows.some(wf => wf.file === workflow_file);
   if (!workflowExists) {
     try {
-      const fetchedWorkflowData = await fetchWorkflowData(fetchedData.workflow_id);
+      const fetchedWorkflowData = await fetchWorkflowData(incomingData.repo, fetchedData.workflow_id);
       workflow_name = fetchedWorkflowData.name;
+      
+      // Extract repo and file from incomingData.build_workflow and fetch the build workflow ID
+      if (incomingData.build_workflow) {
+        const [repoName, workflowFile] = incomingData.build_workflow.split('/');
+        build_workflow_id = await getBuildWorkflowId(repoName, workflowFile);
+      }
 
       // Assign a category based on repo's category
       let workflowCategory;
@@ -175,7 +225,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
         id: fetchedData.workflow_id,
         file: workflow_file,
         name: workflow_name,
-        build_repo: null,
+        build_workflow: build_workflow_id,
         url: `https://github.com/quantropi/${incomingData.repo}/actions/workflows/${workflow_file}`,
         category: workflowCategory,
       });
@@ -187,11 +237,21 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     // Set workflow_name to be the name inside the components.json
     const existingWorkflow = repo.workflows.find(wf => wf.file === workflow_file);
     workflow_name = existingWorkflow.name;
+    build_workflow_id = existingWorkflow.build_workflow_id;
   }
 
   // Validate test_result
   const validResults = ["PASSED", "FAILED", "ABORTED"];
   let validatedTestResult = fetchedData.conclusion !== "cancelled" && validResults.includes(incomingData.test_result.toUpperCase()) ? incomingData.test_result.toUpperCase() : "";
+
+  // Check if the workflow is of category "qa" and override the build's test_result
+  if (repo.category === "qa" && build_workflow_id && incomingData.build_version) {
+    const buildRun = runs.find(run => run.workflow_id === build_workflow_id && run.build_version === incomingData.build_version);
+    if (buildRun) {
+      // Update the test result of the build run
+      buildRun.test_result = validatedTestResult;
+    }
+  }
 
   // Add the new run to runs.json
   runs.push({
@@ -206,8 +266,8 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     branch: fetchedData.head_branch,
     status: fetchedData.conclusion,
     test_result: validatedTestResult,
-    build_run_number: incomingData.build_run_number || null,
-    version: incomingData.version || null,
+    build_version: incomingData.build_version || null,
+    release_json: incomingData.release_json || null,
     s3_urls: incomingData.s3_urls
   });
 

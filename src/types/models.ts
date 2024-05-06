@@ -18,7 +18,7 @@ export interface Workflow {
   id: number,
   file: string;
   name: string;
-  build_repo: string;
+  build_workflow_id: number;
   url: string;
   category: "build" | "release" | "qa" | "tool";
 }
@@ -35,7 +35,7 @@ export interface RunDetails {
   branch: string;
   status: string;
   test_result: string;
-  build_run_number: number;
-  version: string;
+  build_version: number;
+  release_json: string;
   s3_urls: string;
 }
