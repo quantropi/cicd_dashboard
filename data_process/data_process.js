@@ -136,7 +136,7 @@ async function fetchDataAndUpdateComponents() {
     const fetchedData = await fetchRunData(incomingData.repo, incomingData.id);
 
     // Exit early if the branch is not "master"
-    if (fetchedData.head_branch !== 'master') {
+    if (fetchedData.head_branch !== 'master' && fetchedData.head_branch !== 'release') {
       console.log('Exiting script because branch is not master');
       return;
     }
@@ -204,21 +204,10 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
         build_workflow_id = await getBuildWorkflowId(repoName, workflowFile);
       }
 
-      // Assign a category based on repo's category
-      let workflowCategory;
-      switch (repo.category) {
-        case "product":
-          workflowCategory = "build";
-          break;
-        case "qa":
-          workflowCategory = "qa";
-          break;
-        case "tool":
-          workflowCategory = "tool";
-          break;
-        default:
-          workflowCategory = "tool";
-          break;
+      // Assign a category based on repo's category, need to manually modified
+      let workflowCategory = "tool";
+      if (repo.category === "qa") {
+        workflowCategory = "qa";
       }
 
       repo.workflows.push({
@@ -244,6 +233,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
   const validResults = ["PASSED", "FAILED", "ABORTED"];
   let validatedTestResult = fetchedData.conclusion !== "cancelled" && validResults.includes(incomingData.test_result.toUpperCase()) ? incomingData.test_result.toUpperCase() : "";
 
+  // Handle build run's test_result
   // Check if the workflow is of category "qa" and override the build's test_result
   if (repo.category === "qa" && build_workflow_id && incomingData.build_version) {
     const buildRun = runs.find(run => run.workflow_id === build_workflow_id && run.build_version === incomingData.build_version);
@@ -251,6 +241,23 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
       // Update the test result of the build run
       buildRun.test_result = validatedTestResult;
     }
+  }
+
+  // Handle release run
+  // incomingData.release_json content:
+  // For SDK: {"release_version": "release_v1.8.1", "details": [{"repo": "MASQ-BN", "build_workflow": "cicd_build_api.yml", "version": "189"}, {"repo": "MASQ-DS", "build_workflow": "cicd_build_api.yml", "version": "190"}, {"repo": "MASQ-KEM", "build_workflow": "cicd_build_api.yml", "version": "178"}, {"repo": "libqeep", "build_workflow": "cicd_build_api.yml", "version": "158"}]}
+  // For QiSpace: {"release_version": "release_v1.8.3", "details": [{"repo": "qispace", "build_workflow": "build.yml", "version": "b_11"}]}
+  // When the workflow.category === "release", it will check the the runs.json to find workflow match and build_version === version, then modify the isRelease === true, and modify the release_version to the current version.
+  if (workflowCategory === "release" && incomingData.release_json) {
+    const releaseDetails = JSON.parse(incomingData.release_json);
+    releaseDetails.details.forEach(detail => {
+      const build_workflow_id = getBuildWorkflowId(detail.repo, detail.build_workflow);
+      const buildRun = runs.find(run => run.workflow_id === build_workflow_id && run.build_version === detail.version);
+      if (buildRun) {
+        buildRun.isRelease = true;
+        buildRun.release_version = releaseDetails.release_version;
+      }
+    });
   }
 
   // Add the new run to runs.json
@@ -266,8 +273,9 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     branch: fetchedData.head_branch,
     status: fetchedData.conclusion,
     test_result: validatedTestResult,
-    build_version: incomingData.build_version || null,
-    release_json: incomingData.release_json || null,
+    build_version: incomingData.build_version || fetchedData.run_number,
+    isRelease: false,
+    release_version: null,
     s3_urls: incomingData.s3_urls
   });
 
