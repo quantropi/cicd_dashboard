@@ -35,6 +35,11 @@ const Run: React.FC<RunProps> = ({ run }) => {
         <Badge bg={run.status === "success" ? "success" : run.status === "cancelled" ? "secondary" : "danger"}>
           {run.status}
         </Badge>
+        {run.isRelease ? (
+          <Badge bg="primary">
+            {run.release_version}
+          </Badge>
+        ) : ''}
       </td>
       <td>
         <div className="text-truncate" style={{ maxWidth: '150px' }}>

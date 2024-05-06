@@ -19,7 +19,7 @@ const Workflows: React.FC<WorkflowsProps> = ({ selectedTab, selectedRepo, tabsDa
       // Get all workflows from all tabs if no specific repo is selected
       workflows = tabsData.flatMap(tab =>
         tab.repos?.flatMap(repo =>
-          repo.workflows?.filter(workflow => workflow.default_display) || []
+          repo.workflows?.filter(workflow => workflow.category === "build") || []
         ) || []
       );
     } else {
