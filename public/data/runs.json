@@ -1070,5 +1070,21 @@
     "isqa": true,
     "test_result": "FAILED",
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/293/test-235"
+  },
+  {
+    "id": "8969140869",
+    "url": "https://github.com/quantropi/libqeep/actions/runs/8969140869",
+    "repo": "libqeep",
+    "workflow": "cicd_build_api.yml",
+    "workflow_name": "libqeep_build_api",
+    "workflow_id": 71075656,
+    "run_number": 217,
+    "time": "2024-05-06T12:33:02Z",
+    "user": "quantropi-btank",
+    "branch": "PE-1527",
+    "status": "success",
+    "isqa": false,
+    "test_result": "",
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/217"
   }
 ]
