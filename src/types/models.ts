@@ -9,6 +9,7 @@ export interface Repo {
   name: string;
   level: "repo";
   description: string;
+  category: "product" | "qa";
   url: string;
   workflows?: Workflow[];
 }
@@ -17,6 +18,7 @@ export interface Workflow {
   id: number,
   file: string;
   name: string;
+  build_repo: string;
   url: string;
   default_display: boolean;
 }
@@ -25,7 +27,6 @@ export interface RunDetails {
   id: number;
   url: string;
   repo: string;
-  workflow: string;
   workflow_name: string;
   workflow_id: number;
   run_number: number;
