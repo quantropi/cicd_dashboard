@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
-import Repos from './components/Repos';
 import Runs from './components/Runs';
-import Workflows from './components/Workflows';
+import Filter from './components/Filter';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -17,6 +16,11 @@ const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState<string>('all');
   const [selectedRepo, setSelectedRepo] = useState<string>('');
   const [selectedWorkflow, setSelectedWorkflow] = useState<number>(0);
+  const [release, setRelease] = useState<boolean | undefined>(undefined);
+  const [releaseVersion, setReleaseVersion] = useState<string>('');
+  const [qaTest, setQaTest] = useState<string>('N/A');
+  const [startTime, setStartTime] = useState<string>('');
+  const [endTime, setEndTime] = useState<string>('');
 
   const clearRepo = async () => {
     setSelectedRepo('');
@@ -43,11 +47,47 @@ const App: React.FC = () => {
   return (
     <Container fluid>
       <Header />
-      <Navbar selectedTab={selectedTab} setSelectedTab={setSelectedTab} tabsData={tabsData} clearRepo={clearRepo} clearWorkflow={clearWorkflow}/>
+      <Navbar 
+        selectedTab={selectedTab} 
+        setSelectedTab={setSelectedTab} 
+        tabsData={tabsData} 
+        clearRepo={clearRepo} 
+        clearWorkflow={clearWorkflow}
+      />
       <Row>
-        <Col xs={12} md={2}><Repos selectedTab={selectedTab} tabsData={tabsData} selectedRepo={selectedRepo} setSelectedRepo={setSelectedRepo} clearWorkflow={clearWorkflow} /></Col>
-        <Col xs={12} md={8}><Runs selectedTab={selectedTab} selectedRepo={selectedRepo} selectedWorkflow={selectedWorkflow} tabsData={tabsData} /></Col>
-        <Col xs={12} md={2}><Workflows selectedTab={selectedTab} selectedRepo={selectedRepo} tabsData={tabsData} selectedWorkflow={selectedWorkflow} setSelectedWorkflow={setSelectedWorkflow} /></Col>
+        <Col xs={12} md={10}>
+          <Runs 
+            selectedTab={selectedTab}
+            selectedRepo={selectedRepo}
+            selectedWorkflow={selectedWorkflow}
+            tabsData={tabsData}
+            release={release}
+            releaseVersion={releaseVersion}
+            qaTest={qaTest}
+            startTime={startTime}
+            endTime={endTime}
+          />
+        </Col>
+        <Col xs={12} md={2}>
+          <Filter 
+            selectedTab={selectedTab}
+            selectedRepo={selectedRepo}
+            tabsData={tabsData}
+            selectedWorkflow={selectedWorkflow}
+            setSelectedWorkflow={setSelectedWorkflow}
+            release={release}
+            setRelease={setRelease}
+            releaseVersion={releaseVersion}
+            setReleaseVersion={setReleaseVersion}
+            qaTest={qaTest}
+            setQaTest={setQaTest}
+            startTime={startTime}
+            setStartTime={setStartTime}
+            endTime={endTime}
+            setEndTime={setEndTime}
+            setSelectedRepo={setSelectedRepo}
+          />
+        </Col>
       </Row>
     </Container>
   );

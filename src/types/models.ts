@@ -20,7 +20,7 @@ export interface Workflow {
   name: string;
   build_workflow_id: number;
   url: string;
-  category: "build" | "release" | "qa" | "tool";
+  category: "build" | "release" | "qa" | "tool" | "other";
 }
 
 export interface RunDetails {

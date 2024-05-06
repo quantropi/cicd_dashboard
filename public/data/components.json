@@ -157,7 +157,7 @@
             "file": "deploy-qa.yml",
             "name": "Deploy QA",
             "build_workflow_id": null,
-            "category": "build",
+            "category": "tool",
             "url": "https://github.com/quantropi/qiserver/actions/workflows/deploy-qa.yml"
           },
           {
@@ -165,7 +165,7 @@
             "file": "deploy-quantropi.yml",
             "name": "Deploy Quantropi",
             "build_workflow_id": null,
-            "category": "build",
+            "category": "tool",
             "url": "https://github.com/quantropi/qiserver/actions/workflows/deploy-quantropi.yml"
           },
           {
@@ -173,7 +173,7 @@
             "file": "deploy-staging.yml",
             "name": "Deploy Staging",
             "build_workflow_id": null,
-            "category": "build",
+            "category": "tool",
             "url": "https://github.com/quantropi/qiserver/actions/workflows/deploy-staging.yml"
           },
           {

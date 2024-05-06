@@ -9,9 +9,24 @@ interface RunsProps {
   selectedRepo: string;
   selectedWorkflow: number;
   tabsData: Tab[];
+  release: boolean | undefined;
+  releaseVersion: string;
+  qaTest: string;
+  startTime: string;
+  endTime: string;
 }
 
-const Runs: React.FC<RunsProps> = ({ selectedTab, selectedRepo, selectedWorkflow, tabsData }) => {
+const Runs: React.FC<RunsProps> = ({
+  selectedTab,
+  selectedRepo,
+  selectedWorkflow,
+  tabsData,
+  release,
+  releaseVersion,
+  qaTest,
+  startTime,
+  endTime,
+}) => {
   const [runs, setRuns] = useState<RunDetails[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(20);
@@ -27,7 +42,25 @@ const Runs: React.FC<RunsProps> = ({ selectedTab, selectedRepo, selectedWorkflow
             tab.name === selectedTab && tab.repos?.some(repo => repo.name === run.repo));
           const byRepo = !selectedRepo || run.repo === selectedRepo;
           const byWorkflow = !selectedWorkflow || run.workflow_id === selectedWorkflow;
-          return byTab && byRepo && byWorkflow;
+
+          // Fetch the workflow category from the components data
+          const workflowCategory = tabsData
+            .flatMap(tab => tab.repos || [])
+            .flatMap(repo => repo.workflows || [])
+            .find(workflow => workflow.id === run.workflow_id)?.category;
+
+          // Check that the workflow category is "build" or "tool"
+          const byCategory = workflowCategory === 'build' || workflowCategory === 'tool';
+
+          const byRelease = release === undefined || run.isRelease === release;
+          const byReleaseVersion = !releaseVersion || run.release_version === releaseVersion;
+          const byQaTest = qaTest === 'N/A' || run.test_result === qaTest;
+
+          const byTime =
+            (!startTime || new Date(run.time) >= new Date(startTime)) &&
+            (!endTime || new Date(run.time) <= new Date(endTime));
+
+          return byTab && byRepo && byWorkflow && byCategory && byRelease && byReleaseVersion && byQaTest && byTime;
         });
 
         // Sort by time, most recent first
@@ -35,12 +68,12 @@ const Runs: React.FC<RunsProps> = ({ selectedTab, selectedRepo, selectedWorkflow
 
         setRuns(filteredRuns);
       } catch (error) {
-        console.error("Failed to fetch runs", error);
+        console.error('Failed to fetch runs', error);
       }
     };
 
     fetchRuns();
-  }, [selectedTab, selectedRepo, selectedWorkflow, tabsData]);
+  }, [selectedTab, selectedRepo, selectedWorkflow, tabsData, release, releaseVersion, qaTest, startTime, endTime]);
 
   // Calculate total pages and setup pagination
   const lastRunIndex = currentPage * itemsPerPage;
@@ -113,7 +146,6 @@ const Runs: React.FC<RunsProps> = ({ selectedTab, selectedRepo, selectedWorkflow
           </Pagination.Item>
         </Pagination>
       </div>
-
     </div>
   );
 };
