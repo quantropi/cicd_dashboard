@@ -265,6 +265,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     id: incomingData.id,
     url: fetchedData.html_url,
     repo: incomingData.repo,
+    repo_url: fetchedData.repository.html_url,
     workflow_name: workflow_name,
     workflow_id: fetchedData.workflow_id,
     run_number: fetchedData.run_number,

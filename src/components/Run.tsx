@@ -38,7 +38,9 @@ const Run: React.FC<RunProps> = ({ run }) => {
       </td>
       <td>
         <div className="text-truncate" style={{ maxWidth: '150px' }}>
-          {run.repo}
+          <a href={run.repo_url} target="_blank" rel="noopener noreferrer">
+            {run.repo}
+          </a>
         </div>
       </td>
       <td>

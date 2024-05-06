@@ -27,6 +27,7 @@ export interface RunDetails {
   id: number;
   url: string;
   repo: string;
+  repo_url: string;
   workflow_name: string;
   workflow_id: number;
   run_number: number;
