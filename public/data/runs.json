@@ -87,7 +87,7 @@
     "status": "success",
     "test_result": "",
     "test_run_url": null,
-    "build_version": "8989847857",
+    "build_version": "219",
     "isRelease": false,
     "release_version": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/219"
