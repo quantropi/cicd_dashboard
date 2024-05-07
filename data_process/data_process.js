@@ -193,6 +193,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
   let workflow_name = "";
   let build_workflow_id = null;
   const workflowExists = repo.workflows.some(wf => wf.file === workflow_file);
+  let workflowCategory = "tool";
   if (!workflowExists) {
     try {
       const fetchedWorkflowData = await fetchWorkflowData(incomingData.repo, fetchedData.workflow_id);
@@ -205,7 +206,6 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
       }
 
       // Assign a category based on repo's category, need to manually modified
-      let workflowCategory = "tool";
       if (repo.category === "qa") {
         workflowCategory = "qa";
       }
@@ -227,6 +227,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     const existingWorkflow = repo.workflows.find(wf => wf.file === workflow_file);
     workflow_name = existingWorkflow.name;
     build_workflow_id = existingWorkflow.build_workflow_id;
+    workflowCategory = existingWorkflow.category;
   }
 
   // Validate test_result
