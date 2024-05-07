@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate, useParams } from 'react-router-dom';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Runs from './components/Runs';
@@ -17,8 +17,8 @@ const App: React.FC = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/cicd_dashboard/:tab" element={<AppContent />} />
-        <Route path="*" element={<Navigate to="/cicd_dashboard/all" />} />
+        <Route path="/:tab" element={<AppContent />} />
+        <Route path="*" element={<Navigate to="/all" />} />
       </Routes>
     </Router>
   );

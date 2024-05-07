@@ -38,16 +38,6 @@
 
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-    <script>
-      (function() {
-        var redirect = sessionStorage.redirect;
-        var currentUrl = window.location.href;
-        if (redirect && currentUrl !== redirect) {
-          sessionStorage.removeItem('redirect'); // Clear immediately to prevent loop
-          window.location.href = redirect;
-        }
-      })();
-    </script>    
+    -->   
   </body>
 </html>

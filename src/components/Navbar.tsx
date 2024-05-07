@@ -17,7 +17,7 @@ const Navbar: React.FC<NavbarProps> = ({ selectedTab, setSelectedTab, tabsData, 
     <Nav variant="tabs" activeKey={selectedTab}>
       <Nav.Item>
         <NavLink
-          to="/cicd_dashboard/all"
+          to="/all"
           className="nav-link"
           onClick={() => {
             setSelectedTab('all');
@@ -31,7 +31,7 @@ const Navbar: React.FC<NavbarProps> = ({ selectedTab, setSelectedTab, tabsData, 
       {tabsData.map((tab) => (
         <Nav.Item key={tab.name}>
           <NavLink
-            to={`/cicd_dashboard/${tab.name}`}
+            to={`/${tab.name}`}
             className="nav-link"
             onClick={() => {
               setSelectedTab(tab.name);
