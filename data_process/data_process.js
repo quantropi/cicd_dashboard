@@ -248,17 +248,20 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
   if (workflowCategory === "release" && incomingData.release_json) {
     const releaseDetails = JSON.parse(incomingData.release_json);
     console.log(releaseDetails);
-    releaseDetails.details.forEach(detail => {
-      const build_workflow_id = getBuildWorkflowId(detail.repo, detail.build_workflow);
-      console.log(build_workflow_id);
-      const buildRun = runs.find(run => run.workflow_id === build_workflow_id && run.build_version === detail.version);
-      console.log(buildRun);
-      if (buildRun) {
-        buildRun.isRelease = true;
-        buildRun.release_version = releaseDetails.release_version;
-        console.log(buildRun);
+    for (const detail of releaseDetails.details) {
+      try {
+        const buildWorkflowId = await getBuildWorkflowId(detail.repo, detail.build_workflow); // Ensure you await this function
+        const buildRun = runs.find(run => run.workflow_id === buildWorkflowId && run.build_version === detail.version);
+        console.log(`buildWorkflowId: ${buildWorkflowId}\nbuildRun: ${buildRun}`);
+        if (buildRun) {
+          buildRun.isRelease = true;
+          buildRun.release_version = releaseDetails.release_version;
+          console.log(`new buildRun: ${buildRun}`);
+        }
+      } catch (err) {
+        console.error('Error processing release details:', err);
       }
-    });
+    }
   }
 
   // Add the new run to runs.json
