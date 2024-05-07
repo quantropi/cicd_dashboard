@@ -130,7 +130,8 @@ async function fetchDataAndUpdateComponents() {
     const fetchedData = await fetchRunData(incomingData.repo, incomingData.id);
 
     // Exit early if the branch is not "master"
-    if (fetchedData == 'workflow_dispatch' || (fetchedData.head_branch !== 'master' && fetchedData.head_branch !== 'release')) {
+    // Should change back to if (fetchedData.event == 'workflow_dispatch' || (fetchedData.head_branch !== 'master' && fetchedData.head_branch !== 'release')) {
+    if (fetchedData.head_branch !== "PE-1538-yyang" && (fetchedData.event == 'workflow_dispatch' || (fetchedData.head_branch !== 'master' && fetchedData.head_branch !== 'release'))) {
       console.log('Exiting script because it is not automatically triggered');
       return;
     }
