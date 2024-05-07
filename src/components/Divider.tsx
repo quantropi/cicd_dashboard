@@ -13,8 +13,8 @@ const Divider: React.FC<DividerProps> = ({ isOpen, toggle }) => {
       title={isOpen ? 'Close the filter bar' : 'Open the filter bar'}
     >
       {isOpen ? 
-        <i className="bi bi-caret-left"></i>
-      : <i className="bi bi-caret-right"></i>}
+        <i className="bi bi-caret-right"></i>
+      : <i className="bi bi-caret-left"></i>}
     </div>
   );
 };
