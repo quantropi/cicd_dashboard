@@ -61,4 +61,6 @@
 .divider.open:hover,
 .divider.closed:hover {
   background-color: darkgrey;
+  cursor: pointer;
+  position: relative;
 }
