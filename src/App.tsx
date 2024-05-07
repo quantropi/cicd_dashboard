@@ -65,14 +65,14 @@ const AppContent: React.FC = () => {
     if (tab && tabsData.some(t => t.name.toLowerCase() === tab.toLowerCase() || tab === 'all')) {
       setSelectedTab(tab);
     } else {
-      navigate('/all');
+      navigate('/cicd_dashboard/all');
     }
   }, [tabsData, navigate]);
 
   return (
     <Routes>
       <Route
-        path="/:tab"
+        path="/cicd_dashboard/:tab"
         element={
           <Container fluid>
             <Header />
@@ -125,7 +125,7 @@ const AppContent: React.FC = () => {
         }
       />
       {/* Fallback route */}
-      <Route path="*" element={<Navigate to="/all" />} />
+      <Route path="*" element={<Navigate to="/cicd_dashboard/all" />} />
     </Routes>
   );
 };
