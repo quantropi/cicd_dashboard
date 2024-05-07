@@ -35,7 +35,7 @@ const AppContent: React.FC = () => {
   const [qaTest, setQaTest] = useState<string>('All');
   const [startTime, setStartTime] = useState<string>('');
   const [endTime, setEndTime] = useState<string>('');
-  const [filterVisible, setFilterVisible] = useState<boolean>(true);
+  const [filterVisible, setFilterVisible] = useState<boolean>(false);
 
   const toggleFilter = () => setFilterVisible(!filterVisible);
   const clearRepo = () => setSelectedRepo('');
