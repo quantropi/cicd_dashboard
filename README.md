@@ -1,3 +1,6 @@
+# Default CICD Dashboard page
+https://quantropi.github.io/cicd_dashboard/
+
 # CI/CD Dashboard Repository
 
 This repository hosts the CI/CD Dashboard, an integrated dashboard for tracking the progress and results of continuous integration and deployment pipelines.

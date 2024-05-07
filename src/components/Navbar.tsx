@@ -1,6 +1,7 @@
 import React from 'react';
 import { Tab } from '../types/models';
 import Nav from 'react-bootstrap/Nav';
+import { NavLink } from 'react-router-dom';
 
 interface NavbarProps {
   selectedTab: string;
@@ -15,21 +16,31 @@ const Navbar: React.FC<NavbarProps> = ({ selectedTab, setSelectedTab, tabsData, 
   return (
     <Nav variant="tabs" activeKey={selectedTab}>
       <Nav.Item>
-        <Nav.Link eventKey="all" onClick={() => {
-          setSelectedTab('all');
-          clearRepo();
-          clearWorkflow();
-        }}>All</Nav.Link>
+        <NavLink
+          to="/all"
+          className="nav-link"
+          onClick={() => {
+            setSelectedTab('all');
+            clearRepo();
+            clearWorkflow();
+          }}
+        >
+          All
+        </NavLink>
       </Nav.Item>
       {tabsData.map((tab) => (
         <Nav.Item key={tab.name}>
-          <Nav.Link eventKey={tab.name} onClick={() => {
-          setSelectedTab(tab.name);
-          clearRepo();
-          clearWorkflow();
-        }}>
+          <NavLink
+            to={`/${tab.name}`}
+            className="nav-link"
+            onClick={() => {
+              setSelectedTab(tab.name);
+              clearRepo();
+              clearWorkflow();
+            }}
+          >
             {tab.name}
-          </Nav.Link>
+          </NavLink>
         </Nav.Item>
       ))}
     </Nav>

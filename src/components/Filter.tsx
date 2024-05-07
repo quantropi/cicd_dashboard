@@ -44,7 +44,7 @@ const Filter: React.FC<FilterProps> = ({
   useEffect(() => {
     const fetchRunsData = async () => {
       try {
-        const response = await fetch('/cicd_dashboard/data/runs.json');
+        const response = await fetch(`${process.env.PUBLIC_URL}/data/runs.json`);
         const allRuns: RunDetails[] = await response.json();
 
         const versions = [...new Set(allRuns.map((run: RunDetails) => run.release_version).filter((version: string | null) => version !== null))] as string[];
