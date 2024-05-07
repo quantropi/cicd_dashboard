@@ -247,12 +247,16 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
   // When the workflow.category === "release", it will check the the runs.json to find workflow match and build_version === version, then modify the isRelease === true, and modify the release_version to the current version.
   if (workflowCategory === "release" && incomingData.release_json) {
     const releaseDetails = JSON.parse(incomingData.release_json);
+    console.log(releaseDetails);
     releaseDetails.details.forEach(detail => {
       const build_workflow_id = getBuildWorkflowId(detail.repo, detail.build_workflow);
+      console.log(build_workflow_id);
       const buildRun = runs.find(run => run.workflow_id === build_workflow_id && run.build_version === detail.version);
+      console.log(buildRun);
       if (buildRun) {
         buildRun.isRelease = true;
         buildRun.release_version = releaseDetails.release_version;
+        console.log(buildRun);
       }
     });
   }
