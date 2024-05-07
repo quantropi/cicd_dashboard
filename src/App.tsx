@@ -49,7 +49,6 @@ const AppContent: React.FC = () => {
       try {
         const response = await fetch(`${process.env.PUBLIC_URL}/data/components.json`);
         const tabs: Tab[] = await response.json();
-        console.log(tabs);
         setTabsData(tabs);
       } catch (error) {
         console.error("Failed to fetch tabs", error);

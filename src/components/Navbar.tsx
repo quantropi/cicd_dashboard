@@ -31,7 +31,7 @@ const Navbar: React.FC<NavbarProps> = ({ selectedTab, setSelectedTab, tabsData, 
       {tabsData.map((tab) => (
         <Nav.Item key={tab.name}>
           <NavLink
-            to={`/${tab.name}`}
+            to={`/cicd_dashboard/${tab.name}`}
             className="nav-link"
             onClick={() => {
               setSelectedTab(tab.name);
