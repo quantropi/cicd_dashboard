@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script>
+    var redirect = sessionStorage.redirect;
+    delete sessionStorage.redirect;
+
+    var baseURL = 'https://quantropi.github.io/cicd_dashboard';
+    var fullURL = baseURL + window.location.pathname.replace(/^\/cicd_dashboard/, '');
+    
+    if (redirect !== fullURL) {
+      sessionStorage.redirect = fullURL;
+      window.location = baseURL;
+    }
+  </script>
+</head>
+<body>
+  If you are not redirected, <a href="https://quantropi.github.io/cicd_dashboard">click here</a>.
+</body>
+</html>
