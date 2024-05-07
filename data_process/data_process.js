@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
-const { hostname } = require('os');
 
 // Path to the JSON files
 const componentsPath = path.join(__dirname, '..', 'public', 'data', 'components.json');
@@ -19,12 +18,18 @@ const incomingData = eventData.client_payload;
 // Environment variable for the secret token
 const accessToken = process.env.ACCESS_TOKEN;
 
+// Exit early if event_name is "workflow_dispatch"
+if (incomingData.event_name === 'workflow_dispatch') {
+  console.log('Exiting script because event_name is workflow_dispatch');
+  process.exit(0);
+}
+
 // Function to fetch run data using GitHub API
-function fetchRunData(runId) {
+function fetchRunData(repo, runId) {
   return new Promise((resolve, reject) => {
     const options = {
       hostname: 'api.github.com',
-      path: `/repos/quantropi/${incomingData.repo}/actions/runs/${runId}`,
+      path: `/repos/quantropi/${repo}/actions/runs/${runId}`,
       method: 'GET',
       headers: {
         'User-Agent': 'Node.js',
@@ -52,11 +57,11 @@ function fetchRunData(runId) {
 }
 
 // Function to fetch workflow data using GitHub API
-function fetchWorkflowData(workflowId) {
+function fetchWorkflowData(repo, workflowId) {
   return new Promise((resolve, reject) => {
     const options = {
       hostname: 'api.github.com',
-      path: `/repos/quantropi/${incomingData.repo}/actions/workflows/${workflowId}`,
+      path: `/repos/quantropi/${repo}/actions/workflows/${workflowId}`,
       method: 'GET',
       headers: {
         'User-Agent': 'Node.js',
@@ -83,9 +88,58 @@ function fetchWorkflowData(workflowId) {
   });
 }
 
+// Function to fetch workflows using GitHub API
+function fetchWorkflows(repoName) {
+  return new Promise((resolve, reject) => {
+    const options = {
+      hostname: 'api.github.com',
+      path: `/repos/${repoName}/actions/workflows`,
+      method: 'GET',
+      headers: {
+        'User-Agent': 'Node.js',
+        'Authorization': `Bearer ${accessToken}`,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    };
+
+    https.request(options, res => {
+      let data = '';
+      res.on('data', chunk => { data += chunk; });
+      res.on('end', () => {
+        try {
+          resolve(JSON.parse(data).workflows);
+        } catch (e) {
+          reject(e);
+        }
+      });
+    })
+      .on('error', e => {
+        reject(e);
+      })
+      .end();
+  });
+}
+
+async function getBuildWorkflowId(repoName, workflowFile) {
+  try {
+    const workflows = await fetchWorkflows(repoName);
+    const workflow = workflows.find(wf => wf.path === `.github/workflows/${workflowFile}`);
+    return workflow ? workflow.id : null;
+  } catch (err) {
+    console.error('Error fetching workflows:', err);
+    return null;
+  }
+}
+
 async function fetchDataAndUpdateComponents() {
   try {
-    const fetchedData = await fetchRunData(incomingData.id);
+    const fetchedData = await fetchRunData(incomingData.repo, incomingData.id);
+
+    // Exit early if the branch is not "master"
+    if (fetchedData.head_branch !== 'master' && fetchedData.head_branch !== 'release') {
+      console.log('Exiting script because branch is not master');
+      return;
+    }
 
     // Update components and runs
     await updateComponentsAndRuns(incomingData, fetchedData);
@@ -128,6 +182,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
       name: incomingData.repo,
       level: "repo",
       description: "",
+      category: "product",
       url: fetchedData.repository.html_url,
       workflows: []
     };
@@ -136,17 +191,32 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
 
   // Check if the workflow exists in the repository, and add if not
   let workflow_name = "";
+  let build_workflow_id = null;
   const workflowExists = repo.workflows.some(wf => wf.file === workflow_file);
   if (!workflowExists) {
     try {
-      const fetchedWorkflowData = await fetchWorkflowData(fetchedData.workflow_id);
+      const fetchedWorkflowData = await fetchWorkflowData(incomingData.repo, fetchedData.workflow_id);
       workflow_name = fetchedWorkflowData.name;
+      
+      // Extract repo and file from incomingData.build_workflow and fetch the build workflow ID
+      if (incomingData.build_workflow) {
+        const [repoName, workflowFile] = incomingData.build_workflow.split('/');
+        build_workflow_id = await getBuildWorkflowId(repoName, workflowFile);
+      }
+
+      // Assign a category based on repo's category, need to manually modified
+      let workflowCategory = "tool";
+      if (repo.category === "qa") {
+        workflowCategory = "qa";
+      }
+
       repo.workflows.push({
         id: fetchedData.workflow_id,
         file: workflow_file,
         name: workflow_name,
-        default_display: true,
-        url: `https://github.com/quantropi/${incomingData.repo}/actions/workflows/${workflow_file}`
+        build_workflow: build_workflow_id,
+        url: `https://github.com/quantropi/${incomingData.repo}/actions/workflows/${workflow_file}`,
+        category: workflowCategory,
       });
     } catch (err) {
       console.error('Error fetching workflow data:', err);
@@ -156,18 +226,46 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     // Set workflow_name to be the name inside the components.json
     const existingWorkflow = repo.workflows.find(wf => wf.file === workflow_file);
     workflow_name = existingWorkflow.name;
+    build_workflow_id = existingWorkflow.build_workflow_id;
   }
 
   // Validate test_result
   const validResults = ["PASSED", "FAILED", "ABORTED"];
-  let validatedTestResult = fetchedData.conclusion != "cancelled" && validResults.includes(incomingData.test_result.toUpperCase()) ? incomingData.test_result.toUpperCase() : "";
+  let validatedTestResult = fetchedData.conclusion !== "cancelled" && validResults.includes(incomingData.test_result.toUpperCase()) ? incomingData.test_result.toUpperCase() : "";
+
+  // Handle build run's test_result
+  // Check if the workflow is of category "qa" and override the build's test_result
+  if (repo.category === "qa" && build_workflow_id && incomingData.build_version) {
+    const buildRun = runs.find(run => run.workflow_id === build_workflow_id && run.build_version === incomingData.build_version);
+    if (buildRun) {
+      // Update the test result of the build run
+      buildRun.test_result = validatedTestResult;
+    }
+  }
+
+  // Handle release run
+  // incomingData.release_json content:
+  // For SDK: {"release_version": "release_v1.8.1", "details": [{"repo": "MASQ-BN", "build_workflow": "cicd_build_api.yml", "version": "189"}, {"repo": "MASQ-DS", "build_workflow": "cicd_build_api.yml", "version": "190"}, {"repo": "MASQ-KEM", "build_workflow": "cicd_build_api.yml", "version": "178"}, {"repo": "libqeep", "build_workflow": "cicd_build_api.yml", "version": "158"}]}
+  // For QiSpace: {"release_version": "release_v1.8.3", "details": [{"repo": "qispace", "build_workflow": "build.yml", "version": "b_11"}]}
+  // When the workflow.category === "release", it will check the the runs.json to find workflow match and build_version === version, then modify the isRelease === true, and modify the release_version to the current version.
+  if (workflowCategory === "release" && incomingData.release_json) {
+    const releaseDetails = JSON.parse(incomingData.release_json);
+    releaseDetails.details.forEach(detail => {
+      const build_workflow_id = getBuildWorkflowId(detail.repo, detail.build_workflow);
+      const buildRun = runs.find(run => run.workflow_id === build_workflow_id && run.build_version === detail.version);
+      if (buildRun) {
+        buildRun.isRelease = true;
+        buildRun.release_version = releaseDetails.release_version;
+      }
+    });
+  }
 
   // Add the new run to runs.json
   runs.push({
     id: incomingData.id,
     url: fetchedData.html_url,
     repo: incomingData.repo,
-    workflow: workflow_file,
+    repo_url: fetchedData.repository.html_url,
     workflow_name: workflow_name,
     workflow_id: fetchedData.workflow_id,
     run_number: fetchedData.run_number,
@@ -175,8 +273,10 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     user: fetchedData.actor.login,
     branch: fetchedData.head_branch,
     status: fetchedData.conclusion,
-    isqa: incomingData.isqa,
     test_result: validatedTestResult,
+    build_version: incomingData.build_version || fetchedData.run_number,
+    isRelease: false,
+    release_version: null,
     s3_urls: incomingData.s3_urls
   });
 

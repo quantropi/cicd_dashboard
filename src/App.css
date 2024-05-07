@@ -45,3 +45,22 @@
   max-height: 50px;
   text-overflow: ellipsis;
 }
+
+.divider {
+  position: relative;
+  width: 10px;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.divider.open:hover,
+.divider.closed:hover {
+  background-color: darkgrey;
+  cursor: pointer;
+  position: relative;
+}
