@@ -87,7 +87,7 @@ function fetchWorkflows(repoName) {
   return new Promise((resolve, reject) => {
     const options = {
       hostname: 'api.github.com',
-      path: `/repos/${repoName}/actions/workflows`,
+      path: `/repos/quantropi/${repoName}/actions/workflows`,
       method: 'GET',
       headers: {
         'User-Agent': 'Node.js',
