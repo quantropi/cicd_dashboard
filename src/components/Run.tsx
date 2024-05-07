@@ -31,7 +31,7 @@ const Run: React.FC<RunProps> = ({ run }) => {
             {run.workflow_name} #{run.run_number}
           </a>
         </OverlayTrigger>
-        <br/>
+        <br />
         <Badge bg={run.status === "success" ? "success" : run.status === "cancelled" ? "secondary" : "danger"}>
           {run.status}
         </Badge>
@@ -50,13 +50,16 @@ const Run: React.FC<RunProps> = ({ run }) => {
       </td>
       <td>
         {run.test_result !== "" ? (
-          <div 
-            className="text-truncate" 
-            style={{ 
+          <div
+            className="text-truncate"
+            style={{
               maxWidth: '150px',
               color: run.test_result === 'FAILED' ? 'red' : 'inherit',
             }}>
-            {run.test_result}
+            <a href={run.test_run_url} target="_blank" rel="noopener noreferrer">
+              {run.test_result}
+            </a>
+
           </div>
         ) : 'N/A'}
       </td>

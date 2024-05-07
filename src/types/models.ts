@@ -36,6 +36,7 @@ export interface RunDetails {
   branch: string;
   status: string;
   test_result: string;
+  test_run_url: string;
   build_version: string;
   isRelease: boolean;
   release_version: string;

@@ -12,6 +12,7 @@
     "branch": "master",
     "status": "success",
     "test_result": "PASSED",
+    "test_run_url": "https://github.com/quantropi/sdk_qa/actions/runs/8913349453",
     "build_version": "293",
     "isRelease": true,
     "release_version": "release_v1.8.0.1",
