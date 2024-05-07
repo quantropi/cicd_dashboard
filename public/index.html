@@ -41,9 +41,10 @@
     -->
     <script>
       (function() {
-        if (sessionStorage.redirect) {
-          const redirect = sessionStorage.redirect;
-          delete sessionStorage.redirect;
+        var redirect = sessionStorage.redirect;
+        var currentUrl = window.location.href;
+        if (redirect && currentUrl !== redirect) {
+          sessionStorage.removeItem('redirect'); // Clear immediately to prevent loop
           window.location.href = redirect;
         }
       })();
