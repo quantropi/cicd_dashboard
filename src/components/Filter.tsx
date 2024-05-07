@@ -47,7 +47,7 @@ const Filter: React.FC<FilterProps> = ({
         const response = await fetch(`${process.env.PUBLIC_URL}/data/runs.json`);
         const allRuns: RunDetails[] = await response.json();
 
-        const versions = [...new Set(allRuns.map((run: RunDetails) => run.release_version).filter((version: string | null) => version !== null))] as string[];
+        const versions = [...new Set(allRuns.map(run => run.release_version).filter(version => version !== null && version !== undefined))] as string[];
         setReleaseVersions(versions);
       } catch (error) {
         console.error("Failed to fetch runs data", error);

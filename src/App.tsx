@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'react-router-dom';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Runs from './components/Runs';
@@ -16,12 +16,16 @@ import './App.css';
 const App: React.FC = () => {
   return (
     <Router>
-      <AppContent />
+      <Routes>
+        <Route path="/cicd_dashboard/:tab" element={<AppContent />} />
+        <Route path="*" element={<Navigate to="/cicd_dashboard/all" />} />
+      </Routes>
     </Router>
   );
 };
 
 const AppContent: React.FC = () => {
+  const { tab } = useParams();
   const [tabsData, setTabsData] = useState<Tab[]>([]);
   const [selectedTab, setSelectedTab] = useState<string>('all');
   const [selectedRepo, setSelectedRepo] = useState<string>('');
@@ -31,18 +35,11 @@ const AppContent: React.FC = () => {
   const [qaTest, setQaTest] = useState<string>('All');
   const [startTime, setStartTime] = useState<string>('');
   const [endTime, setEndTime] = useState<string>('');
-  const [filterVisible, setFilterVisible] = useState<boolean>(false);
-  const navigate = useNavigate();
+  const [filterVisible, setFilterVisible] = useState<boolean>(true);
 
   const toggleFilter = () => setFilterVisible(!filterVisible);
-
-  const clearRepo = async () => {
-    setSelectedRepo('');
-  }
-
-  const clearWorkflow = async () => {
-    setSelectedWorkflow(0);
-  }
+  const clearRepo = () => setSelectedRepo('');
+  const clearWorkflow = () => setSelectedWorkflow(0);
 
   useEffect(() => {
     const fetchTabsData = async () => {
@@ -54,78 +51,65 @@ const AppContent: React.FC = () => {
         console.error("Failed to fetch tabs", error);
       }
     };
-
     fetchTabsData();
   }, []);
 
   useEffect(() => {
-    // Set selectedTab based on the current URL
-    const tab = window.location.pathname.split('/').pop();
-    if (tab && tabsData.some(t => t.name.toLowerCase() === tab.toLowerCase() || tab === 'all')) {
+    // Reactively set selectedTab when tab changes and is valid
+    if (tab && tabsData.some(t => t.name.toLowerCase() === tab.toLowerCase())) {
       setSelectedTab(tab);
-    } else {
-      navigate('/cicd_dashboard/all');
     }
-  }, [tabsData, navigate]);
+  }, [tab, tabsData]);
 
   return (
-    <Routes>
-      <Route
-        path="/cicd_dashboard/:tab"
-        element={
-          <Container fluid>
-            <Header />
-            <Navbar
-              selectedTab={selectedTab}
-              setSelectedTab={setSelectedTab}
-              tabsData={tabsData}
-              clearRepo={clearRepo}
-              clearWorkflow={clearWorkflow}
-            />
-            <Row>
-              <Col xs={12} md={filterVisible ? 9 : 11}>
-                <Runs
-                  selectedTab={selectedTab}
-                  selectedRepo={selectedRepo}
-                  selectedWorkflow={selectedWorkflow}
-                  tabsData={tabsData}
-                  release={release}
-                  releaseVersion={releaseVersion}
-                  qaTest={qaTest}
-                  startTime={startTime}
-                  endTime={endTime}
-                />
-              </Col>
-              <Divider isOpen={filterVisible} toggle={toggleFilter} />
-              {filterVisible && (
-                <Col xs={12} md={2}>
-                  <Filter
-                    selectedTab={selectedTab}
-                    selectedRepo={selectedRepo}
-                    tabsData={tabsData}
-                    selectedWorkflow={selectedWorkflow}
-                    setSelectedWorkflow={setSelectedWorkflow}
-                    release={release}
-                    setRelease={setRelease}
-                    releaseVersion={releaseVersion}
-                    setReleaseVersion={setReleaseVersion}
-                    qaTest={qaTest}
-                    setQaTest={setQaTest}
-                    startTime={startTime}
-                    setStartTime={setStartTime}
-                    endTime={endTime}
-                    setEndTime={setEndTime}
-                    setSelectedRepo={setSelectedRepo}
-                  />
-                </Col>
-              )}
-            </Row>
-          </Container>
-        }
+    <Container fluid>
+      <Header />
+      <Navbar
+        selectedTab={selectedTab}
+        setSelectedTab={setSelectedTab}
+        tabsData={tabsData}
+        clearRepo={clearRepo}
+        clearWorkflow={clearWorkflow}
       />
-      {/* Fallback route */}
-      <Route path="*" element={<Navigate to="/cicd_dashboard/all" />} />
-    </Routes>
+      <Row>
+        <Col xs={12} md={filterVisible ? 9 : 11}>
+          <Runs
+            selectedTab={selectedTab}
+            selectedRepo={selectedRepo}
+            selectedWorkflow={selectedWorkflow}
+            tabsData={tabsData}
+            release={release}
+            releaseVersion={releaseVersion}
+            qaTest={qaTest}
+            startTime={startTime}
+            endTime={endTime}
+          />
+        </Col>
+        <Divider isOpen={filterVisible} toggle={toggleFilter} />
+        {filterVisible && (
+          <Col xs={12} md={2}>
+            <Filter
+              selectedTab={selectedTab}
+              selectedRepo={selectedRepo}
+              tabsData={tabsData}
+              selectedWorkflow={selectedWorkflow}
+              setSelectedWorkflow={setSelectedWorkflow}
+              release={release}
+              setRelease={setRelease}
+              releaseVersion={releaseVersion}
+              setReleaseVersion={setReleaseVersion}
+              qaTest={qaTest}
+              setQaTest={setQaTest}
+              startTime={startTime}
+              setStartTime={setStartTime}
+              endTime={endTime}
+              setEndTime={setEndTime}
+              setSelectedRepo={setSelectedRepo}
+            />
+          </Col>
+        )}
+      </Row>
+    </Container>
   );
 };
 
