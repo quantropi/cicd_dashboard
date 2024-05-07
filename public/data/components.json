@@ -127,6 +127,14 @@
             "build_workflow_id": null,
             "category": "release",
             "url": "https://github.com/quantropi/SDK_CICD_pipelines/actions/workflows/cicd_release_promote.yml"
+          },
+          {
+            "id": 67608082,
+            "file": "test_wf.yml",
+            "name": "test_workflow",
+            "build_workflow_id": null,
+            "category": "release",
+            "url": "https://github.com/quantropi/SDK_CICD_pipelines/actions/workflows/test_wf.yml"
           }
         ]
       }
