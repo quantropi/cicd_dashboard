@@ -50,7 +50,6 @@
   position: relative;
   width: 10px;
   height: 100%;
-  background-color: lightgrey;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -62,13 +61,4 @@
 .divider.open:hover,
 .divider.closed:hover {
   background-color: darkgrey;
-}
-
-.divider.open {
-  border-left: 1px solid grey;
-}
-
-.divider.closed {
-  border-right: 1px solid grey;
-  justify-content: flex-end;
 }

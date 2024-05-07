@@ -54,7 +54,7 @@ const Runs: React.FC<RunsProps> = ({
 
           const byRelease = release === undefined || run.isRelease === release;
           const byReleaseVersion = !releaseVersion || run.release_version === releaseVersion;
-          const byQaTest = qaTest === 'N/A' || run.test_result === qaTest;
+          const byQaTest = qaTest === 'All' || run.test_result === qaTest;
 
           const byTime =
             (!startTime || new Date(run.time) >= new Date(startTime)) &&

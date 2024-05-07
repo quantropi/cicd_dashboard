@@ -99,7 +99,7 @@ const Filter: React.FC<FilterProps> = ({
             value={qaTest}
             onChange={e => setQaTest(e.target.value)}
           >
-            <option value="N/A">All</option>
+            <option value="All">All</option>
             <option value="PASSED">PASSED</option>
             <option value="FAILED">FAILED</option>
             <option value="ABORTED">ABORTED</option>

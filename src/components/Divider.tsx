@@ -11,7 +11,9 @@ const Divider: React.FC<DividerProps> = ({ isOpen, toggle }) => {
       className={`divider ${isOpen ? 'open' : 'closed'}`}
       onClick={toggle}
     >
-      <span>{isOpen ? 'Close Filter Bar' : 'Open Filter Bar'}</span>
+      {isOpen ? 
+        <i className="bi bi-caret-left"></i>
+      : <i className="bi bi-caret-right"></i>}
     </div>
   );
 };
