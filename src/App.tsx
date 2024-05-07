@@ -17,7 +17,7 @@ const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState<string>('all');
   const [selectedRepo, setSelectedRepo] = useState<string>('');
   const [selectedWorkflow, setSelectedWorkflow] = useState<number>(0);
-  const [release, setRelease] = useState<boolean | undefined>(undefined);
+  const [release, setRelease] = useState<boolean>(false);
   const [releaseVersion, setReleaseVersion] = useState<string>('');
   const [qaTest, setQaTest] = useState<string>('All');
   const [startTime, setStartTime] = useState<string>('');

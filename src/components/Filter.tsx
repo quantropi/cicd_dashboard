@@ -8,8 +8,8 @@ interface FilterProps {
   tabsData: Tab[];
   selectedWorkflow: number;
   setSelectedWorkflow: (workflow_id: number) => void;
-  release: boolean | undefined;
-  setRelease: (release: boolean | undefined) => void;
+  release: boolean;
+  setRelease: (release: boolean) => void;
   releaseVersion: string;
   setReleaseVersion: (version: string) => void;
   qaTest: string;
@@ -56,6 +56,16 @@ const Filter: React.FC<FilterProps> = ({
 
     fetchRunsData();
   }, []);
+
+  const resetFilters = () => {
+    setSelectedRepo('');
+    setSelectedWorkflow(0);
+    setRelease(false);
+    setReleaseVersion('');
+    setQaTest('All');
+    setStartTime('');
+    setEndTime('');
+  };
 
   const repos: Repo[] = selectedTab === 'all'
     ? tabsData.flatMap(tab => tab.repos || [])
@@ -152,10 +162,8 @@ const Filter: React.FC<FilterProps> = ({
           />
         </Form.Group>
         <br />
-        <Button variant="primary" type="button" onClick={() => 
-          setSelectedWorkflow(0)
-        }>
-          Clear
+        <Button variant="secondary" type="button" onClick={resetFilters}>
+          Clear Filters
         </Button>
       </Form>
     </div>

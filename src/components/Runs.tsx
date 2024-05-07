@@ -52,7 +52,7 @@ const Runs: React.FC<RunsProps> = ({
           // Check that the workflow category is "build" or "tool"
           const byCategory = workflowCategory === 'build' || workflowCategory === 'tool';
 
-          const byRelease = release === undefined || run.isRelease === release;
+          const byRelease = !release || run.isRelease === release;
           const byReleaseVersion = !releaseVersion || run.release_version === releaseVersion;
           const byQaTest = qaTest === 'All' || run.test_result === qaTest;
 
