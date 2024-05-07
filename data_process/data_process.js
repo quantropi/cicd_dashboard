@@ -18,12 +18,6 @@ const incomingData = eventData.client_payload;
 // Environment variable for the secret token
 const accessToken = process.env.ACCESS_TOKEN;
 
-// Exit early if event_name is "workflow_dispatch"
-if (incomingData.event_name === 'workflow_dispatch') {
-  console.log('Exiting script because event_name is workflow_dispatch');
-  process.exit(0);
-}
-
 // Function to fetch run data using GitHub API
 function fetchRunData(repo, runId) {
   return new Promise((resolve, reject) => {
@@ -136,8 +130,8 @@ async function fetchDataAndUpdateComponents() {
     const fetchedData = await fetchRunData(incomingData.repo, incomingData.id);
 
     // Exit early if the branch is not "master"
-    if (fetchedData.head_branch !== 'master' && fetchedData.head_branch !== 'release') {
-      console.log('Exiting script because branch is not master');
+    if (fetchedData == 'workflow_dispatch' || (fetchedData.head_branch !== 'master' && fetchedData.head_branch !== 'release')) {
+      console.log('Exiting script because it is not automatically triggered');
       return;
     }
 
