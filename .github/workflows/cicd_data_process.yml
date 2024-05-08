@@ -22,7 +22,7 @@ jobs:
         with:
           name: ${{ github.event.client_payload.release_json }}
           github-token: ${{ secrets.ACCESS_DEVOPS_TOKEN }}
-          repository: ${{ github.event.client_payload.repo }}
+          repository: quantropi/${{ github.event.client_payload.repo }}
           run-id: ${{ github.event.client_payload.id }}
 
       - name: Set up Node.js
