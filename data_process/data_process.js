@@ -323,7 +323,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
   // When the workflow.category === "release", it will check the the runs.json to find workflow match and build_version === version, then modify the isRelease === true, and modify the release_version to the current version.
   if (workflowCategory === "release" && incomingData.release_json) {
     // Using safeParse to handle potentially malformed JSON
-    const releaseDetails = handleArtifacts(incomingData.repo, incomingData.id, incomingData.release_json);
+    const releaseDetails = await handleArtifacts(incomingData.repo, incomingData.id, incomingData.release_json);
     console.log(releaseDetails);
     for (const detail of releaseDetails.details) {
       try {
