@@ -144,20 +144,26 @@ function downloadArtifact(repo, artifactId) {
 // Read the artifact based on the repo, runId, artifact name
 async function handleArtifacts(repo, runId, artifactName) {
   try {
-    const artifacts = await fetchArtifacts(repo, runId);
-    console.log(`artifacts: \n${artifacts}`);
-    const artifactId = artifacts.find(artifact => artifact.name === artifactName).id;
-    if (artifactId) {
-      await downloadArtifact(repo, artifactId);
-      // Assuming the artifact contains artifactName
-      const releaseJsonData = fs.readFileSync(path.join(__dirname, artifactName), 'utf8');
+      const artifacts = await fetchArtifacts(repo, runId);
+      console.log(`Fetched artifacts: ${JSON.stringify(artifacts, null, 2)}`);  // Detailed log of artifacts
+      if (!artifacts || artifacts.length === 0) {
+          throw new Error("No artifacts found or artifacts array is empty.");
+      }
+      const artifact = artifacts.find(artifact => artifact.name === artifactName);
+      if (!artifact) {
+          throw new Error(`Artifact named '${artifactName}' not found.`);
+      }
+      await downloadArtifact(repo, artifact.id);
+      const artifactFilePath = path.join(__dirname, `${artifactName}.json`);
+      const releaseJsonData = fs.readFileSync(artifactFilePath, 'utf8');
       const releaseDetails = JSON.parse(releaseJsonData);
       return releaseDetails;
-    }
   } catch (error) {
-    console.error('Error handling artifacts:', error);
+      console.error('Error handling artifacts:', error);
+      throw error;  // Ensure the error is thrown to be handled or logged by the caller
   }
 }
+
 
 // Function to fetch workflows using GitHub API
 function fetchWorkflows(repoName) {
