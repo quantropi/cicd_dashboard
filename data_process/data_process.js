@@ -18,6 +18,18 @@ const incomingData = eventData.client_payload;
 // Environment variable for the secret token
 const accessToken = process.env.ACCESS_TOKEN;
 
+// Attempt to parse the release_json safely
+function safeParse(jsonStr) {
+  try {
+    return JSON.parse(jsonStr);
+  } catch (e) {
+    console.error('Failed to parse JSON', e);
+    // Attempt to repair common JSON issues, e.g., missing quotes around keys
+    const repaired = jsonStr.replace(/(['"])?([a-z0-9A-Z_]+)(['"])?:/g, '"$2": ');
+    return JSON.parse(repaired);
+  }
+}
+
 // Function to fetch run data using GitHub API
 function fetchRunData(repo, runId) {
   return new Promise((resolve, reject) => {
@@ -193,7 +205,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     try {
       const fetchedWorkflowData = await fetchWorkflowData(incomingData.repo, fetchedData.workflow_id);
       workflow_name = fetchedWorkflowData.name;
-      
+
       // Extract repo and file from incomingData.build_workflow and fetch the build workflow ID
       if (incomingData.build_workflow) {
         const [repoName, workflowFile] = incomingData.build_workflow.split('/');
@@ -246,7 +258,8 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
   // For QiSpace: {"release_version": "release_v1.8.3", "details": [{"repo": "qispace", "build_workflow": "build.yml", "version": "b_11"}]}
   // When the workflow.category === "release", it will check the the runs.json to find workflow match and build_version === version, then modify the isRelease === true, and modify the release_version to the current version.
   if (workflowCategory === "release" && incomingData.release_json) {
-    const releaseDetails = JSON.parse(incomingData.release_json);
+    // Using safeParse to handle potentially malformed JSON
+    const releaseDetails = safeParse(incomingData.release_json);
     console.log(releaseDetails);
     for (const detail of releaseDetails.details) {
       try {
