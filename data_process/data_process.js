@@ -18,18 +18,6 @@ const incomingData = eventData.client_payload;
 // Environment variable for the secret token
 const accessToken = process.env.ACCESS_TOKEN;
 
-// Attempt to parse the release_json safely
-function safeParse(jsonStr) {
-  try {
-    return JSON.parse(jsonStr);
-  } catch (e) {
-    console.error('Failed to parse JSON', e);
-    // Attempt to repair common JSON issues, e.g., missing quotes around keys
-    const repaired = jsonStr.replace(/(['"])?([a-z0-9A-Z_]+)(['"])?:/g, '"$2": ');
-    return JSON.parse(repaired);
-  }
-}
-
 // Function to fetch run data using GitHub API
 function fetchRunData(repo, runId) {
   return new Promise((resolve, reject) => {
@@ -92,6 +80,82 @@ function fetchWorkflowData(repo, workflowId) {
       })
       .end();
   });
+}
+
+
+// Retrieves a list of artifacts available for a specific run.
+function fetchArtifacts(repo, runId) {
+  return new Promise((resolve, reject) => {
+    const options = {
+      hostname: 'api.github.com',
+      path: `/repos/quantropi/${repo}/actions/runs/${runId}/artifacts`,
+      method: 'GET',
+      headers: {
+        'User-Agent': 'Node.js',
+        'Authorization': `Bearer ${accessToken}`,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    };
+
+    https.request(options, res => {
+      let data = '';
+      res.on('data', chunk => { data += chunk; });
+      res.on('end', () => {
+        try {
+          resolve(JSON.parse(data).artifacts);
+        } catch (e) {
+          reject(e);
+        }
+      });
+    }).on('error', e => {
+      reject(e);
+    }).end();
+  });
+}
+
+// Downloads the artifact based on its ID.
+function downloadArtifact(repo, artifactId) {
+  return new Promise((resolve, reject) => {
+    const options = {
+      hostname: 'api.github.com',
+      path: `/repos/quantropi/${repo}/actions/artifacts/${artifactId}/zip`,
+      method: 'GET',
+      headers: {
+        'User-Agent': 'Node.js',
+        'Authorization': `Bearer ${accessToken}`,
+        'Accept': 'application/octet-stream'
+      }
+    };
+
+    https.request(options, (res) => {
+      const chunks = [];
+      res.on('data', chunk => chunks.push(chunk));
+      res.on('end', () => {
+        const buffer = Buffer.concat(chunks);
+        fs.writeFileSync(path.join(__dirname, 'artifact.zip'), buffer);
+        resolve(buffer);
+      });
+    }).on('error', e => {
+      reject(e);
+    }).end();
+  });
+}
+
+// Read the artifact based on the repo, runId, artifact name
+async function handleArtifacts(repo, runId, artifactName) {
+  try {
+    const artifacts = await fetchArtifacts(repo, runId);
+    const artifactId = artifacts.find(artifact => artifact.name === artifactName).id;
+    if (artifactId) {
+      await downloadArtifact(repo, artifactId);
+      // Assuming the artifact contains artifactName
+      const releaseJsonData = fs.readFileSync(path.join(__dirname, artifactName), 'utf8');
+      const releaseDetails = JSON.parse(releaseJsonData);
+      return releaseDetails;
+    }
+  } catch (error) {
+    console.error('Error handling artifacts:', error);
+  }
 }
 
 // Function to fetch workflows using GitHub API
@@ -259,7 +323,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
   // When the workflow.category === "release", it will check the the runs.json to find workflow match and build_version === version, then modify the isRelease === true, and modify the release_version to the current version.
   if (workflowCategory === "release" && incomingData.release_json) {
     // Using safeParse to handle potentially malformed JSON
-    const releaseDetails = safeParse(incomingData.release_json);
+    const releaseDetails = handleArtifacts(incomingData.repo, incomingData.id, incomingData.release_json);
     console.log(releaseDetails);
     for (const detail of releaseDetails.details) {
       try {
