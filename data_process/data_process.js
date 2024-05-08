@@ -145,6 +145,7 @@ function downloadArtifact(repo, artifactId) {
 async function handleArtifacts(repo, runId, artifactName) {
   try {
     const artifacts = await fetchArtifacts(repo, runId);
+    console.log(`artifacts: \n${artifacts}`);
     const artifactId = artifacts.find(artifact => artifact.name === artifactName).id;
     if (artifactId) {
       await downloadArtifact(repo, artifactId);
