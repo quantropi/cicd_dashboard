@@ -82,89 +82,6 @@ function fetchWorkflowData(repo, workflowId) {
   });
 }
 
-
-// Retrieves a list of artifacts available for a specific run.
-function fetchArtifacts(repo, runId) {
-  return new Promise((resolve, reject) => {
-    const options = {
-      hostname: 'api.github.com',
-      path: `/repos/quantropi/${repo}/actions/runs/${runId}/artifacts`,
-      method: 'GET',
-      headers: {
-        'User-Agent': 'Node.js',
-        'Authorization': `Bearer ${accessToken}`,
-        'Accept': 'application/vnd.github.v3+json'
-      }
-    };
-
-    https.request(options, res => {
-      let data = '';
-      res.on('data', chunk => { data += chunk; });
-      res.on('end', () => {
-        try {
-          resolve(JSON.parse(data).artifacts);
-        } catch (e) {
-          reject(e);
-        }
-      });
-    }).on('error', e => {
-      reject(e);
-    }).end();
-  });
-}
-
-// Downloads the artifact based on its ID.
-function downloadArtifact(repo, artifactId) {
-  return new Promise((resolve, reject) => {
-    const options = {
-      hostname: 'api.github.com',
-      path: `/repos/quantropi/${repo}/actions/artifacts/${artifactId}/zip`,
-      method: 'GET',
-      headers: {
-        'User-Agent': 'Node.js',
-        'Authorization': `Bearer ${accessToken}`,
-        'Accept': 'application/octet-stream'
-      }
-    };
-
-    https.request(options, (res) => {
-      const chunks = [];
-      res.on('data', chunk => chunks.push(chunk));
-      res.on('end', () => {
-        const buffer = Buffer.concat(chunks);
-        fs.writeFileSync(path.join(__dirname, 'artifact.zip'), buffer);
-        resolve(buffer);
-      });
-    }).on('error', e => {
-      reject(e);
-    }).end();
-  });
-}
-
-// Read the artifact based on the repo, runId, artifact name
-async function handleArtifacts(repo, runId, artifactName) {
-  try {
-      const artifacts = await fetchArtifacts(repo, runId);
-      console.log(`Fetched artifacts: ${JSON.stringify(artifacts, null, 2)}`);  // Detailed log of artifacts
-      if (!artifacts || artifacts.length === 0) {
-          throw new Error("No artifacts found or artifacts array is empty.");
-      }
-      const artifact = artifacts.find(artifact => artifact.name === artifactName);
-      if (!artifact) {
-          throw new Error(`Artifact named '${artifactName}' not found.`);
-      }
-      await downloadArtifact(repo, artifact.id);
-      const artifactFilePath = path.join(__dirname, `${artifactName}.json`);
-      const releaseJsonData = fs.readFileSync(artifactFilePath, 'utf8');
-      const releaseDetails = JSON.parse(releaseJsonData);
-      return releaseDetails;
-  } catch (error) {
-      console.error('Error handling artifacts:', error);
-      throw error;  // Ensure the error is thrown to be handled or logged by the caller
-  }
-}
-
-
 // Function to fetch workflows using GitHub API
 function fetchWorkflows(repoName) {
   return new Promise((resolve, reject) => {
@@ -329,8 +246,9 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
   // For QiSpace: {"release_version": "release_v1.8.3", "details": [{"repo": "qispace", "build_workflow": "build.yml", "version": "b_11"}]}
   // When the workflow.category === "release", it will check the the runs.json to find workflow match and build_version === version, then modify the isRelease === true, and modify the release_version to the current version.
   if (workflowCategory === "release" && incomingData.release_json) {
-    // Using safeParse to handle potentially malformed JSON
-    const releaseDetails = await handleArtifacts(incomingData.repo, incomingData.id, incomingData.release_json);
+    // Assuming the JSON file is downloaded to a known directory
+    const jsonFilePath = path.join(__dirname, '..', 'release_json.json');
+    const releaseDetails = JSON.parse(fs.readFileSync(jsonFilePath, 'utf8'));
     console.log(releaseDetails);
     for (const detail of releaseDetails.details) {
       try {

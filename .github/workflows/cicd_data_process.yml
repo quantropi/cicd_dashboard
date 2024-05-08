@@ -16,6 +16,15 @@ jobs:
         with:
           ref: master
 
+      - name: Download release_json
+        if: github.event.client_payload.release_json != ''
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ github.event.client_payload.release_json }}
+          github-token: ${{ secrets.ACCESS_DEVOPS_TOKEN }}
+          repository: ${{ github.event.client_payload.repo }}
+          run-id: ${{ github.event.client_payload.id }}
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
