@@ -249,16 +249,13 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     // Assuming the JSON file is downloaded to a known directory
     const jsonFilePath = path.join(__dirname, '..', 'release_json.json');
     const releaseDetails = JSON.parse(fs.readFileSync(jsonFilePath, 'utf8'));
-    console.log(releaseDetails);
     for (const detail of releaseDetails.details) {
       try {
         const buildWorkflowId = await getBuildWorkflowId(detail.repo, detail.build_workflow); // Ensure you await this function
         const buildRun = runs.find(run => run.workflow_id === buildWorkflowId && run.build_version === detail.version);
-        console.log(`buildWorkflowId: ${buildWorkflowId}\nbuildRun: ${buildRun}`);
         if (buildRun) {
           buildRun.isRelease = true;
           buildRun.release_version = releaseDetails.release_version;
-          console.log(`new buildRun: ${buildRun}`);
         }
       } catch (err) {
         console.error('Error processing release details:', err);
