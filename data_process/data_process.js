@@ -131,7 +131,7 @@ async function fetchDataAndUpdateComponents() {
 
     // Exit early if the branch is not "master"
     if (fetchedData.head_branch !== 'master' && fetchedData.head_branch !== 'release') {
-      console.log('Exiting script because it is not automatically triggered');
+      console.log('Exiting script because it is not in correct branches');
       return;
     }
 
