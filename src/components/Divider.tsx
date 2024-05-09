@@ -7,16 +7,25 @@ interface DividerProps {
 
 const Divider: React.FC<DividerProps> = ({ isOpen, toggle }) => {
   return (
-    <div
+    <button
       className={`divider ${isOpen ? 'open' : 'closed'}`}
       onClick={toggle}
       title={isOpen ? 'Close the filter bar' : 'Open the filter bar'}
+      aria-expanded={isOpen}
+      style={{ all: 'unset', cursor: 'pointer' }}
     >
-      {isOpen ? 
-        <i className="bi bi-caret-right"></i>
-      : <i className="bi bi-caret-left"></i>}
-    </div>
+      <span aria-hidden="true">
+        {isOpen ? 
+          <i className="bi bi-caret-right"></i> :
+          <i className="bi bi-caret-left"></i>
+        }
+      </span>
+      <span className="visually-hidden">
+        {isOpen ? 'Close sidebar' : 'Open sidebar'}
+      </span>
+    </button>
   );
 };
+
 
 export default Divider;

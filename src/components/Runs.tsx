@@ -113,7 +113,7 @@ const Runs: React.FC<RunsProps> = ({
   }
 
   return (
-    <div className="d-flex flex-column" style={{ minHeight: '90vh' }}>
+    <div className="d-flex flex-column" style={{ minHeight: '88vh' }}>
       <h4 className="mt-3 mb-3">Build on Master</h4>
       <Table striped bordered hover responsive>
         <thead>

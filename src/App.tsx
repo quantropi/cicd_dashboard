@@ -61,6 +61,10 @@ const AppContent: React.FC = () => {
     }
   }, [tab, tabsData]);
 
+  const filterWidth = filterVisible ? '300px' : '0px';
+  const dividerWidth = '10px';
+  const runsWidth = `calc(100% - ${filterWidth} - ${dividerWidth})`;
+
   return (
     <Container fluid>
       <Header />
@@ -72,7 +76,7 @@ const AppContent: React.FC = () => {
         clearWorkflow={clearWorkflow}
       />
       <Row>
-        <Col xs={12} md={filterVisible ? 9 : 11}>
+        <Col style={{ width: runsWidth }}>
           <Runs
             selectedTab={selectedTab}
             selectedRepo={selectedRepo}
@@ -85,9 +89,11 @@ const AppContent: React.FC = () => {
             endTime={endTime}
           />
         </Col>
+
         <Divider isOpen={filterVisible} toggle={toggleFilter} />
+        
         {filterVisible && (
-          <Col xs={12} md={2}>
+          <div style={{ width: filterWidth }}>
             <Filter
               selectedTab={selectedTab}
               selectedRepo={selectedRepo}
@@ -106,7 +112,7 @@ const AppContent: React.FC = () => {
               setEndTime={setEndTime}
               setSelectedRepo={setSelectedRepo}
             />
-          </Col>
+          </div>
         )}
       </Row>
     </Container>
