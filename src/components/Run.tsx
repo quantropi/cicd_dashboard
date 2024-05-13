@@ -16,7 +16,7 @@ const Run: React.FC<RunProps> = ({ run }) => {
   // Function to format UTC date string to local Ottawa time
   const formatLocalTime = (utcTime: string) => {
     const date = new Date(utcTime);
-    return date.toLocaleString('en-CA', { timeZone: 'America/Toronto' });
+    return date.toLocaleString('en-US', { timeZone: 'America/Toronto' });
   };
 
   return (
@@ -54,12 +54,12 @@ const Run: React.FC<RunProps> = ({ run }) => {
             className="text-truncate"
             style={{
               maxWidth: '150px',
-              color: run.test_result === 'FAILED' ? 'red' : 'inherit',
             }}>
-            <a href={run.test_run_url} target="_blank" rel="noopener noreferrer">
+            <a href={run.test_run_url} target="_blank" rel="noopener noreferrer" 
+              className={run.test_result === 'FAILED' ? 'link-failed' : 'link-default'}
+            >
               {run.test_result}
             </a>
-
           </div>
         ) : 'N/A'}
       </td>

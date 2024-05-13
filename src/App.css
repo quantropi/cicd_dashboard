@@ -64,3 +64,18 @@
   cursor: pointer;
   position: relative;
 }
+
+.link-default {
+  color: #007bff; /* Bootstrap's default blue */
+}
+.link-default:hover {
+  color: #0056b3; /* Darker blue on hover */
+}
+
+/* Styles for failed test results */
+.link-failed {
+  color: red; /* Red for failed results */
+}
+.link-failed:hover {
+  color: darkred; /* Dark red on hover */
+}
