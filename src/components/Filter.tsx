@@ -68,12 +68,13 @@ const Filter: React.FC<FilterProps> = ({
   };
 
   const repos: Repo[] = selectedTab === 'all'
-    ? tabsData.flatMap(tab => tab.repos || [])
-    : tabsData.find(tab => tab.name === selectedTab)?.repos || [];
+  ? tabsData.flatMap(tab => tab.repos || []).filter(repo => repo.category === 'product')
+  : (tabsData.find(tab => tab.name === selectedTab)?.repos || []).filter(repo => repo.category === 'product');
 
   const workflows = repos
     .filter(repo => repo.name === selectedRepo || selectedRepo === '')
-    .flatMap(repo => repo.workflows || []);
+    .flatMap(repo => repo.workflows || [])
+    .filter(workflow => workflow.category === 'build');
 
   return (
     <div>
