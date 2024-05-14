@@ -427,7 +427,7 @@
     "user": "quantropi-yyang",
     "branch": "master",
     "status": "success",
-    "test_result": "FAILED",
+    "test_result": "PASSED",
     "test_run_url": "https://github.com/quantropi/sdk_qa/actions/runs/9085004976",
     "build_version": "235",
     "isRelease": false,
