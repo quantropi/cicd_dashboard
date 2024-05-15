@@ -598,11 +598,30 @@
     "user": "quantropi-btank",
     "branch": "master",
     "status": "success",
-    "test_result": "",
-    "test_run_url": null,
+    "test_result": "FAILED",
+    "test_run_url": "https://github.com/quantropi/sdk_qa/actions/runs/9096242627",
     "build_version": "201",
     "isRelease": false,
     "release_version": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/201"
+  },
+  {
+    "id": "9096242627",
+    "url": "https://github.com/quantropi/sdk_qa/actions/runs/9096242627",
+    "repo": "sdk_qa",
+    "repo_url": "https://github.com/quantropi/sdk_qa",
+    "workflow_name": "masq_bn_qa_test",
+    "workflow_id": 68583426,
+    "run_number": 361,
+    "time": "2024-05-15T13:07:07Z",
+    "user": "quantropi-devops-agent",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "FAILED",
+    "test_run_url": null,
+    "build_version": "201",
+    "isRelease": false,
+    "release_version": null,
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/201/test-361"
   }
 ]
