@@ -528,5 +528,24 @@
     "isRelease": false,
     "release_version": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/300/test-238"
+  },
+  {
+    "id": "9095242903",
+    "url": "https://github.com/quantropi/MASQ-BN/actions/runs/9095242903",
+    "repo": "MASQ-BN",
+    "repo_url": "https://github.com/quantropi/MASQ-BN",
+    "workflow_name": "masq_bn_build_api",
+    "workflow_id": 67497867,
+    "run_number": 201,
+    "time": "2024-05-15T12:00:31Z",
+    "user": "quantropi-btank",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "",
+    "test_run_url": null,
+    "build_version": "201",
+    "isRelease": false,
+    "release_version": null,
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/201"
   }
 ]
