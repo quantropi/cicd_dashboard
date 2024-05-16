@@ -193,6 +193,13 @@
             "url": "https://github.com/quantropi/qiserver/actions/workflows/promote-tag.yml"
           }
         ]
+      },
+      {"name": "qispace_qa",
+        "level": "repo",
+        "description": "",
+        "category": "qa",
+        "url": "https://github.com/quantropi/qispace_qa",
+        "workflows": []
       }
     ]
   },

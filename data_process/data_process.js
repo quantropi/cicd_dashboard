@@ -226,11 +226,23 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
 
   // Validate test_result
   const validResults = ["PASSED", "FAILED", "ABORTED"];
-  let validatedTestResult = fetchedData.conclusion !== "cancelled" && validResults.includes(incomingData.test_result.toUpperCase()) ? incomingData.test_result.toUpperCase() : "";
+  let validatedTestResult = '';
 
   // Handle build run's test_result
   // Check if the workflow is of category "qa" and override the build's test_result
   if (repo.category === "qa" && build_workflow_id && incomingData.build_version) {
+    if (fetchedData.conclusion === 'failure') {
+      validatedTestResult = 'FAILED';
+    } else if (fetchedData.conclusion === 'success') {
+      if (incomingData.test_result && incomingData.test_result !== '') {
+        validatedTestResult = validResults.includes(incomingData.test_result.toUpperCase()) ? incomingData.test_result.toUpperCase() : "";
+      } else {
+        validatedTestResult = 'PASSED';
+      }
+    } else {
+      validatedTestResult = '';
+    }
+
     const buildRun = runs.find(run => run.workflow_id === build_workflow_id && run.build_version === incomingData.build_version);
     if (buildRun) {
       // Update the test result of the build run
