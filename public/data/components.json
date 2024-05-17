@@ -194,7 +194,8 @@
           }
         ]
       },
-      {"name": "qispace_qa",
+      {
+        "name": "qispace_qa",
         "level": "repo",
         "description": "",
         "category": "qa",
