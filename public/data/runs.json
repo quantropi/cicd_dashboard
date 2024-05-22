@@ -810,8 +810,8 @@
     "test_result": "FAILED",
     "test_run_url": "https://github.com/quantropi/sdk_qa/actions/runs/9179790332",
     "build_version": "241",
-    "isRelease": false,
-    "release_version": null,
+    "isRelease": true,
+    "release_version": "1.9.0",
     "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/241"
   },
   {
@@ -829,8 +829,8 @@
     "test_result": "",
     "test_run_url": "https://github.com/quantropi/sdk_qa/actions/runs/9192050880",
     "build_version": "205",
-    "isRelease": false,
-    "release_version": null,
+    "isRelease": true,
+    "release_version": "1.9.0",
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/205"
   },
   {
@@ -981,8 +981,8 @@
     "test_result": "",
     "test_run_url": "https://github.com/quantropi/sdk_qa/actions/runs/9132108139",
     "build_version": "221",
-    "isRelease": false,
-    "release_version": null,
+    "isRelease": true,
+    "release_version": "1.9.0",
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-kem/221"
   },
   {
@@ -1019,8 +1019,8 @@
     "test_result": "PASSED",
     "test_run_url": "https://github.com/quantropi/sdk_qa/actions/runs/9179021771",
     "build_version": "317",
-    "isRelease": false,
-    "release_version": null,
+    "isRelease": true,
+    "release_version": "1.9.0",
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/317"
   },
   {
@@ -1246,7 +1246,7 @@
     "status": "success",
     "test_result": "",
     "test_run_url": null,
-    "build_version": "1.8.2",
+    "build_version": "1.9.0",
     "isRelease": false,
     "release_version": null,
     "s3_urls": ""
