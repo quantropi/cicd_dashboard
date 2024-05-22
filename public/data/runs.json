@@ -1231,5 +1231,24 @@
     "isRelease": false,
     "release_version": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/319/test-242"
+  },
+  {
+    "id": "9195472113",
+    "url": "https://github.com/quantropi/SDK_CICD_pipelines/actions/runs/9195472113",
+    "repo": "SDK_CICD_pipelines",
+    "repo_url": "https://github.com/quantropi/SDK_CICD_pipelines",
+    "workflow_name": "cicd_release_promote",
+    "workflow_id": 73625002,
+    "run_number": 20,
+    "time": "2024-05-22T17:03:24Z",
+    "user": "quantropi-btank",
+    "branch": "release",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "build_version": "1.8.2",
+    "isRelease": false,
+    "release_version": null,
+    "s3_urls": ""
   }
 ]
