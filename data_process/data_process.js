@@ -277,11 +277,11 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     for (const detail of releaseDetails.details) {
       try {
         // Debug
-        console.log(`Line 280: detail: ${detail}`);
+        console.log(`Line 280: detail.repo: ${detail.repo}, detail.build_workflow: ${detail.build_workflow}`);
 
         const buildWorkflowId = await getBuildWorkflowId(detail.repo, detail.build_workflow); // Ensure you await this function
         // Debug
-        console.log(`Line 284: detail: ${buildWorkflowId}`);
+        console.log(`Line 284: buildWorkflowId: ${buildWorkflowId}`);
         
         const buildRun = runs.find(run => run.workflow_id === buildWorkflowId && run.build_version === detail.version);
         // Debug
