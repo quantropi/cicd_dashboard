@@ -1383,5 +1383,24 @@
     "isRelease": false,
     "release_version": null,
     "s3_urls": ""
+  },
+  {
+    "id": "9213311547",
+    "url": "https://github.com/quantropi/qiserver/actions/runs/9213311547",
+    "repo": "qiserver",
+    "repo_url": "https://github.com/quantropi/qiserver",
+    "workflow_name": "Promote version",
+    "workflow_id": 37168070,
+    "run_number": 123,
+    "time": "2024-05-23T18:49:48Z",
+    "user": "quantropi-yyang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "build_version": "kds_v1.7.3.1_yyang_test",
+    "isRelease": false,
+    "release_version": null,
+    "s3_urls": "s3://qispace-enterprise-release/release_v1.7.3.1_yyang_test"
   }
 ]
