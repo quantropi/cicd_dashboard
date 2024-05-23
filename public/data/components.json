@@ -245,7 +245,7 @@
             "id": 96993211,
             "file": "qc_playwright.yml",
             "name": "QC Test (Playwright)",
-            "build_workflow": 86218728,
+            "build_workflow": null,
             "url": "https://github.com/quantropi/qispace_qa/actions/workflows/qc_playwright.yml",
             "category": "qa"
           }
