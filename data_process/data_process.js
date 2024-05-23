@@ -228,45 +228,22 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
   const validResults = ["PASSED", "FAILED", "ABORTED"];
   let validatedTestResult = '';
 
-  // Debug
-  console.log(`Line 232: repo.category: ${repo.category}, build_workflow_id: ${build_workflow_id}, incomingData.build_version: ${incomingData.build_version}`);
-
   // Handle build run's test_result
   // Check if the workflow is of category "qa" and override the build's test_result
   if (repo.category === "qa" && build_workflow_id && incomingData.build_version) {
-    // Debug
-    console.log("Line 238");
-
     if (fetchedData.conclusion === 'failure') {
-      // Debug
-      console.log("Line 242");
-
       validatedTestResult = 'FAILED';
     } else if (fetchedData.conclusion === 'success') {
-      // Debug
-      console.log(`Line 247: incomingData.test_result: ${incomingData.test_result}`);
-
       if (incomingData.test_result && incomingData.test_result !== '') {
-        // Debug
-        console.log("Line 251");
-
         validatedTestResult = validResults.includes(incomingData.test_result.toUpperCase()) ? incomingData.test_result.toUpperCase() : "";
       } else {
-        // Debug
-        console.log("Line 256");
-
-        validatedTestResult = 'PASSED';
+                validatedTestResult = 'PASSED';
       }
     } else {
-      // Debug
-      console.log("Line 262");
-
       validatedTestResult = '';
     }
 
     const buildRun = runs.find(run => run.workflow_id === build_workflow_id && run.build_version === incomingData.build_version);
-    // Debug
-    console.log(`Line 269: buildRunId: ${buildRun.id}`);
 
     if (buildRun) {
       // Update the test result of the build run
