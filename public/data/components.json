@@ -208,6 +208,46 @@
             "build_workflow": 86218728,
             "url": "https://github.com/quantropi/qispace_qa/actions/workflows/kds_mabl_cli.yml",
             "category": "qa"
+          },
+          {
+            "id": 95327444,
+            "file": "kds_playwright.yml",
+            "name": "KDS Test (Playwright)",
+            "build_workflow": 86218728,
+            "url": "https://github.com/quantropi/qispace_qa/actions/workflows/kds_playwright.yml",
+            "category": "qa"
+          },
+          {
+            "id": 84268745,
+            "file": "kds_test_mabl_cloud.yml",
+            "name": "KDS Test (Mabl Cloud)",
+            "build_workflow": 86218728,
+            "url": "https://github.com/quantropi/qispace_qa/actions/workflows/kds_test_mabl_cloud.yml",
+            "category": "qa"
+          },
+          {
+            "id": 89826274,
+            "file": "ppk_extension_regression.yml",
+            "name": "PPK Extenstion (Playwright)",
+            "build_workflow": null,
+            "url": "https://github.com/quantropi/qispace_qa/actions/workflows/ppk_extension_regression.yml",
+            "category": "qa"
+          },
+          {
+            "id": 87777585,
+            "file": "qc_mabl_cli.yml",
+            "name": "QC Test (Mabl CLI)",
+            "build_workflow": null,
+            "url": "https://github.com/quantropi/qispace_qa/actions/workflows/qc_mabl_cli.yml",
+            "category": "qa"
+          },
+          {
+            "id": 96993211,
+            "file": "qc_playwright.yml",
+            "name": "QC Test (Playwright)",
+            "build_workflow": 86218728,
+            "url": "https://github.com/quantropi/qispace_qa/actions/workflows/qc_playwright.yml",
+            "category": "qa"
           }
         ]
       }
