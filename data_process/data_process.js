@@ -257,36 +257,15 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
   // For SDK: {"release_version": "release_v1.8.1", "details": [{"repo": "MASQ-BN", "build_workflow": "cicd_build_api.yml", "version": "189"}, {"repo": "MASQ-DS", "build_workflow": "cicd_build_api.yml", "version": "190"}, {"repo": "MASQ-KEM", "build_workflow": "cicd_build_api.yml", "version": "178"}, {"repo": "libqeep", "build_workflow": "cicd_build_api.yml", "version": "158"}]}
   // For QiSpace: {"release_version": "release_v1.8.3", "details": [{"repo": "qispace", "build_workflow": "build.yml", "version": "b_11"}]}
   // When the workflow.category === "release", it will check the the runs.json to find workflow match and build_version === version, then modify the isRelease === true, and modify the release_version to the current version.
-  
-  // Debug
-  console.log(`Line 262: workflowCategory: ${workflowCategory}, incomingData.release_json: ${incomingData.release_json}`);
-  
   if (workflowCategory === "release" && incomingData.release_json) {
-    // Debug
-    console.log(`Line 266`);
-
     // Assuming the JSON file is downloaded to a known directory
     const jsonFilePath = path.join(__dirname, '..', 'release_json.json');
-    // Debug
-    console.log(`Line 271: jsonFilePath: ${jsonFilePath}`);
-
     const releaseDetails = JSON.parse(fs.readFileSync(jsonFilePath, 'utf8'));
-    // Debug
-    console.log(`Line 275: releaseDetails:${releaseDetails}`);
 
     for (const detail of releaseDetails.details) {
       try {
-        // Debug
-        console.log(`Line 280: detail.repo: ${detail.repo}, detail.build_workflow: ${detail.build_workflow}`);
-
-        const buildWorkflowId = await getBuildWorkflowId(detail.repo, detail.build_workflow); // Ensure you await this function
-        // Debug
-        console.log(`Line 284: buildWorkflowId: ${buildWorkflowId}`);
-        
-        const buildRun = runs.find(run => run.workflow_id === buildWorkflowId && run.build_version === detail.version);
-        // Debug
-        console.log(`Line 284: buildRunId: ${buildRun.id}`);
-        
+        const buildWorkflowId = await getBuildWorkflowId(detail.repo, detail.build_workflow); // Ensure you await this function        
+        const buildRun = runs.find(run => run.workflow_id === buildWorkflowId && run.build_version === detail.version);        
         if (buildRun) {
           buildRun.isRelease = true;
           buildRun.release_version = releaseDetails.release_version;
