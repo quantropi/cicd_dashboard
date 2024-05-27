@@ -121,7 +121,8 @@ const Runs: React.FC<RunsProps> = ({
             <th>Workflow</th>
             <th>Repo</th>
             <th>QA Test</th>
-            <th>Time</th>
+            <th>Build Time</th>
+            <th>QA Time</th>
             <th>S3 URL</th>
           </tr>
         </thead>

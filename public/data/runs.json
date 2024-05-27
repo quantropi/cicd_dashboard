@@ -16,7 +16,8 @@
     "build_version": "293",
     "isRelease": true,
     "release_version": "release_v1.8.0.1",
-    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/293"
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/293",
+    "test_time": "2024-05-01T18:30:15Z"
   },
   {
     "id": "8913349453",
@@ -90,7 +91,8 @@
     "build_version": "219",
     "isRelease": true,
     "release_version": "release_v1.8.0.2_test",
-    "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/219"
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/219",
+    "test_time": "2024-05-07T17:43:12Z"
   },
   {
     "id": "8990161985",
@@ -432,7 +434,8 @@
     "build_version": "235",
     "isRelease": false,
     "release_version": null,
-    "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/235"
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/235",
+    "test_time": "2024-05-14T19:20:40Z"
   },
   {
     "id": "9085004976",
@@ -508,7 +511,8 @@
     "build_version": "300",
     "isRelease": false,
     "release_version": null,
-    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/300"
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/300",
+    "test_time": "2024-05-14T19:58:59Z"
   },
   {
     "id": "9085415727",
@@ -603,7 +607,8 @@
     "build_version": "201",
     "isRelease": false,
     "release_version": null,
-    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/201"
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/201",
+    "test_time": "2024-05-15T13:07:07Z"
   },
   {
     "id": "9096242627",
@@ -641,7 +646,8 @@
     "build_version": "240",
     "isRelease": false,
     "release_version": null,
-    "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/240"
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/240",
+    "test_time": "2024-05-15T15:16:16Z"
   },
   {
     "id": "9098292664",
@@ -717,7 +723,8 @@
     "build_version": "203",
     "isRelease": false,
     "release_version": null,
-    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/203"
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/203",
+    "test_time": "2024-05-15T16:15:12Z"
   },
   {
     "id": "9099158394",
@@ -812,7 +819,8 @@
     "build_version": "241",
     "isRelease": true,
     "release_version": "1.9.0",
-    "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/241"
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/241",
+    "test_time": "2024-05-27T12:16:34Z"
   },
   {
     "id": "9129563474",
@@ -831,7 +839,8 @@
     "build_version": "205",
     "isRelease": true,
     "release_version": "1.9.0",
-    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/205"
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/205",
+    "test_time": "2024-05-27T12:24:17Z"
   },
   {
     "id": "9129663368",
@@ -923,6 +932,7 @@
     "status": "failure",
     "test_result": "",
     "test_run_url": null,
+    "test_time": null,
     "build_version": "314",
     "isRelease": false,
     "release_version": null,
@@ -983,7 +993,8 @@
     "build_version": "221",
     "isRelease": true,
     "release_version": "1.9.0",
-    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-kem/221"
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-kem/221",
+    "test_time": "2024-05-17T17:36:19Z"
   },
   {
     "id": "9132108139",
@@ -1021,7 +1032,8 @@
     "build_version": "317",
     "isRelease": true,
     "release_version": "1.9.0",
-    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/317"
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/317",
+    "test_time": "2024-05-21T17:43:40Z"
   },
   {
     "id": "9179021771",
@@ -1078,7 +1090,8 @@
     "build_version": "222",
     "isRelease": false,
     "release_version": null,
-    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-kem/222"
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-kem/222",
+    "test_time": "2024-05-21T18:59:43Z"
   },
   {
     "id": "9179787531",
@@ -1097,7 +1110,8 @@
     "build_version": "318",
     "isRelease": false,
     "release_version": null,
-    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/318"
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/318",
+    "test_time": "2024-05-21T19:19:28Z"
   },
   {
     "id": "9179982407",
@@ -1154,7 +1168,8 @@
     "build_version": "223",
     "isRelease": false,
     "release_version": null,
-    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-kem/223"
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-kem/223",
+    "test_time": "2024-05-22T13:34:17Z"
   },
   {
     "id": "9192045696",
@@ -1173,7 +1188,8 @@
     "build_version": "319",
     "isRelease": false,
     "release_version": null,
-    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/319"
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/319",
+    "test_time": "2024-05-22T13:53:50Z"
   },
   {
     "id": "9192050880",
@@ -1287,7 +1303,8 @@
     "build_version": "b_72",
     "isRelease": false,
     "release_version": null,
-    "s3_urls": "s3://qispace-enterprise-release/builds/b_72"
+    "s3_urls": "s3://qispace-enterprise-release/builds/b_72",
+    "test_time": "2024-05-23T16:13:07Z"
   },
   {
     "id": "9210415276",
@@ -1344,7 +1361,8 @@
     "build_version": "b_73",
     "isRelease": true,
     "release_version": "kds_v1.7.3_yyang_test2",
-    "s3_urls": "s3://qispace-enterprise-release/builds/b_73"
+    "s3_urls": "s3://qispace-enterprise-release/builds/b_73",
+    "test_time": "2024-05-23T17:18:01Z"
   },
   {
     "id": "9211389865",
@@ -1420,7 +1438,8 @@
     "build_version": "320",
     "isRelease": false,
     "release_version": null,
-    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/320"
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/320",
+    "test_time": "2024-05-23T20:25:35Z"
   },
   {
     "id": "9213915148",
@@ -1439,7 +1458,8 @@
     "build_version": "224",
     "isRelease": false,
     "release_version": null,
-    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-kem/224"
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-kem/224",
+    "test_time": "2024-05-23T20:29:37Z"
   },
   {
     "id": "9214405320",

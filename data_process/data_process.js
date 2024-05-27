@@ -237,7 +237,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
       if (incomingData.test_result && incomingData.test_result !== '') {
         validatedTestResult = validResults.includes(incomingData.test_result.toUpperCase()) ? incomingData.test_result.toUpperCase() : "";
       } else {
-                validatedTestResult = 'PASSED';
+        validatedTestResult = 'PASSED';
       }
     } else {
       validatedTestResult = '';
@@ -249,6 +249,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
       // Update the test result of the build run
       buildRun.test_result = validatedTestResult;
       buildRun.test_run_url = fetchedData.html_url;
+      buildRun.test_time = fetchedData.run_started_at;
     }
   }
 
@@ -291,6 +292,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     status: fetchedData.conclusion,
     test_result: validatedTestResult,
     test_run_url: null,
+    test_time: null,
     build_version: incomingData.build_version || fetchedData.run_number,
     isRelease: false,
     release_version: null,

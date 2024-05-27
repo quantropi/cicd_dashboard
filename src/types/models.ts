@@ -37,6 +37,7 @@ export interface RunDetails {
   status: string;
   test_result: string;
   test_run_url: string;
+  test_time: string;
   build_version: string;
   isRelease: boolean;
   release_version: string;
