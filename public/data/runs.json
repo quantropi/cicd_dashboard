@@ -1673,5 +1673,25 @@
     "isRelease": false,
     "release_version": null,
     "s3_urls": ""
+  },
+  {
+    "id": "9258765248",
+    "url": "https://github.com/quantropi/eds_qc_installer/actions/runs/9258765248",
+    "repo": "eds_qc_installer",
+    "repo_url": "https://github.com/quantropi/eds_qc_installer",
+    "workflow_name": "build",
+    "workflow_id": 88839412,
+    "run_number": 29,
+    "time": "2024-05-27T18:07:01Z",
+    "user": "quantropi-devops-agent",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "b_29",
+    "isRelease": false,
+    "release_version": null,
+    "s3_urls": "s3://eds-qc-release/release-qc-b_29.zip"
   }
 ]

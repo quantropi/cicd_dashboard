@@ -326,7 +326,23 @@
     "level": "component",
     "description": "",
     "repos": [
-      
+      {
+        "name": "eds_qc_installer",
+        "level": "repo",
+        "description": "",
+        "category": "product",
+        "url": "https://github.com/quantropi/eds_qc_installer",
+        "workflows": [
+          {
+            "id": 88839412,
+            "file": "build.yml",
+            "name": "build",
+            "build_workflow": null,
+            "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/build.yml",
+            "category": "tool"
+          }
+        ]
+      }
     ]
   }
 ]
