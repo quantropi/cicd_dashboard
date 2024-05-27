@@ -250,14 +250,7 @@
             "category": "qa"
           }
         ]
-      }
-    ]
-  },
-  {
-    "name": "Others",
-    "level": "component",
-    "description": "",
-    "repos": [
+      },
       {
         "name": "eds_db",
         "level": "repo",
@@ -271,7 +264,7 @@
             "name": "build-publish-eds_db",
             "build_workflow": null,
             "url": "https://github.com/quantropi/eds_db/actions/workflows/build-publish.yml",
-            "category": "tool"
+            "category": "build"
           }
         ]
       },
@@ -288,7 +281,7 @@
             "name": "build-publish-eds_qes",
             "build_workflow": null,
             "url": "https://github.com/quantropi/eds_qes/actions/workflows/build-publish.yml",
-            "category": "tool"
+            "category": "build"
           }
         ]
       },
@@ -305,10 +298,18 @@
             "name": "build-publish-eds_maint",
             "build_workflow": null,
             "url": "https://github.com/quantropi/qispace_maint/actions/workflows/build-publish.yml",
-            "category": "tool"
+            "category": "build"
           }
         ]
       }
+    ]
+  },
+  {
+    "name": "Others",
+    "level": "component",
+    "description": "",
+    "repos": [
+      
     ]
   }
 ]
