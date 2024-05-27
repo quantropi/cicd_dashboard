@@ -257,6 +257,24 @@
     "name": "Others",
     "level": "component",
     "description": "",
-    "repos": []
+    "repos": [
+      {
+        "name": "eds_db",
+        "level": "repo",
+        "description": "",
+        "category": "product",
+        "url": "https://github.com/quantropi/eds_db",
+        "workflows": [
+          {
+            "id": 14315297,
+            "file": "build-publish.yml",
+            "name": "build-publish-eds_db",
+            "build_workflow": null,
+            "url": "https://github.com/quantropi/eds_db/actions/workflows/build-publish.yml",
+            "category": "tool"
+          }
+        ]
+      }
+    ]
   }
 ]
