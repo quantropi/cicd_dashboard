@@ -274,6 +274,23 @@
             "category": "tool"
           }
         ]
+      },
+      {
+        "name": "eds_qes",
+        "level": "repo",
+        "description": "",
+        "category": "product",
+        "url": "https://github.com/quantropi/eds_qes",
+        "workflows": [
+          {
+            "id": 14314246,
+            "file": "build-publish.yml",
+            "name": "build-publish-eds_qes",
+            "build_workflow": null,
+            "url": "https://github.com/quantropi/eds_qes/actions/workflows/build-publish.yml",
+            "category": "tool"
+          }
+        ]
       }
     ]
   }
