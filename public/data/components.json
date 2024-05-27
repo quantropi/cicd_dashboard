@@ -291,6 +291,23 @@
             "category": "tool"
           }
         ]
+      },
+      {
+        "name": "qispace_maint",
+        "level": "repo",
+        "description": "",
+        "category": "product",
+        "url": "https://github.com/quantropi/qispace_maint",
+        "workflows": [
+          {
+            "id": 14320535,
+            "file": "build-publish.yml",
+            "name": "build-publish-eds_maint",
+            "build_workflow": null,
+            "url": "https://github.com/quantropi/qispace_maint/actions/workflows/build-publish.yml",
+            "category": "tool"
+          }
+        ]
       }
     ]
   }
