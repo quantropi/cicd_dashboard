@@ -309,7 +309,23 @@
     "level": "component",
     "description": "",
     "repos": [
-      
+      {
+        "name": "qiserver_admin",
+        "level": "repo",
+        "description": "",
+        "category": "product",
+        "url": "https://github.com/quantropi/qiserver_admin",
+        "workflows": [
+          {
+            "id": 14321066,
+            "file": "build-publish.yml",
+            "name": "build-publish-kds_admin",
+            "build_workflow": null,
+            "url": "https://github.com/quantropi/qiserver_admin/actions/workflows/build-publish.yml",
+            "category": "tool"
+          }
+        ]
+      }
     ]
   }
 ]
