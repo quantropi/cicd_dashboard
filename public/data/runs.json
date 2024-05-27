@@ -807,8 +807,8 @@
     "user": "quantropi-btank",
     "branch": "master",
     "status": "success",
-    "test_result": "FAILED",
-    "test_run_url": "https://github.com/quantropi/sdk_qa/actions/runs/9254581570",
+    "test_result": "PASSED",
+    "test_run_url": "https://github.com/quantropi/sdk_qa/actions/runs/9254656978",
     "build_version": "241",
     "isRelease": true,
     "release_version": "1.9.0",
@@ -1497,5 +1497,24 @@
     "isRelease": false,
     "release_version": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/241/test-159"
+  },
+  {
+    "id": "9254656978",
+    "url": "https://github.com/quantropi/sdk_qa/actions/runs/9254656978",
+    "repo": "sdk_qa",
+    "repo_url": "https://github.com/quantropi/sdk_qa",
+    "workflow_name": "libqeep_qa_test",
+    "workflow_id": 71048646,
+    "run_number": 160,
+    "time": "2024-05-27T12:16:34Z",
+    "user": "quantropi-btank",
+    "branch": "master",
+    "status": "success",
+    "test_result": "PASSED",
+    "test_run_url": null,
+    "build_version": "241",
+    "isRelease": false,
+    "release_version": null,
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/241/test-160"
   }
 ]
