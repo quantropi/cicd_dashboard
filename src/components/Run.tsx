@@ -68,6 +68,11 @@ const Run: React.FC<RunProps> = ({ run }) => {
           {formatLocalTime(run.time)}
         </div>
       </td>
+      <td>
+        <div className="time-display" style={{ maxWidth: '200px' }}>
+          {run.test_time ? formatLocalTime(run.test_time) : 'N/A'}
+        </div>
+      </td>
       <td>{run.s3_urls !== "" ? run.s3_urls : 'N/A'}</td>
     </tr>
   );
