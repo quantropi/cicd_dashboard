@@ -65,8 +65,8 @@ const Runs: React.FC<RunsProps> = ({
             (!endTime || new Date(run.time) <= new Date(endTime));
 
           const byTestTime =
-            (!startTestTime || new Date(run.time) >= new Date(startTestTime)) &&
-            (!endTestTime || new Date(run.time) <= new Date(endTestTime));
+            (!startTestTime || new Date(run.test_time) >= new Date(startTestTime)) &&
+            (!endTestTime || new Date(run.test_time) <= new Date(endTestTime));
 
           return byTab && byRepo && byWorkflow && byCategory && byRelease && byReleaseVersion && byQaTest && byTime && byTestTime;
         });
