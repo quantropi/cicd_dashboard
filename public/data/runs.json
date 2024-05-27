@@ -1693,5 +1693,25 @@
     "isRelease": false,
     "release_version": null,
     "s3_urls": "s3://eds-qc-release/release-qc-b_29.zip"
+  },
+  {
+    "id": "9258938829",
+    "url": "https://github.com/quantropi/qiserver/actions/runs/9258938829",
+    "repo": "qiserver",
+    "repo_url": "https://github.com/quantropi/qiserver",
+    "workflow_name": "Build",
+    "workflow_id": 86218728,
+    "run_number": 74,
+    "time": "2024-05-27T18:24:40Z",
+    "user": "quantropi-devops-agent",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "b_74",
+    "isRelease": false,
+    "release_version": null,
+    "s3_urls": "s3://qispace-enterprise-release/builds/b_74"
   }
 ]
