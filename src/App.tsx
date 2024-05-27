@@ -35,6 +35,8 @@ const AppContent: React.FC = () => {
   const [qaTest, setQaTest] = useState<string>('All');
   const [startTime, setStartTime] = useState<string>('');
   const [endTime, setEndTime] = useState<string>('');
+  const [startTestTime, setStartTestTime]  = useState<string>('');
+  const [endTestTime, setEndTestTime] = useState<string>('');
   const [filterVisible, setFilterVisible] = useState<boolean>(false);
 
   const toggleFilter = () => setFilterVisible(!filterVisible);
@@ -87,6 +89,8 @@ const AppContent: React.FC = () => {
             qaTest={qaTest}
             startTime={startTime}
             endTime={endTime}
+            startTestTime={startTestTime}
+            endTestTime={endTestTime}
           />
         </Col>
 
@@ -110,6 +114,10 @@ const AppContent: React.FC = () => {
               setStartTime={setStartTime}
               endTime={endTime}
               setEndTime={setEndTime}
+              startTestTime={startTestTime}
+              setStartTestTime={setStartTestTime}
+              endTestTime={endTestTime}
+              setEndTestTime={setEndTestTime}
               setSelectedRepo={setSelectedRepo}
             />
           </div>

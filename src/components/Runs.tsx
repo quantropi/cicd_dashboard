@@ -14,6 +14,8 @@ interface RunsProps {
   qaTest: string;
   startTime: string;
   endTime: string;
+  startTestTime: string;
+  endTestTime: string;
 }
 
 const Runs: React.FC<RunsProps> = ({
@@ -26,6 +28,8 @@ const Runs: React.FC<RunsProps> = ({
   qaTest,
   startTime,
   endTime,
+  startTestTime,
+  endTestTime,
 }) => {
   const [runs, setRuns] = useState<RunDetails[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -60,7 +64,11 @@ const Runs: React.FC<RunsProps> = ({
             (!startTime || new Date(run.time) >= new Date(startTime)) &&
             (!endTime || new Date(run.time) <= new Date(endTime));
 
-          return byTab && byRepo && byWorkflow && byCategory && byRelease && byReleaseVersion && byQaTest && byTime;
+          const byTestTime =
+            (!startTestTime || new Date(run.time) >= new Date(startTestTime)) &&
+            (!endTestTime || new Date(run.time) <= new Date(endTestTime));
+
+          return byTab && byRepo && byWorkflow && byCategory && byRelease && byReleaseVersion && byQaTest && byTime && byTestTime;
         });
 
         // Sort by time, most recent first
@@ -73,7 +81,7 @@ const Runs: React.FC<RunsProps> = ({
     };
 
     fetchRuns();
-  }, [selectedTab, selectedRepo, selectedWorkflow, tabsData, release, releaseVersion, qaTest, startTime, endTime]);
+  }, [selectedTab, selectedRepo, selectedWorkflow, tabsData, release, releaseVersion, qaTest, startTime, endTime, startTestTime, endTestTime]);
 
   // Calculate total pages and setup pagination
   const lastRunIndex = currentPage * itemsPerPage;

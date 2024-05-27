@@ -18,6 +18,10 @@ interface FilterProps {
   setStartTime: (time: string) => void;
   endTime: string;
   setEndTime: (time: string) => void;
+  startTestTime: string;
+  setStartTestTime: (time: string) => void;
+  endTestTime: string;
+  setEndTestTime: (time: string) => void;
   setSelectedRepo: (repo: string) => void;
 }
 
@@ -37,6 +41,10 @@ const Filter: React.FC<FilterProps> = ({
   setStartTime,
   endTime,
   setEndTime,
+  startTestTime,
+  setStartTestTime,
+  endTestTime,
+  setEndTestTime,
   setSelectedRepo,
 }) => {
   const [releaseVersions, setReleaseVersions] = useState<string[]>([]);
@@ -65,6 +73,8 @@ const Filter: React.FC<FilterProps> = ({
     setQaTest('All');
     setStartTime('');
     setEndTime('');
+    setStartTestTime('');
+    setEndTestTime('');
   };
 
   const repos: Repo[] = selectedTab === 'all'
@@ -147,7 +157,7 @@ const Filter: React.FC<FilterProps> = ({
           </Form.Control>
         </Form.Group>
         <Form.Group>
-          <Form.Label>Start Time</Form.Label>
+          <Form.Label>Start Build Time</Form.Label>
           <Form.Control
             type="datetime-local"
             value={startTime}
@@ -155,11 +165,27 @@ const Filter: React.FC<FilterProps> = ({
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label>End Time</Form.Label>
+          <Form.Label>End Build Time</Form.Label>
           <Form.Control
             type="datetime-local"
             value={endTime}
             onChange={e => setEndTime(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Start QA Time</Form.Label>
+          <Form.Control
+            type="datetime-local"
+            value={startTestTime}
+            onChange={e => setStartTestTime(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>End QA Time</Form.Label>
+          <Form.Control
+            type="datetime-local"
+            value={endTestTime}
+            onChange={e => setEndTestTime(e.target.value)}
           />
         </Form.Group>
         <br />
