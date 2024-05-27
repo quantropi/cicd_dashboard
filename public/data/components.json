@@ -237,7 +237,7 @@
             "id": 87777585,
             "file": "qc_mabl_cli.yml",
             "name": "QC Test (Mabl CLI)",
-            "build_workflow_id": null,
+            "build_workflow_id": 88839412,
             "url": "https://github.com/quantropi/qispace_qa/actions/workflows/qc_mabl_cli.yml",
             "category": "qa"
           },
@@ -245,7 +245,7 @@
             "id": 96993211,
             "file": "qc_playwright.yml",
             "name": "QC Test (Playwright)",
-            "build_workflow_id": null,
+            "build_workflow_id": 88839412,
             "url": "https://github.com/quantropi/qispace_qa/actions/workflows/qc_playwright.yml",
             "category": "qa"
           }
