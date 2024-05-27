@@ -994,7 +994,7 @@
     "isRelease": true,
     "release_version": "1.9.0",
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-kem/221",
-    "test_time": "2024-05-17T17:36:19Z"
+    "test_time": "2024-05-27T12:25:05Z"
   },
   {
     "id": "9132108139",
@@ -1033,7 +1033,7 @@
     "isRelease": true,
     "release_version": "1.9.0",
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/317",
-    "test_time": "2024-05-21T17:43:40Z"
+    "test_time": "2024-05-27T12:24:45Z"
   },
   {
     "id": "9179021771",
