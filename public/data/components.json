@@ -318,14 +318,7 @@
             "category": "build"
           }
         ]
-      }
-    ]
-  },
-  {
-    "name": "Others",
-    "level": "component",
-    "description": "",
-    "repos": [
+      },
       {
         "name": "eds_qc_installer",
         "level": "repo",
@@ -339,10 +332,18 @@
             "name": "build",
             "build_workflow": null,
             "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/build.yml",
-            "category": "tool"
+            "category": "build"
           }
         ]
       }
+    ]
+  },
+  {
+    "name": "Others",
+    "level": "component",
+    "description": "",
+    "repos": [
+      
     ]
   }
 ]
