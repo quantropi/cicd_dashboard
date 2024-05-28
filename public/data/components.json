@@ -342,6 +342,24 @@
     "name": "Others",
     "level": "component",
     "description": "",
-    "repos": []
+    "repos": [
+      {
+        "name": "qiserver_qe2qk_service",
+        "level": "repo",
+        "description": "",
+        "category": "product",
+        "url": "https://github.com/quantropi/qiserver_qe2qk_service",
+        "workflows": [
+          {
+            "id": 14321686,
+            "file": "build-publish.yml",
+            "name": "build-publish-kds_qe2qk",
+            "build_workflow": null,
+            "url": "https://github.com/quantropi/qiserver_qe2qk_service/actions/workflows/build-publish.yml",
+            "category": "tool"
+          }
+        ]
+      }
+    ]
   }
 ]
