@@ -359,6 +359,23 @@
             "category": "tool"
           }
         ]
+      },
+      {
+        "name": "qispace_admin",
+        "level": "repo",
+        "description": "",
+        "category": "product",
+        "url": "https://github.com/quantropi/qispace_admin",
+        "workflows": [
+          {
+            "id": 14231019,
+            "file": "build-publish.yml",
+            "name": "build-publish-eds_admin",
+            "build_workflow": null,
+            "url": "https://github.com/quantropi/qispace_admin/actions/workflows/build-publish.yml",
+            "category": "tool"
+          }
+        ]
       }
     ]
   }
