@@ -335,14 +335,7 @@
             "category": "build"
           }
         ]
-      }
-    ]
-  },
-  {
-    "name": "Others",
-    "level": "component",
-    "description": "",
-    "repos": [
+      },
       {
         "name": "qiserver_qe2qk_service",
         "level": "repo",
@@ -356,7 +349,7 @@
             "name": "build-publish-kds_qe2qk",
             "build_workflow": null,
             "url": "https://github.com/quantropi/qiserver_qe2qk_service/actions/workflows/build-publish.yml",
-            "category": "tool"
+            "category": "build"
           }
         ]
       },
@@ -373,10 +366,18 @@
             "name": "build-publish-eds_admin",
             "build_workflow": null,
             "url": "https://github.com/quantropi/qispace_admin/actions/workflows/build-publish.yml",
-            "category": "tool"
+            "category": "build"
           }
         ]
       }
+    ]
+  },
+  {
+    "name": "Others",
+    "level": "component",
+    "description": "",
+    "repos": [
+      
     ]
   }
 ]
