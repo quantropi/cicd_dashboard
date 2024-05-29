@@ -164,31 +164,31 @@
             "id": 85796277,
             "file": "deploy-qa.yml",
             "name": "Deploy QA",
-            "build_workflow_id": null,
-            "category": "tool",
+            "build_workflow_id": 86218728,
+            "category": "deploy",
             "url": "https://github.com/quantropi/qiserver/actions/workflows/deploy-qa.yml"
           },
           {
             "id": 87631112,
             "file": "deploy-quantropi.yml",
             "name": "Deploy Quantropi",
-            "build_workflow_id": null,
-            "category": "tool",
+            "build_workflow_id": 86218728,
+            "category": "deploy",
             "url": "https://github.com/quantropi/qiserver/actions/workflows/deploy-quantropi.yml"
           },
           {
             "id": 86920997,
             "file": "deploy-staging.yml",
             "name": "Deploy Staging",
-            "build_workflow_id": null,
-            "category": "tool",
+            "build_workflow_id": 86218728,
+            "category": "deploy",
             "url": "https://github.com/quantropi/qiserver/actions/workflows/deploy-staging.yml"
           },
           {
             "id": 37168070,
             "file": "promote-tag.yml",
             "name": "Promote version",
-            "build_workflow_id": null,
+            "build_workflow_id": 86218728,
             "category": "release",
             "url": "https://github.com/quantropi/qiserver/actions/workflows/promote-tag.yml"
           }
@@ -262,7 +262,7 @@
             "id": 14315297,
             "file": "build-publish.yml",
             "name": "build-publish-eds_db",
-            "build_workflow": null,
+            "build_workflow_id": null,
             "url": "https://github.com/quantropi/eds_db/actions/workflows/build-publish.yml",
             "category": "build"
           }
@@ -279,7 +279,7 @@
             "id": 14314246,
             "file": "build-publish.yml",
             "name": "build-publish-eds_qes",
-            "build_workflow": null,
+            "build_workflow_id": null,
             "url": "https://github.com/quantropi/eds_qes/actions/workflows/build-publish.yml",
             "category": "build"
           }
@@ -296,7 +296,7 @@
             "id": 14320535,
             "file": "build-publish.yml",
             "name": "build-publish-eds_maint",
-            "build_workflow": null,
+            "build_workflow_id": null,
             "url": "https://github.com/quantropi/qispace_maint/actions/workflows/build-publish.yml",
             "category": "build"
           }
@@ -313,7 +313,7 @@
             "id": 14321066,
             "file": "build-publish.yml",
             "name": "build-publish-kds_admin",
-            "build_workflow": null,
+            "build_workflow_id": null,
             "url": "https://github.com/quantropi/qiserver_admin/actions/workflows/build-publish.yml",
             "category": "build"
           }
@@ -330,9 +330,74 @@
             "id": 88839412,
             "file": "build.yml",
             "name": "build",
-            "build_workflow": null,
+            "build_workflow_id": null,
             "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/build.yml",
             "category": "build"
+          },
+          {
+            "id": 88839413,
+            "file": "deploy-qa.yml",
+            "name": "Deploy QA",
+            "build_workflow_id": 88839412,
+            "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/deploy-qa.yml",
+            "category": "deploy"
+          },
+          {
+            "id": 88839414,
+            "file": "deploy-staging.yml",
+            "name": "Deploy Staging",
+            "build_workflow_id": 88839412,
+            "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/deploy-staging.yml",
+            "category": "deploy"
+          },
+          {
+            "id": 89717008,
+            "file": "deploy-production-ansible.yml",
+            "name": "Deploy Production",
+            "build_workflow_id": 88839412,
+            "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/deploy-production-ansible.yml",
+            "category": "deploy"
+          }
+        ]
+      },
+      {
+        "name": "eds_qes_installer",
+        "level": "repo",
+        "description": "",
+        "category": "product",
+        "url": "https://github.com/quantropi/eds_qc_installer",
+        "workflows": [
+          {
+            "id": 14460835,
+            "file": "build-release.yml",
+            "name": "Build manifest package",
+            "build_workflow_id": null,
+            "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/build-release.yml",
+            "category": "build"
+          },
+          {
+            "id": 15763170,
+            "file": "deploy-to-production.yml",
+            "name": "Deploy Production",
+            "build_workflow_id": 88839412,
+            "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/deploy-to-production.yml",
+            "category": "deploy"
+          },
+          {
+            "id": 25012584,
+            "file": "build-&-deploy-staging.yml",
+            "name": "Build & Deploy Staging [QES]",
+            "build_workflow_id": 88839412,
+            "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/build-&-deploy-staging.yml",
+            "category": "deploy"
+          },
+          {
+            "id": 28585065,
+            "file": "build-&-deploy-testing.yml",
+            "name": "Build & Deploy Testing",
+            "build_workflow_id": 88839412,
+            "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/build-&-deploy-testing.yml",
+            "category": "deploy"
           }
         ]
       },
@@ -347,7 +412,7 @@
             "id": 14321686,
             "file": "build-publish.yml",
             "name": "build-publish-kds_qe2qk",
-            "build_workflow": null,
+            "build_workflow_id": null,
             "url": "https://github.com/quantropi/qiserver_qe2qk_service/actions/workflows/build-publish.yml",
             "category": "build"
           }
@@ -364,7 +429,7 @@
             "id": 14231019,
             "file": "build-publish.yml",
             "name": "build-publish-eds_admin",
-            "build_workflow": null,
+            "build_workflow_id": null,
             "url": "https://github.com/quantropi/qispace_admin/actions/workflows/build-publish.yml",
             "category": "build"
           }
