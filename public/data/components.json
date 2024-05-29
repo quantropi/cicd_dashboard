@@ -165,7 +165,7 @@
             "file": "deploy-qa.yml",
             "name": "Deploy QA",
             "build_workflow_id": 86218728,
-            "category": "deploy",
+            "category": "tool",
             "url": "https://github.com/quantropi/qiserver/actions/workflows/deploy-qa.yml"
           },
           {
@@ -181,7 +181,7 @@
             "file": "deploy-staging.yml",
             "name": "Deploy Staging",
             "build_workflow_id": 86218728,
-            "category": "deploy",
+            "category": "tool",
             "url": "https://github.com/quantropi/qiserver/actions/workflows/deploy-staging.yml"
           },
           {
@@ -340,7 +340,7 @@
             "name": "Deploy QA",
             "build_workflow_id": 88839412,
             "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/deploy-qa.yml",
-            "category": "deploy"
+            "category": "tool"
           },
           {
             "id": 88839414,
@@ -348,7 +348,7 @@
             "name": "Deploy Staging",
             "build_workflow_id": 88839412,
             "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/deploy-staging.yml",
-            "category": "deploy"
+            "category": "tool"
           },
           {
             "id": 89717008,
@@ -389,7 +389,7 @@
             "name": "Build & Deploy Staging [QES]",
             "build_workflow_id": 88839412,
             "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/build-&-deploy-staging.yml",
-            "category": "deploy"
+            "category": "tool"
           },
           {
             "id": 28585065,
@@ -397,7 +397,7 @@
             "name": "Build & Deploy Testing",
             "build_workflow_id": 88839412,
             "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/build-&-deploy-testing.yml",
-            "category": "deploy"
+            "category": "tool"
           }
         ]
       },
