@@ -47,16 +47,15 @@ const Filter: React.FC<FilterProps> = ({
   setEndTestTime,
   setSelectedRepo,
 }) => {
-  const [releaseVersions, setReleaseVersions] = useState<string[]>([]);
+  const [allRuns, setAllRuns] = useState<RunDetails[]>([]);
+  const [filteredReleaseVersions, setFilteredReleaseVersions] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchRunsData = async () => {
       try {
         const response = await fetch(`${process.env.PUBLIC_URL}/data/runs.json`);
-        const allRuns: RunDetails[] = await response.json();
-
-        const versions = [...new Set(allRuns.map(run => run.release_version).filter(version => version !== null && version !== undefined))] as string[];
-        setReleaseVersions(versions);
+        const allRunsData: RunDetails[] = await response.json();
+        setAllRuns(allRunsData);
       } catch (error) {
         console.error("Failed to fetch runs data", error);
       }
@@ -64,6 +63,17 @@ const Filter: React.FC<FilterProps> = ({
 
     fetchRunsData();
   }, []);
+
+  useEffect(() => {
+    let versions: string[];
+    if (selectedTab === 'all') {
+      versions = [...new Set(allRuns.map(run => run.release_version).filter(version => version !== null && version !== undefined))] as string[];
+    } else {
+      const tabRepos = tabsData.find(tab => tab.name === selectedTab)?.repos?.map(repo => repo.name) || [];
+      versions = [...new Set(allRuns.filter(run => tabRepos.includes(run.repo)).map(run => run.release_version).filter(version => version !== null && version !== undefined))] as string[];
+    }
+    setFilteredReleaseVersions(versions);
+  }, [selectedTab, allRuns, tabsData]);
 
   const resetFilters = () => {
     setSelectedRepo('');
@@ -78,8 +88,8 @@ const Filter: React.FC<FilterProps> = ({
   };
 
   const repos: Repo[] = selectedTab === 'all'
-  ? tabsData.flatMap(tab => tab.repos || []).filter(repo => repo.category === 'product')
-  : (tabsData.find(tab => tab.name === selectedTab)?.repos || []).filter(repo => repo.category === 'product');
+    ? tabsData.flatMap(tab => tab.repos || []).filter(repo => repo.category === 'product')
+    : (tabsData.find(tab => tab.name === selectedTab)?.repos || []).filter(repo => repo.category === 'product');
 
   const workflows = repos
     .filter(repo => repo.name === selectedRepo || selectedRepo === '')
@@ -106,7 +116,7 @@ const Filter: React.FC<FilterProps> = ({
             onChange={e => setReleaseVersion(e.target.value)}
           >
             <option value="">All Versions</option>
-            {releaseVersions.map(version => (
+            {filteredReleaseVersions.map(version => (
               <option key={version} value={version}>
                 {version}
               </option>
