@@ -1360,7 +1360,7 @@
     "test_run_url": "https://github.com/quantropi/qispace_qa/actions/runs/9263608462",
     "build_version": "b_73",
     "isRelease": true,
-    "release_version": "kds_v1.7.3_yyang_test2",
+    "release_version": "1.7.3_yyang_test2",
     "s3_urls": "s3://qispace-enterprise-release/builds/b_73",
     "test_time": "2024-05-28T04:41:51Z"
   },
