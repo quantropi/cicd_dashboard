@@ -277,6 +277,18 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     }
   }
 
+  // Handle Deploy Production
+  if (workflowCategory === 'deploy' && incomingData.deploy_target) {
+    try {      
+      const buildRun = runs.find(run => run.workflow_id === build_workflow_id && (run.build_version === incomingData.build_version || run.release_version === incomingData.build_version));        
+      if (buildRun) {
+        buildRun.deploy_target = `${buildRun.deploy_target}, incomingData.deploy_target`;
+      }
+    } catch (err) {
+      console.error('Error processing release details:', err);
+    }
+  }
+
   // Add the new run to runs.json
   runs.push({
     id: incomingData.id,
@@ -296,6 +308,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     build_version: incomingData.build_version || fetchedData.run_number,
     isRelease: false,
     release_version: null,
+    deploy_target: null,
     s3_urls: incomingData.s3_urls
   });
 

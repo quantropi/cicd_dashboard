@@ -41,5 +41,6 @@ export interface RunDetails {
   build_version: string;
   isRelease: boolean;
   release_version: string;
+  deploy_target: string;
   s3_urls: string;
 }
