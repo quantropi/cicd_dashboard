@@ -4,9 +4,10 @@ import { Badge, Tooltip, OverlayTrigger } from 'react-bootstrap';
 
 interface RunProps {
   run: RunDetails;
+  selectedTab: string;
 }
 
-const Run: React.FC<RunProps> = ({ run }) => {
+const Run: React.FC<RunProps> = ({ run, selectedTab }) => {
   const renderTooltip = (props: React.ComponentProps<typeof Tooltip>) => (
     <Tooltip id={`tooltip-${run.id}`} {...props}>
       Click to view details
@@ -73,6 +74,16 @@ const Run: React.FC<RunProps> = ({ run }) => {
           {run.test_time ? formatLocalTime(run.test_time) : 'N/A'}
         </div>
       </td>
+      {
+        selectedTab !== 'SDK' &&
+        <td>
+          {run.deploy_target ? run.deploy_target.split(',').map(target => (
+            <Badge key={target.trim()} bg="info" className="me-1">
+              {target.trim()}
+            </Badge>
+          )) : ''}
+        </td>
+      }
       <td>{run.s3_urls !== "" ? run.s3_urls : 'N/A'}</td>
     </tr>
   );

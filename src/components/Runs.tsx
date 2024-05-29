@@ -131,11 +131,14 @@ const Runs: React.FC<RunsProps> = ({
             <th>QA Test</th>
             <th>Build Time</th>
             <th>QA Time</th>
+            { selectedTab !== 'SDK' &&
+              <th>Deploy Target</th>
+            }
             <th>S3 URL</th>
           </tr>
         </thead>
         <tbody>
-          {currentRuns.map(run => <Run key={run.id} run={run} />)}
+          {currentRuns.map(run => <Run key={run.id} run={run} selectedTab={selectedTab} />)}
         </tbody>
       </Table>
 

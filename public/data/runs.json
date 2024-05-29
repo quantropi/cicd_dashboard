@@ -1832,6 +1832,7 @@
     "build_version": "b_30",
     "isRelease": false,
     "release_version": null,
+    "deploy_target": "test_1, test_2",
     "s3_urls": "s3://eds-qc-release/release-qc-b_30.zip"
   },
   {
