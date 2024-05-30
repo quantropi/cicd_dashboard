@@ -20,11 +20,11 @@ export interface Workflow {
   name: string;
   build_workflow_id: number;
   url: string;
-  category: "build" | "release" | "qa" | "tool" | "deploy" | "other";
+  category: "build" | "release" | "qa" | "tool" | "deploy" | "deploy_prod" | "other";
 }
 
 export interface RunDetails {
-  id: number;
+  id: string;
   url: string;
   repo: string;
   repo_url: string;
@@ -36,11 +36,11 @@ export interface RunDetails {
   branch: string;
   status: string;
   test_result: string;
-  test_run_url: string;
-  test_time: string;
+  test_run_url: string | null;
+  test_time: string | null;
   build_version: string;
   isRelease: boolean;
-  release_version: string;
+  release_version: string | null;
   deploy_target: string;
   s3_urls: string;
 }

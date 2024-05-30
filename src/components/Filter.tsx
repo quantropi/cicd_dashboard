@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Tab, Repo, RunDetails } from '../types/models';
 import { Form, Button } from 'react-bootstrap';
+import runsDataJson from '../data/runs.json'; // Import the JSON data directly
 
 interface FilterProps {
   selectedTab: string;
@@ -51,17 +52,8 @@ const Filter: React.FC<FilterProps> = ({
   const [filteredReleaseVersions, setFilteredReleaseVersions] = useState<string[]>([]);
 
   useEffect(() => {
-    const fetchRunsData = async () => {
-      try {
-        const response = await fetch(`${process.env.PUBLIC_URL}/data/runs.json`);
-        const allRunsData: RunDetails[] = await response.json();
-        setAllRuns(allRunsData);
-      } catch (error) {
-        console.error("Failed to fetch runs data", error);
-      }
-    };
-
-    fetchRunsData();
+    // Set the runs data from the imported JSON
+    setAllRuns(runsDataJson as RunDetails[]);
   }, []);
 
   useEffect(() => {

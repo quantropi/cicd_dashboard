@@ -65,8 +65,8 @@ const Runs: React.FC<RunsProps> = ({
             (!endTime || new Date(run.time) <= new Date(endTime));
 
           const byTestTime =
-            (!startTestTime || new Date(run.test_time) >= new Date(startTestTime)) &&
-            (!endTestTime || new Date(run.test_time) <= new Date(endTestTime));
+            (!startTestTime || (run.test_time && new Date(run.test_time) >= new Date(startTestTime))) &&
+            (!endTestTime || (run.test_time && new Date(run.test_time) <= new Date(endTestTime)));
 
           return byTab && byRepo && byWorkflow && byCategory && byRelease && byReleaseVersion && byQaTest && byTime && byTestTime;
         });
@@ -132,7 +132,7 @@ const Runs: React.FC<RunsProps> = ({
             <th>Build Time</th>
             <th>QA Time</th>
             { selectedTab !== 'SDK' &&
-              <th>Deploy Target</th>
+              <th>Prod Deploy</th>
             }
             <th>S3 URL</th>
           </tr>

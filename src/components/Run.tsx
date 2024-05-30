@@ -56,7 +56,7 @@ const Run: React.FC<RunProps> = ({ run, selectedTab }) => {
             style={{
               maxWidth: '150px',
             }}>
-            <a href={run.test_run_url} target="_blank" rel="noopener noreferrer" 
+            <a href={run.test_run_url || '#'} target="_blank" rel="noopener noreferrer" 
               className={run.test_result === 'FAILED' ? 'link-failed' : 'link-default'}
             >
               {run.test_result}
@@ -81,7 +81,7 @@ const Run: React.FC<RunProps> = ({ run, selectedTab }) => {
             <Badge key={target.trim()} bg="info" className="me-1">
               {target.trim()}
             </Badge>
-          )) : ''}
+          )) : 'N/A'}
         </td>
       }
       <td>{run.s3_urls !== "" ? run.s3_urls : 'N/A'}</td>

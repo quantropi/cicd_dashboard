@@ -12,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Tab } from './types/models';
 import './App.css';
+import tabsDataJson from './data/components.json';
 
 const App: React.FC = () => {
   return (
@@ -44,16 +45,8 @@ const AppContent: React.FC = () => {
   const clearWorkflow = () => setSelectedWorkflow(0);
 
   useEffect(() => {
-    const fetchTabsData = async () => {
-      try {
-        const response = await fetch(`${process.env.PUBLIC_URL}/data/components.json`);
-        const tabs: Tab[] = await response.json();
-        setTabsData(tabs);
-      } catch (error) {
-        console.error("Failed to fetch tabs", error);
-      }
-    };
-    fetchTabsData();
+    // Directly set the tabs data from the imported JSON
+    setTabsData(tabsDataJson as Tab[]);
   }, []);
 
   useEffect(() => {

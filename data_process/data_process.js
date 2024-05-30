@@ -3,8 +3,8 @@ const path = require('path');
 const https = require('https');
 
 // Path to the JSON files
-const componentsPath = path.join(__dirname, '..', 'public', 'data', 'components.json');
-const runsPath = path.join(__dirname, '..', 'public', 'data', 'runs.json');
+const componentsPath = path.join(__dirname, '..', 'src', 'data', 'components.json');
+const runsPath = path.join(__dirname, '..', 'src', 'data', 'runs.json');
 
 // Load existing data
 const components = JSON.parse(fs.readFileSync(componentsPath, 'utf8'));
@@ -278,7 +278,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
   }
 
   // Handle Deploy Production
-  if (workflowCategory === 'deploy' && incomingData.deploy_target) {
+  if (workflowCategory === 'deploy_prod' && incomingData.deploy_target) {
     try {      
       const buildRun = runs.find(run => run.workflow_id === build_workflow_id && (run.build_version === incomingData.build_version || run.release_version === incomingData.build_version));        
       if (buildRun) {

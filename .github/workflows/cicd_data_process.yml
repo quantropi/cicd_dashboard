@@ -40,7 +40,7 @@ jobs:
           git config --global user.email "devops-agent@quantropi.com"
           git config --global user.name "quantropi-devops-agent"
           git pull
-          git add ./public/data
+          git add ./src/data
           git commit -m "Automatically update data via repository_dispatch" || echo "No changes to commit"
           git push origin master
 
