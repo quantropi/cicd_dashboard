@@ -258,7 +258,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
   // For SDK: {"release_version": "release_v1.8.1", "details": [{"repo": "MASQ-BN", "build_workflow": "cicd_build_api.yml", "version": "189"}, {"repo": "MASQ-DS", "build_workflow": "cicd_build_api.yml", "version": "190"}, {"repo": "MASQ-KEM", "build_workflow": "cicd_build_api.yml", "version": "178"}, {"repo": "libqeep", "build_workflow": "cicd_build_api.yml", "version": "158"}]}
   // For QiSpace: {"release_version": "release_v1.8.3", "details": [{"repo": "qispace", "build_workflow": "build.yml", "version": "b_11"}]}
   // When the workflow.category === "release", it will check the the runs.json to find workflow match and build_version === version, then modify the isRelease === true, and modify the release_version to the current version.
-  if (workflowCategory === "release" && incomingData.release_json) {
+  if ((workflowCategory === "release" || workflowCategory === 'deploy_prod') && incomingData.release_json) {
     // Assuming the JSON file is downloaded to a known directory
     const jsonFilePath = path.join(__dirname, '..', 'release_json.json');
     const releaseDetails = JSON.parse(fs.readFileSync(jsonFilePath, 'utf8'));
@@ -285,7 +285,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
         buildRun.deploy_target = `${buildRun.deploy_target}, incomingData.deploy_target`;
       }
     } catch (err) {
-      console.error('Error processing release details:', err);
+      console.error('Error processing deploy prod details:', err);
     }
   }
 
