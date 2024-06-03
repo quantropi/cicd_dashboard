@@ -3,6 +3,7 @@ import { Tab, RunDetails } from '../types/models';
 import Run from './Run';
 import Table from 'react-bootstrap/Table';
 import { Pagination } from 'react-bootstrap';
+import runsDataJson from '../data/runs.json';
 
 interface RunsProps {
   selectedTab: string;
@@ -38,8 +39,7 @@ const Runs: React.FC<RunsProps> = ({
   useEffect(() => {
     const fetchRuns = async () => {
       try {
-        const response = await fetch(`${process.env.PUBLIC_URL}/data/runs.json`);
-        const allRuns: RunDetails[] = await response.json();
+        const allRuns = runsDataJson as RunDetails[];
 
         const filteredRuns = allRuns.filter(run => {
           const byTab = selectedTab === 'all' || tabsData.some(tab =>

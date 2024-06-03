@@ -202,7 +202,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
         id: fetchedData.workflow_id,
         file: workflow_file,
         name: workflow_name,
-        build_workflow: build_workflow_id,
+        build_workflow_id: build_workflow_id,
         url: `https://github.com/quantropi/${incomingData.repo}/actions/workflows/${workflow_file}`,
         category: workflowCategory,
       });
