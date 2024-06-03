@@ -147,12 +147,6 @@ async function fetchDataAndUpdateComponents() {
 fetchDataAndUpdateComponents();
 
 async function updateComponentsAndRuns(incomingData, fetchedData) {
-  // Check if the run already exists
-  const runExists = runs.some(run => run.id === incomingData.id && run.repo === incomingData.repo);
-  if (runExists) {
-    throw new Error(`Run with ID ${incomingData.id} for repository ${incomingData.repo} already exists.`);
-  }
-
   // Get workflow file name
   let workflow_file = fetchedData.path.split('/').pop();
 
@@ -224,6 +218,28 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     workflowCategory = existingWorkflow.category;
   }
 
+  // Generate unique run ID for deploy_prod and release categories
+  const uniqueRunId = (id, category, existingRuns) => {
+    if (category === 'deploy_prod') {
+      let count = 1;
+      let newId = `${id}_${count}`;
+      while (existingRuns.some(run => run.id === newId)) {
+        count += 1;
+        newId = `${id}_${count}`;
+      }
+      return newId;
+    }
+    return id;
+  };
+
+  const runId = uniqueRunId(incomingData.id, workflowCategory, runs);
+
+  // Check if the run already exists for categories other than deploy_prod and release
+  const runExists = runs.some(run => run.id === incomingData.id && run.repo === incomingData.repo);
+  if (runExists && workflowCategory !== 'deploy_prod') {
+    throw new Error(`Run with ID ${incomingData.id} for repository ${incomingData.repo} already exists.`);
+  }
+
   // Validate test_result
   const validResults = ["PASSED", "FAILED", "ABORTED"];
   let validatedTestResult = '';
@@ -291,7 +307,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
 
   // Add the new run to runs.json
   runs.push({
-    id: incomingData.id,
+    id: runId,
     url: fetchedData.html_url,
     repo: incomingData.repo,
     repo_url: fetchedData.repository.html_url,
