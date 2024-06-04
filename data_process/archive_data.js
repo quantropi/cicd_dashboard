@@ -3,8 +3,8 @@ const path = require('path');
 
 // Constants
 const EXPIRE_TIME = 90 * 24 * 60 * 60 * 1000; // 90 days in milliseconds
-const runsPath = path.join(__dirname, '..', 'public', 'data', 'runs.json');
-const archivePath = path.join(__dirname, '..', 'public', 'data', 'runs_archive.json');
+const runsPath = path.join(__dirname, '..', 'src', 'data', 'runs.json');
+const archivePath = path.join(__dirname, '..', 'src', 'data', 'runs_archive.json');
 
 // Load existing data
 let runs = JSON.parse(fs.readFileSync(runsPath, 'utf8'));
