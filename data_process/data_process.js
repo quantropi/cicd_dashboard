@@ -298,7 +298,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     try {      
       const buildRun = runs.find(run => run.workflow_id === build_workflow_id && (run.build_version === incomingData.build_version || run.release_version === incomingData.build_version));
       if (buildRun) {
-        buildRun.deploy_target = deploy_target ? `${buildRun.deploy_target}, ${incomingData.deploy_target}` : `${incomingData.deploy_target}`;
+        buildRun.deploy_target = buildRun.deploy_target ? `${buildRun.deploy_target}, ${incomingData.deploy_target}` : `${incomingData.deploy_target}`;
       }
     } catch (err) {
       console.error('Error processing deploy prod details:', err);
