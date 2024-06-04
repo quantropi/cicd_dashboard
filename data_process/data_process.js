@@ -294,14 +294,9 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
   }
 
   // Handle Deploy Production
-  console.log(`workflowCategory: ${workflowCategory}`);
-  console.log(`incomingData.deploy_target: ${incomingData.deploy_target}`);
-
   if (workflowCategory === 'deploy_prod' && incomingData.deploy_target) {
     try {      
       const buildRun = runs.find(run => run.workflow_id === build_workflow_id && (run.build_version === incomingData.build_version || run.release_version === incomingData.build_version));
-      console.log(`buildRun: ${buildRun}`);
-
       if (buildRun) {
         buildRun.deploy_target = `${buildRun.deploy_target}, incomingData.deploy_target`;
       }
