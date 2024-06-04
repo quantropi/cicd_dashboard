@@ -364,7 +364,7 @@
             "name": "Deploy Production",
             "build_workflow_id": 88839412,
             "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/deploy-production-ansible.yml",
-            "category": "deploy"
+            "category": "deploy_prod"
           }
         ]
       },
@@ -389,7 +389,7 @@
             "name": "Deploy Production",
             "build_workflow_id": 88839412,
             "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/deploy-to-production.yml",
-            "category": "deploy"
+            "category": "deploy_prod"
           },
           {
             "id": 25012584,
