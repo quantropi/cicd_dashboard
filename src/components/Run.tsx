@@ -76,7 +76,7 @@ const Run: React.FC<RunProps> = ({ run, selectedTab }) => {
       </td>
       {
         selectedTab !== 'SDK' &&
-        <td>
+        <td style={{ maxWidth: '250px' }}>
           {run.deploy_target ? run.deploy_target.split(',').map(target => (
             <Badge key={target.trim()} bg="info" className="me-1">
               {target.trim()}
