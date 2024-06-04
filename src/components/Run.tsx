@@ -84,7 +84,7 @@ const Run: React.FC<RunProps> = ({ run, selectedTab }) => {
           )) : 'N/A'}
         </td>
       }
-      <td>{run.s3_urls !== "" ? run.s3_urls : 'N/A'}</td>
+      <td>{run.s3_urls !== "" ? run.s3_urls : ''}</td>
     </tr>
   );
 };
