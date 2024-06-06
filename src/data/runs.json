@@ -834,13 +834,13 @@
     "user": "quantropi-btank",
     "branch": "master",
     "status": "success",
-    "test_result": "",
-    "test_run_url": "https://github.com/quantropi/sdk_qa/actions/runs/9372128087",
+    "test_result": "PASSED",
+    "test_run_url": "https://github.com/quantropi/sdk_qa/actions/runs/9407202286",
     "build_version": "205",
     "isRelease": true,
     "release_version": "1.9.0",
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/205",
-    "test_time": "2024-06-04T18:14:43Z"
+    "test_time": "2024-06-06T20:11:20Z"
   },
   {
     "id": "9129663368",
@@ -2437,5 +2437,26 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": ""
+  },
+  {
+    "id": "9407202286",
+    "url": "https://github.com/quantropi/sdk_qa/actions/runs/9407202286",
+    "repo": "sdk_qa",
+    "repo_url": "https://github.com/quantropi/sdk_qa",
+    "workflow_name": "masq_bn_qa_test",
+    "workflow_id": 68583426,
+    "run_number": 386,
+    "time": "2024-06-06T20:11:20Z",
+    "user": "quantropi-btank",
+    "branch": "master",
+    "status": "success",
+    "test_result": "PASSED",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "205",
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/205/test-386"
   }
 ]
