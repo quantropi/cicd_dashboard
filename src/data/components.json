@@ -449,6 +449,24 @@
     "name": "Others",
     "level": "component",
     "description": "",
-    "repos": []
+    "repos": [
+      {
+        "name": "qes_stream",
+        "level": "repo",
+        "description": "",
+        "category": "product",
+        "url": "https://github.com/quantropi/qes_stream",
+        "workflows": [
+          {
+            "id": 31968585,
+            "file": "build-publish.yml",
+            "name": "build-publish-qes_stream",
+            "build_workflow_id": null,
+            "url": "https://github.com/quantropi/qes_stream/actions/workflows/build-publish.yml",
+            "category": "tool"
+          }
+        ]
+      }
+    ]
   }
 ]
