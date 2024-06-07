@@ -314,6 +314,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     workflow_name: workflow_name,
     workflow_id: fetchedData.workflow_id,
     run_number: fetchedData.run_number,
+    head_sha: fetchedData.head_sha,
     time: fetchedData.run_started_at,
     user: fetchedData.actor.login,
     branch: fetchedData.head_branch,

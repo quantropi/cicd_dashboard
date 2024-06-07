@@ -442,14 +442,7 @@
             "category": "build"
           }
         ]
-      }
-    ]
-  },
-  {
-    "name": "Others",
-    "level": "component",
-    "description": "",
-    "repos": [
+      },
       {
         "name": "qes_stream",
         "level": "repo",
@@ -467,6 +460,14 @@
           }
         ]
       }
+    ]
+  },
+  {
+    "name": "Others",
+    "level": "component",
+    "description": "",
+    "repos": [
+      
     ]
   }
 ]
