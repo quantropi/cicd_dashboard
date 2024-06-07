@@ -31,6 +31,7 @@ export interface RunDetails {
   workflow_name: string;
   workflow_id: number;
   run_number: number;
+  head_sha: string;
   time: string;
   user: string;
   branch: string;
