@@ -1707,8 +1707,8 @@
     "branch": "master",
     "status": "success",
     "test_result": "PASSED",
-    "test_run_url": "https://github.com/quantropi/qispace_qa/actions/runs/9259175111",
-    "test_time": "2024-05-27T18:53:32Z",
+    "test_run_url": "https://github.com/quantropi/qispace_qa/actions/runs/9421273656",
+    "test_time": "2024-06-07T18:06:48Z",
     "build_version": "b_74",
     "isRelease": false,
     "release_version": null,
@@ -2542,5 +2542,26 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qes-release/qes_release_vf4cab536bb728df4543fe0ef4968ef2cb241886f_527.tar.gz"
+  },
+  {
+    "id": "9421273656",
+    "url": "https://github.com/quantropi/qispace_qa/actions/runs/9421273656",
+    "repo": "qispace_qa",
+    "repo_url": "https://github.com/quantropi/qispace_qa",
+    "workflow_name": "KDS Test (Mabl CLI)",
+    "workflow_id": 86218716,
+    "run_number": 92,
+    "time": "2024-06-07T18:06:48Z",
+    "user": "quantropi-devops-agent",
+    "branch": "master",
+    "status": "success",
+    "test_result": "PASSED",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "b_74",
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
