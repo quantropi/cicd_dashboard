@@ -269,6 +269,13 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     }
   }
 
+  // Handle package workflows
+  if (workflowCategory === 'package' && incomingData.package_json) {
+    // Assuming the JSON file is downloaded to a known directory
+    const packagesFilePath = path.join(__dirname, '..', 'packages.json');
+    
+  }
+
   // Handle release run
   // incomingData.release_json content:
   // For SDK: {"release_version": "release_v1.8.1", "details": [{"repo": "MASQ-BN", "build_workflow": "cicd_build_api.yml", "version": "189"}, {"repo": "MASQ-DS", "build_workflow": "cicd_build_api.yml", "version": "190"}, {"repo": "MASQ-KEM", "build_workflow": "cicd_build_api.yml", "version": "178"}, {"repo": "libqeep", "build_workflow": "cicd_build_api.yml", "version": "158"}]}

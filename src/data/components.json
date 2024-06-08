@@ -157,7 +157,7 @@
             "file": "build.yml",
             "name": "Build",
             "build_workflow_id": null,
-            "category": "build",
+            "category": "package",
             "url": "https://github.com/quantropi/qiserver/actions/workflows/build.yml"
           },
           {
@@ -340,7 +340,7 @@
             "name": "build",
             "build_workflow_id": null,
             "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/build.yml",
-            "category": "build"
+            "category": "package"
           },
           {
             "id": 88839413,
@@ -381,7 +381,7 @@
             "name": "Build manifest package",
             "build_workflow_id": null,
             "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/build-release.yml",
-            "category": "build"
+            "category": "package"
           },
           {
             "id": 15763170,
