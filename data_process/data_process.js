@@ -269,6 +269,35 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     }
   }
 
+  // Handle package workflows
+  if (workflowCategory === 'package' && incomingData.package_json) {
+    // Assuming the JSON file is downloaded to a known directory
+    const packagesFilePath = path.join(__dirname, '..', 'packages.json');
+    const appDetails = JSON.parse(fs.readFileSync(packagesFilePath, 'utf8'));
+
+    for (const appInfo of appDetails.appDetails) {
+      try {
+        const buildWorkflowId = components.find(comp => comp.repos.some(repo => repo.name === appInfo.app))
+          ?.repos.find(repo => repo.name === appInfo.app)
+          ?.workflows.find(wf => wf.category === 'build')
+          ?.id;
+
+        if (buildWorkflowId) {
+          const buildRun = runs.filter(run => run.workflow_id === buildWorkflowId && run.head_sha === appInfo.hash)
+            .sort((a, b) => new Date(b.time) - new Date(a.time))[0];
+
+          if (buildRun) {
+            console.log(`Latest run for ${appInfo.app}:`, buildRun);
+            
+            buildRun.package_version = incomingData.build_version || fetchedData.run_number;
+          }
+        }
+      } catch (err) {
+        console.error('Error processing package workflows:', err);
+      }
+    }
+  }
+
   // Handle release run
   // incomingData.release_json content:
   // For SDK: {"release_version": "release_v1.8.1", "details": [{"repo": "MASQ-BN", "build_workflow": "cicd_build_api.yml", "version": "189"}, {"repo": "MASQ-DS", "build_workflow": "cicd_build_api.yml", "version": "190"}, {"repo": "MASQ-KEM", "build_workflow": "cicd_build_api.yml", "version": "178"}, {"repo": "libqeep", "build_workflow": "cicd_build_api.yml", "version": "158"}]}
@@ -323,6 +352,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     test_run_url: null,
     test_time: null,
     build_version: incomingData.build_version || fetchedData.run_number,
+    package_version: null,
     isRelease: false,
     release_version: null,
     deploy_target: null,

@@ -20,7 +20,7 @@ export interface Workflow {
   name: string;
   build_workflow_id: number;
   url: string;
-  category: "build" | "release" | "qa" | "tool" | "deploy" | "deploy_prod" | "other";
+  category: "package" | "build" | "release" | "qa" | "tool" | "deploy" | "deploy_prod" | "other";
 }
 
 export interface RunDetails {
@@ -40,6 +40,7 @@ export interface RunDetails {
   test_run_url: string | null;
   test_time: string | null;
   build_version: string;
+  package_version: string | null;
   isRelease: boolean;
   release_version: string | null;
   deploy_target: string;

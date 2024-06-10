@@ -41,6 +41,11 @@ const Run: React.FC<RunProps> = ({ run, selectedTab }) => {
             {run.release_version}
           </Badge>
         ) : ''}
+        {run.package_version ? (
+          <Badge bg="light">
+            {run.package_version}
+          </Badge>
+        ) : ''}
       </td>
       <td>
         <div className="text-truncate" style={{ maxWidth: '150px' }}>
