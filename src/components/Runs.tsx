@@ -54,7 +54,7 @@ const Runs: React.FC<RunsProps> = ({
             .find(workflow => workflow.id === run.workflow_id)?.category;
 
           // Check that the workflow category is "build" or "tool"
-          const byCategory = workflowCategory === 'build' || workflowCategory === 'tool';
+          const byCategory = workflowCategory === 'package' || workflowCategory === 'build' || workflowCategory === 'tool';
 
           const byRelease = !release || run.isRelease === release;
           const byReleaseVersion = !releaseVersion || run.release_version === releaseVersion;

@@ -86,7 +86,7 @@ const Filter: React.FC<FilterProps> = ({
   const workflows = repos
     .filter(repo => repo.name === selectedRepo || selectedRepo === '')
     .flatMap(repo => repo.workflows || [])
-    .filter(workflow => workflow.category === 'build');
+    .filter(workflow => workflow.category === 'build' || workflow.category === 'package');
 
   return (
     <div>
