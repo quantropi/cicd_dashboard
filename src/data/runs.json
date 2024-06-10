@@ -2898,5 +2898,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qc-release/release-qc-b_39.zip"
+  },
+  {
+    "id": "9454084610",
+    "url": "https://github.com/quantropi/qispace_qa/actions/runs/9454084610",
+    "repo": "qispace_qa",
+    "repo_url": "https://github.com/quantropi/qispace_qa",
+    "workflow_name": "QC Test (Mabl CLI)",
+    "workflow_id": 87777585,
+    "run_number": 52,
+    "head_sha": "21c071c0d7d5334dc7633a3985058392bb260976",
+    "time": "2024-06-10T19:04:41Z",
+    "user": "quantropi-devops-agent",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": 52,
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
