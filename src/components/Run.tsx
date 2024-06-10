@@ -42,7 +42,7 @@ const Run: React.FC<RunProps> = ({ run, selectedTab }) => {
           </Badge>
         ) : ''}
         {run.package_version ? (
-          <Badge bg="light">
+          <Badge bg="dark">
             {run.package_version}
           </Badge>
         ) : ''}
