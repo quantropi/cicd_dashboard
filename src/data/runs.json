@@ -2824,7 +2824,7 @@
     "test_run_url": null,
     "test_time": null,
     "build_version": "latest",
-    "package_version": null,
+    "package_version": "b_39",
     "isRelease": false,
     "release_version": null,
     "deploy_target": null,
@@ -2875,5 +2875,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/205/test-224"
+  },
+  {
+    "id": "9454027878",
+    "url": "https://github.com/quantropi/eds_qc_installer/actions/runs/9454027878",
+    "repo": "eds_qc_installer",
+    "repo_url": "https://github.com/quantropi/eds_qc_installer",
+    "workflow_name": "build",
+    "workflow_id": 88839412,
+    "run_number": 39,
+    "head_sha": "b66e3f2c04f80d59147822d48e4691bba623ea8b",
+    "time": "2024-06-10T19:00:26Z",
+    "user": "quantropi-yyang",
+    "branch": "connect_qispace_packages",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "b_39",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://eds-qc-release/release-qc-b_39.zip"
   }
 ]
