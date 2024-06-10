@@ -130,7 +130,8 @@ async function fetchDataAndUpdateComponents() {
     const fetchedData = await fetchRunData(incomingData.repo, incomingData.id);
 
     // Exit early if the branch is not "master"
-    if (fetchedData.head_branch !== 'master' && fetchedData.head_branch !== 'release' && fetchedData.head_branch !== 'prod') {
+    // Need to remove && fetchedData.head_branch !== 'connect_qispace_packages' later
+    if (fetchedData.head_branch !== 'master' && fetchedData.head_branch !== 'release' && fetchedData.head_branch !== 'prod' && fetchedData.head_branch !== 'connect_qispace_packages') {
       console.log('Exiting script because it is not in correct branches');
       return;
     }
