@@ -2717,5 +2717,27 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": ""
+  },
+  {
+    "id": "9449887462",
+    "url": "https://github.com/quantropi/qispace_qa/actions/runs/9449887462",
+    "repo": "qispace_qa",
+    "repo_url": "https://github.com/quantropi/qispace_qa",
+    "workflow_name": "QC Test (Mabl CLI)",
+    "workflow_id": 87777585,
+    "run_number": 50,
+    "head_sha": "21c071c0d7d5334dc7633a3985058392bb260976",
+    "time": "2024-06-10T14:08:27Z",
+    "user": "quantropi-devops-agent",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": 50,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
