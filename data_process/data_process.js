@@ -18,6 +18,10 @@ const incomingData = eventData.client_payload;
 // Environment variable for the secret token
 const accessToken = process.env.ACCESS_TOKEN;
 
+// Refetch the run data parameters
+const retryInterval = 5000; // 5 seconds
+const retryTimes = 3; // Total try time is 3
+
 // Function to fetch run data using GitHub API
 function fetchRunData(repo, runId) {
   return new Promise((resolve, reject) => {
@@ -48,6 +52,26 @@ function fetchRunData(repo, runId) {
       })
       .end();
   });
+}
+
+// Function to retry fetching run data
+async function fetchRunDataWithRetry(repo, runId, retries = retryTimes) {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      const data = await fetchRunData(repo, runId);
+      if (!data.conclusion) {
+        throw new Error('Conclusion is empty!');
+      }
+      return data;
+    } catch (error) {
+      if (attempt < retries) {
+        console.log(`Attempt ${attempt} failed. Retrying in ${retryInterval / 1000} seconds...`);
+        await new Promise(resolve => setTimeout(resolve, retryInterval));
+      } else {
+        throw new Error(`Failed to fetch run data after ${retries} attempts: ${error.message}`);
+      }
+    }
+  }
 }
 
 // Function to fetch workflow data using GitHub API
@@ -127,7 +151,8 @@ async function getBuildWorkflowId(repoName, workflowFile) {
 
 async function fetchDataAndUpdateComponents() {
   try {
-    const fetchedData = await fetchRunData(incomingData.repo, incomingData.id);
+    // There is a delay in getting conclusion
+    let fetchedData = await fetchRunDataWithRetry(incomingData.repo, incomingData.id);
 
     // Exit early if the branch is not "master"
     // Need to remove && fetchedData.head_branch !== 'connect_qispace_packages' later
@@ -247,7 +272,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
 
   // Handle build run's test_result
   // Check if the workflow is of category "qa" and override the build's test_result
-  if (repo.category === "qa" && build_workflow_id && incomingData.build_version) {
+  if (repo.category === "qa" && build_workflow_id && incomingData.build_version && fetchedData.conclusion !== 'cancelled') {
     if (fetchedData.conclusion === 'failure') {
       validatedTestResult = 'FAILED';
     } else if (fetchedData.conclusion === 'success') {
