@@ -2921,28 +2921,5 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": ""
-  },
-  {
-    "id": "9455119785",
-    "url": "https://github.com/quantropi/qispace_qa/actions/runs/9455119785",
-    "repo": "qispace_qa",
-    "repo_url": "https://github.com/quantropi/qispace_qa",
-    "workflow_name": "QC Test (Playwright)",
-    "workflow_id": 96993211,
-    "run_number": 72,
-    "head_sha": "3108841f1a04d479c16b2d9a7242e873c0fc1bed",
-    "time": "2024-06-10T20:30:15Z",
-    "user": "quantropi-twang",
-    "branch": "master",
-    "status": null,
-    "test_result": "",
-    "test_run_url": null,
-    "test_time": null,
-    "build_version": "b_39",
-    "package_version": null,
-    "isRelease": false,
-    "release_version": null,
-    "deploy_target": null,
-    "s3_urls": ""
   }
 ]
