@@ -2925,5 +2925,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qes-release/qes_release_v90b9478feedef3f64fa7c50ffa1682c65c17383c_526.tar.gz"
+  },
+  {
+    "id": "9420980953",
+    "url": "https://github.com/quantropi/eds_qes_installer/actions/runs/9420980953",
+    "repo": "eds_qes_installer",
+    "repo_url": "https://github.com/quantropi/eds_qes_installer",
+    "workflow_name": "Build & Deploy Staging [QES]",
+    "workflow_id": 25012584,
+    "run_number": 527,
+    "head_sha": "f4cab536bb728df4543fe0ef4968ef2cb241886f",
+    "time": "2024-06-07T17:36:37Z",
+    "user": "quantropi-minh",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "b_527",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://eds-qes-release/qes_release_vf4cab536bb728df4543fe0ef4968ef2cb241886f_527.tar.gz"
   }
 ]
