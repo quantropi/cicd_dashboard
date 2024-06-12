@@ -60,7 +60,8 @@ async function fetchRunDataWithRetry(repo, runId, retries = retryTimes) {
     try {
       const data = await fetchRunData(repo, runId);
       if (!data.conclusion) {
-        throw new Error('Conclusion is empty!');
+        console.log('Conclusion is empty!');
+        continue;
       }
       return data;
     } catch (error) {
