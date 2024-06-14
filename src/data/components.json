@@ -406,6 +406,14 @@
             "build_workflow_id": 88839412,
             "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/build-&-deploy-testing.yml",
             "category": "tool"
+          },
+          {
+            "id": 102785388,
+            "file": "build.yml",
+            "name": "Build manifest package (QES)",
+            "build_workflow_id": null,
+            "url": "https://github.com/quantropi/eds_qes_installer/actions/workflows/build.yml",
+            "category": "tool"
           }
         ]
       },
