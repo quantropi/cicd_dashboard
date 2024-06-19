@@ -474,6 +474,24 @@
     "name": "Others",
     "level": "component",
     "description": "",
-    "repos": []
+    "repos": [
+      {
+        "name": "qispace_grpc",
+        "level": "repo",
+        "description": "",
+        "category": "product",
+        "url": "https://github.com/quantropi/qispace_grpc",
+        "workflows": [
+          {
+            "id": 84698615,
+            "file": "build-qrnd-server-quside.yml",
+            "name": "build-qrnd_grpc_quside",
+            "build_workflow_id": null,
+            "url": "https://github.com/quantropi/qispace_grpc/actions/workflows/build-qrnd-server-quside.yml",
+            "category": "tool"
+          }
+        ]
+      }
+    ]
   }
 ]
