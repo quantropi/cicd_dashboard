@@ -489,6 +489,14 @@
             "build_workflow_id": null,
             "url": "https://github.com/quantropi/qispace_grpc/actions/workflows/build-qrnd-server-quside.yml",
             "category": "tool"
+          },
+          {
+            "id": 84698614,
+            "file": "build-qrnd-server-qlab.yml",
+            "name": "build-qrnd_grpc_qlab",
+            "build_workflow_id": null,
+            "url": "https://github.com/quantropi/qispace_grpc/actions/workflows/build-qrnd-server-qlab.yml",
+            "category": "tool"
           }
         ]
       }
