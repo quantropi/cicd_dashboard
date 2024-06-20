@@ -2782,7 +2782,7 @@
     "test_run_url": null,
     "test_time": null,
     "build_version": "latest",
-    "package_version": "b_39",
+    "package_version": "b_40",
     "isRelease": false,
     "release_version": null,
     "deploy_target": null,
@@ -3638,5 +3638,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": ""
+  },
+  {
+    "id": "9601662825",
+    "url": "https://github.com/quantropi/eds_qc_installer/actions/runs/9601662825",
+    "repo": "eds_qc_installer",
+    "repo_url": "https://github.com/quantropi/eds_qc_installer",
+    "workflow_name": "build",
+    "workflow_id": 88839412,
+    "run_number": 40,
+    "head_sha": "354fc34762363021d1d06ae7babb5a871cea957d",
+    "time": "2024-06-20T17:17:21Z",
+    "user": "quantropi-minh",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "b_40",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://eds-qc-release/release-qc-b_40.zip"
   }
 ]
