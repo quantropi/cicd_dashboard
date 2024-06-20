@@ -3615,5 +3615,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": ""
+  },
+  {
+    "id": "9600641859",
+    "url": "https://github.com/quantropi/qiserver_admin/actions/runs/9600641859",
+    "repo": "qiserver_admin",
+    "repo_url": "https://github.com/quantropi/qiserver_admin",
+    "workflow_name": "build-publish-kds_admin",
+    "workflow_id": 14321066,
+    "run_number": 349,
+    "head_sha": "6ec717ffb3d83ba7e8fdc62f27697e6550fbe5fa",
+    "time": "2024-06-20T15:59:14Z",
+    "user": "quantropi-minh",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
