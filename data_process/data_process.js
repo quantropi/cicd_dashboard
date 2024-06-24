@@ -170,8 +170,34 @@ async function fetchDataAndUpdateComponents() {
   }
 }
 
-// Execute the function
-fetchDataAndUpdateComponents();
+// Function to handle build run's test result
+function handleBuildRunTestResult(repo, build_workflow_id, incomingData, fetchedData, runs) {
+  const validResults = ["PASSED", "FAILED", "ABORTED"];
+  let validatedTestResult = '';
+
+  if (repo.category === "qa" && build_workflow_id && incomingData.build_version && fetchedData.conclusion !== 'cancelled') {
+    if (fetchedData.conclusion === 'failure') {
+      validatedTestResult = 'FAILED';
+    } else if (fetchedData.conclusion === 'success') {
+      if (incomingData.test_result && incomingData.test_result !== '') {
+        validatedTestResult = validResults.includes(incomingData.test_result.toUpperCase()) ? incomingData.test_result.toUpperCase() : "";
+      } else {
+        validatedTestResult = 'PASSED';
+      }
+    } else {
+      validatedTestResult = '';
+    }
+
+    const buildRun = runs.find(run => run.workflow_id === build_workflow_id && run.build_version === incomingData.build_version);
+
+    if (buildRun) {
+      // Update the test result of the build run
+      buildRun.test_result = validatedTestResult;
+      buildRun.test_run_url = fetchedData.html_url;
+      buildRun.test_time = fetchedData.run_started_at;
+    }
+  }
+}
 
 async function updateComponentsAndRuns(incomingData, fetchedData) {
   // Get workflow file name
@@ -262,39 +288,39 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
   const runId = uniqueRunId(incomingData.id, workflowCategory, runs);
 
   // Check if the run already exists for categories other than deploy_prod and release
-  const runExists = runs.some(run => run.id === incomingData.id && run.repo === incomingData.repo);
-  if (runExists && workflowCategory !== 'deploy_prod') {
-    throw new Error(`Run with ID ${incomingData.id} for repository ${incomingData.repo} already exists.`);
-  }
+  let runExists = runs.some(run => run.id === incomingData.id && run.repo === incomingData.repo);
+  if (runExists && workflowCategory !== 'deploy_prod' && workflowCategory !== 'release') {
+    // Update existing run instead of throwing an error
+    let existingRun = runs.find(run => run.id === incomingData.id && run.repo === incomingData.repo);
+    if (existingRun) {
+      existingRun.url = fetchedData.html_url;
+      existingRun.workflow_name = workflow_name;
+      existingRun.workflow_id = fetchedData.workflow_id;
+      existingRun.run_number = fetchedData.run_number;
+      existingRun.head_sha = fetchedData.head_sha;
+      existingRun.time = fetchedData.run_started_at;
+      existingRun.user = fetchedData.actor.login;
+      existingRun.branch = fetchedData.head_branch;
+      existingRun.status = fetchedData.conclusion;
+      existingRun.test_result = validatedTestResult;
+      existingRun.build_version = incomingData.build_version || fetchedData.run_number;
+      existingRun.s3_urls = incomingData.s3_urls;
 
-  // Validate test_result
-  const validResults = ["PASSED", "FAILED", "ABORTED"];
-  let validatedTestResult = '';
+      // Save updated data back to JSON files
+      fs.writeFileSync(componentsPath, JSON.stringify(components, null, 2));
+      fs.writeFileSync(runsPath, JSON.stringify(runs, null, 2));
 
-  // Handle build run's test_result
-  // Check if the workflow is of category "qa" and override the build's test_result
-  if (repo.category === "qa" && build_workflow_id && incomingData.build_version && fetchedData.conclusion !== 'cancelled') {
-    if (fetchedData.conclusion === 'failure') {
-      validatedTestResult = 'FAILED';
-    } else if (fetchedData.conclusion === 'success') {
-      if (incomingData.test_result && incomingData.test_result !== '') {
-        validatedTestResult = validResults.includes(incomingData.test_result.toUpperCase()) ? incomingData.test_result.toUpperCase() : "";
-      } else {
-        validatedTestResult = 'PASSED';
-      }
-    } else {
-      validatedTestResult = '';
-    }
+      // Call handleBuildRunTestResult function to handle build run's test result
+      handleBuildRunTestResult(repo, build_workflow_id, incomingData, fetchedData, runs);
 
-    const buildRun = runs.find(run => run.workflow_id === build_workflow_id && run.build_version === incomingData.build_version);
-
-    if (buildRun) {
-      // Update the test result of the build run
-      buildRun.test_result = validatedTestResult;
-      buildRun.test_run_url = fetchedData.html_url;
-      buildRun.test_time = fetchedData.run_started_at;
+      console.log(`Run with ID ${incomingData.id} for repository ${incomingData.repo} updated successfully.`);
+      return;
     }
   }
+
+
+  // Call handleBuildRunTestResult function to handle build run's test result
+  handleBuildRunTestResult(repo, build_workflow_id, incomingData, fetchedData, runs);
 
   // Handle package workflows
   if (workflowCategory === 'package' && incomingData.package_json) {
@@ -390,3 +416,6 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
   fs.writeFileSync(componentsPath, JSON.stringify(components, null, 2));
   fs.writeFileSync(runsPath, JSON.stringify(runs, null, 2));
 }
+
+// Execute the main function
+fetchDataAndUpdateComponents();
