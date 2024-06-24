@@ -197,6 +197,8 @@ function handleBuildRunTestResult(repo, build_workflow_id, incomingData, fetched
       buildRun.test_time = fetchedData.run_started_at;
     }
   }
+
+  return validatedTestResult;
 }
 
 async function updateComponentsAndRuns(incomingData, fetchedData) {
@@ -293,6 +295,9 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
     // Update existing run instead of throwing an error
     let existingRun = runs.find(run => run.id === incomingData.id && run.repo === incomingData.repo);
     if (existingRun) {
+      // Call handleBuildRunTestResult function to handle build run's test result
+      let validatedTestResult = handleBuildRunTestResult(repo, build_workflow_id, incomingData, fetchedData, runs);
+
       existingRun.url = fetchedData.html_url;
       existingRun.workflow_name = workflow_name;
       existingRun.workflow_id = fetchedData.workflow_id;
@@ -310,8 +315,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
       fs.writeFileSync(componentsPath, JSON.stringify(components, null, 2));
       fs.writeFileSync(runsPath, JSON.stringify(runs, null, 2));
 
-      // Call handleBuildRunTestResult function to handle build run's test result
-      handleBuildRunTestResult(repo, build_workflow_id, incomingData, fetchedData, runs);
+      
 
       console.log(`Run with ID ${incomingData.id} for repository ${incomingData.repo} updated successfully.`);
       return;
