@@ -3836,7 +3836,7 @@
     "user": "quantropi-btank",
     "branch": "master",
     "status": "success",
-    "test_result": "",
+    "test_result": "FAILED",
     "test_run_url": "https://github.com/quantropi/sdk_qa/actions/runs/9645752916",
     "test_time": "2024-06-24T12:57:24Z",
     "build_version": "234",
