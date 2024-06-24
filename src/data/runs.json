@@ -3749,8 +3749,8 @@
     "test_time": "2024-06-21T15:26:27Z",
     "build_version": "254",
     "package_version": null,
-    "isRelease": false,
-    "release_version": null,
+    "isRelease": true,
+    "release_version": "1.9.0",
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/254"
   },
@@ -3868,5 +3868,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/323"
+  },
+  {
+    "id": "9646040157",
+    "url": "https://github.com/quantropi/SDK_CICD_pipelines/actions/runs/9646040157",
+    "repo": "SDK_CICD_pipelines",
+    "repo_url": "https://github.com/quantropi/SDK_CICD_pipelines",
+    "workflow_name": "cicd_release_promote",
+    "workflow_id": 73625002,
+    "run_number": 23,
+    "head_sha": "9e8e7de968e0e92c855d20f751296641d9b801a5",
+    "time": "2024-06-24T13:14:58Z",
+    "user": "quantropi-btank",
+    "branch": "release",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "1.9.0",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
