@@ -324,7 +324,7 @@ async function updateComponentsAndRuns(incomingData, fetchedData) {
 
 
   // Call handleBuildRunTestResult function to handle build run's test result
-  handleBuildRunTestResult(repo, build_workflow_id, incomingData, fetchedData, runs);
+  let validatedTestResult = handleBuildRunTestResult(repo, build_workflow_id, incomingData, fetchedData, runs);
 
   // Handle package workflows
   if (workflowCategory === 'package' && incomingData.package_json) {
