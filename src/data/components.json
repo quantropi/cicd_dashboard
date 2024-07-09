@@ -467,14 +467,7 @@
             "category": "tool"
           }
         ]
-      }
-    ]
-  },
-  {
-    "name": "Others",
-    "level": "component",
-    "description": "",
-    "repos": [
+      },
       {
         "name": "qispace_grpc",
         "level": "repo",
@@ -488,7 +481,7 @@
             "name": "build-qrnd_grpc_quside",
             "build_workflow_id": null,
             "url": "https://github.com/quantropi/qispace_grpc/actions/workflows/build-qrnd-server-quside.yml",
-            "category": "tool"
+            "category": "build"
           },
           {
             "id": 84698614,
@@ -496,10 +489,17 @@
             "name": "build-qrnd_grpc_qlab",
             "build_workflow_id": null,
             "url": "https://github.com/quantropi/qispace_grpc/actions/workflows/build-qrnd-server-qlab.yml",
-            "category": "tool"
+            "category": "build"
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "name": "Others",
+    "level": "component",
+    "description": "",
+    "repos": [
       {
         "name": "openssl_provider",
         "level": "repo",
@@ -513,7 +513,7 @@
             "name": "Build openssl provider",
             "build_workflow_id": null,
             "url": "https://github.com/quantropi/openssl_provider/actions/workflows/build.yml",
-            "category": "tool"
+            "category": "build"
           }
         ]
       }
