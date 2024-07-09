@@ -499,6 +499,23 @@
             "category": "tool"
           }
         ]
+      },
+      {
+        "name": "openssl_provider",
+        "level": "repo",
+        "description": "",
+        "category": "product",
+        "url": "https://github.com/quantropi/openssl_provider",
+        "workflows": [
+          {
+            "id": 105910792,
+            "file": "build.yml",
+            "name": "Build openssl provider",
+            "build_workflow_id": null,
+            "url": "https://github.com/quantropi/openssl_provider/actions/workflows/build.yml",
+            "category": "tool"
+          }
+        ]
       }
     ]
   }
