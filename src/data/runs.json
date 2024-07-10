@@ -4305,5 +4305,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-provider-artifacts/11"
+  },
+  {
+    "id": "9876406786",
+    "url": "https://github.com/quantropi/qispace_qa/actions/runs/9876406786",
+    "repo": "qispace_qa",
+    "repo_url": "https://github.com/quantropi/qispace_qa",
+    "workflow_name": "PPK Extenstion (Playwright)",
+    "workflow_id": 89826274,
+    "run_number": 122,
+    "head_sha": "4fca201488e2179825b2f8eef1b590ca7448595e",
+    "time": "2024-07-10T14:44:56Z",
+    "user": "quantropi-minh",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "c1e9e39ac0f48301f1666cf581fe3362a6457107",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
