@@ -4466,5 +4466,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qc-release/release-qc-b_41.zip"
+  },
+  {
+    "id": "9880973783",
+    "url": "https://github.com/quantropi/qispace_qa/actions/runs/9880973783",
+    "repo": "qispace_qa",
+    "repo_url": "https://github.com/quantropi/qispace_qa",
+    "workflow_name": "KDS Test (Playwright)",
+    "workflow_id": 95327444,
+    "run_number": 326,
+    "head_sha": "39fb1aae99223cc1197745650b16014321610d48",
+    "time": "2024-07-10T20:26:36Z",
+    "user": "quantropi-Alexis",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "FAILED",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "b_88",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
