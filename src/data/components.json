@@ -516,6 +516,23 @@
             "category": "build"
           }
         ]
+      },
+      {
+        "name": "qiserver_qrnd",
+        "level": "repo",
+        "description": "",
+        "category": "product",
+        "url": "https://github.com/quantropi/qiserver_qrnd",
+        "workflows": [
+          {
+            "id": 14317472,
+            "file": "build-publish.yml",
+            "name": "build-publish-qrnd",
+            "build_workflow_id": null,
+            "url": "https://github.com/quantropi/qiserver_qrnd/actions/workflows/build-publish.yml",
+            "category": "tool"
+          }
+        ]
       }
     ]
   }
