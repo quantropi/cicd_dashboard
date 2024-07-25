@@ -5846,5 +5846,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/336/test-264"
+  },
+  {
+    "id": "10085640844",
+    "url": "https://github.com/quantropi/qispace_admin/actions/runs/10085640844",
+    "repo": "qispace_admin",
+    "repo_url": "https://github.com/quantropi/qispace_admin",
+    "workflow_name": "build-publish-eds_admin",
+    "workflow_id": 14231019,
+    "run_number": 475,
+    "head_sha": "29b4b73ffcdddc9ba108d456c19e21e98247ba11",
+    "time": "2024-07-24T23:48:29Z",
+    "user": "quantropi-twang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
