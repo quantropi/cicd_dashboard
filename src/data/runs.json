@@ -5998,7 +5998,30 @@
     "user": "quantropi-devops-agent",
     "branch": "master",
     "status": "success",
-    "test_result": "",
+    "test_result": "FAILED",
+    "test_run_url": "https://github.com/quantropi/qispace_qa/actions/runs/10097313429",
+    "test_time": "2024-07-25T15:49:15Z",
+    "build_version": "b_44",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://eds-qc-release/release-qc-b_44.zip"
+  },
+  {
+    "id": "10097313429",
+    "url": "https://github.com/quantropi/qispace_qa/actions/runs/10097313429",
+    "repo": "qispace_qa",
+    "repo_url": "https://github.com/quantropi/qispace_qa",
+    "workflow_name": "QC Test (Playwright)",
+    "workflow_id": 96993211,
+    "run_number": 289,
+    "head_sha": "b4f698cb9aedef5c1d7fca92027db00479c5dc78",
+    "time": "2024-07-25T15:49:15Z",
+    "user": "quantropi-twang",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "FAILED",
     "test_run_url": null,
     "test_time": null,
     "build_version": "b_44",
@@ -6006,6 +6029,6 @@
     "isRelease": false,
     "release_version": null,
     "deploy_target": null,
-    "s3_urls": "s3://eds-qc-release/release-qc-b_44.zip"
+    "s3_urls": ""
   }
 ]
