@@ -6191,5 +6191,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": ""
+  },
+  {
+    "id": "10106005608",
+    "url": "https://github.com/quantropi/qispace_qa/actions/runs/10106005608",
+    "repo": "qispace_qa",
+    "repo_url": "https://github.com/quantropi/qispace_qa",
+    "workflow_name": "KDS Test (Playwright)",
+    "workflow_id": 95327444,
+    "run_number": 394,
+    "head_sha": "e6052b3a27c9fc51fd6f5fda4537958f5c19deaf",
+    "time": "2024-07-26T05:04:58Z",
+    "user": "quantropi-minh",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "FAILED",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "b_93",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
