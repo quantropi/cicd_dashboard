@@ -6554,5 +6554,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-enterprise-release/builds/b_104"
+  },
+  {
+    "id": "10291104273_1",
+    "url": "https://github.com/quantropi/eds_qes_installer/actions/runs/10291104273",
+    "repo": "eds_qes_installer",
+    "repo_url": "https://github.com/quantropi/eds_qes_installer",
+    "workflow_name": "Deploy Production",
+    "workflow_id": 15763170,
+    "run_number": 98,
+    "head_sha": "26dada7d6a664a1c75206c3b810781c50cf8afd6",
+    "time": "2024-08-07T20:43:37Z",
+    "user": "quantropi-dplante",
+    "branch": "prod",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "870bb732_18",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
