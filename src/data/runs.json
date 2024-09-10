@@ -4616,7 +4616,7 @@
     "test_run_url": null,
     "test_time": null,
     "build_version": "latest",
-    "package_version": "b_51",
+    "package_version": "b_52",
     "isRelease": false,
     "release_version": null,
     "deploy_target": null,
@@ -5840,5 +5840,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qes-release/qes_release_v37fc60e69b76ec6054d6dac34110e21cb8a97d7c_41.tar.gz"
+  },
+  {
+    "id": "10798633363",
+    "url": "https://github.com/quantropi/eds_qc_installer/actions/runs/10798633363",
+    "repo": "eds_qc_installer",
+    "repo_url": "https://github.com/quantropi/eds_qc_installer",
+    "workflow_name": "build",
+    "workflow_id": 88839412,
+    "run_number": 52,
+    "head_sha": "15451887ffe002b0303d90d57f1d23df1e1a8860",
+    "time": "2024-09-10T18:39:14Z",
+    "user": "quantropi-yyang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "b_52",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://eds-qc-release/release-qc-b_52.zip"
   }
 ]
