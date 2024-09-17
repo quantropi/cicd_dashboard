@@ -43,6 +43,6 @@ export interface RunDetails {
   package_version?: string | null;
   isRelease: boolean;
   release_version: string | null;
-  deploy_target: string;
+  deploy_target: string | null;
   s3_urls: string;
 }
