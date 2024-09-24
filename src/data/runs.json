@@ -5978,5 +5978,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/270"
+  },
+  {
+    "id": "11015305125",
+    "url": "https://github.com/quantropi/MASQ-BN/actions/runs/11015305125",
+    "repo": "MASQ-BN",
+    "repo_url": "https://github.com/quantropi/MASQ-BN",
+    "workflow_name": "masq_bn_build_api",
+    "workflow_id": 67497867,
+    "run_number": 209,
+    "head_sha": "2ef92a9d1c6e14d7d6d953f92b4d8b3db766c63f",
+    "time": "2024-09-24T13:55:25Z",
+    "user": "quantropi-btank",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "209",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/209"
   }
 ]
