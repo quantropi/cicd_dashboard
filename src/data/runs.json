@@ -7082,5 +7082,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/209/test-401"
+  },
+  {
+    "id": "11076392372",
+    "url": "https://github.com/quantropi/openssl_provider/actions/runs/11076392372",
+    "repo": "openssl_provider",
+    "repo_url": "https://github.com/quantropi/openssl_provider",
+    "workflow_name": "Build openssl provider",
+    "workflow_id": 105910792,
+    "run_number": 85,
+    "head_sha": "bd6b38ba59b1c03526542cad2724d9826080db53",
+    "time": "2024-09-27T19:12:35Z",
+    "user": "quantropi-btank",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "85",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://qispace-provider-artifacts/85"
   }
 ]
