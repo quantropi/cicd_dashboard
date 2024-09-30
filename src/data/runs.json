@@ -7266,5 +7266,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/209/test-402"
+  },
+  {
+    "id": "11109222661",
+    "url": "https://github.com/quantropi/eds_qes_installer/actions/runs/11109222661",
+    "repo": "eds_qes_installer",
+    "repo_url": "https://github.com/quantropi/eds_qes_installer",
+    "workflow_name": "Build manifest package (QES)",
+    "workflow_id": 102785388,
+    "run_number": 49,
+    "head_sha": "d511431aada83c4610fe94a3754560aff151c1b4",
+    "time": "2024-09-30T15:24:14Z",
+    "user": "quantropi-devops-agent",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "b_49",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://eds-qes-release/qes_release_vd511431aada83c4610fe94a3754560aff151c1b4_49.tar.gz"
   }
 ]
