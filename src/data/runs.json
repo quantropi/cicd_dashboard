@@ -6898,5 +6898,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qes-release/qes_release_v878ff629374927424adee45b57fc41471ff45495_53.tar.gz"
+  },
+  {
+    "id": "11259097379",
+    "url": "https://github.com/quantropi/eds_qes/actions/runs/11259097379",
+    "repo": "eds_qes",
+    "repo_url": "https://github.com/quantropi/eds_qes",
+    "workflow_name": "build-publish-eds_qes",
+    "workflow_id": 14314246,
+    "run_number": 179,
+    "head_sha": "e3715f58b36c8802509d611fc935622893396915",
+    "time": "2024-10-09T16:24:51Z",
+    "user": "quantropi-minh",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
