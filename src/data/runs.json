@@ -6990,5 +6990,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qes-release/qes_release_v70afdf5c308baaf9d5e929e1f33a77ecd5712587_58.tar.gz"
+  },
+  {
+    "id": "11280890070",
+    "url": "https://github.com/quantropi/MASQ-DS/actions/runs/11280890070",
+    "repo": "MASQ-DS",
+    "repo_url": "https://github.com/quantropi/MASQ-DS",
+    "workflow_name": "masq_ds_build_api",
+    "workflow_id": 70158334,
+    "run_number": 355,
+    "head_sha": "9070ad037b816b2cb965c15183be1452388c39de",
+    "time": "2024-10-10T19:42:43Z",
+    "user": "quantropi-btank",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "355",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/355"
   }
 ]
