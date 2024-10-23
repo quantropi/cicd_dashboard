@@ -6875,5 +6875,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qc-release/release-qc-b_61.zip"
+  },
+  {
+    "id": "11487309282",
+    "url": "https://github.com/quantropi/qiserver_qe2qk_service/actions/runs/11487309282",
+    "repo": "qiserver_qe2qk_service",
+    "repo_url": "https://github.com/quantropi/qiserver_qe2qk_service",
+    "workflow_name": "build-publish-kds_qe2qk",
+    "workflow_id": 14321686,
+    "run_number": 175,
+    "head_sha": "1b0109eb486a78da5ca084c9032efa6782ab124d",
+    "time": "2024-10-23T20:05:51Z",
+    "user": "quantropi-minh",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
