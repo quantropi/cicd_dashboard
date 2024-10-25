@@ -6829,5 +6829,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-enterprise-release/builds/b_136"
+  },
+  {
+    "id": "11526493752",
+    "url": "https://github.com/quantropi/qispace_admin/actions/runs/11526493752",
+    "repo": "qispace_admin",
+    "repo_url": "https://github.com/quantropi/qispace_admin",
+    "workflow_name": "build-publish-eds_admin",
+    "workflow_id": 14231019,
+    "run_number": 504,
+    "head_sha": "2e12ec74831e99ece01d6189098ddea7d2528710",
+    "time": "2024-10-25T22:54:25Z",
+    "user": "quantropi-yyang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
