@@ -6714,5 +6714,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qc-release/release-qc-b_68.zip"
+  },
+  {
+    "id": "11685960533",
+    "url": "https://github.com/quantropi/qispace_admin/actions/runs/11685960533",
+    "repo": "qispace_admin",
+    "repo_url": "https://github.com/quantropi/qispace_admin",
+    "workflow_name": "build-publish-eds_admin",
+    "workflow_id": 14231019,
+    "run_number": 507,
+    "head_sha": "79b9b79033fc50e2786f6f6a15eb429af75c9cc7",
+    "time": "2024-11-05T14:14:27Z",
+    "user": "quantropi-yyang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
