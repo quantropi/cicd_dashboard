@@ -6530,5 +6530,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": ""
+  },
+  {
+    "id": "11784732626",
+    "url": "https://github.com/quantropi/SDK_CICD_pipelines/actions/runs/11784732626",
+    "repo": "SDK_CICD_pipelines",
+    "repo_url": "https://github.com/quantropi/SDK_CICD_pipelines",
+    "workflow_name": "cicd_release_promote",
+    "workflow_id": 73625002,
+    "run_number": 43,
+    "head_sha": "c5d7b7e2ba4955558899df26cb809eea6600734b",
+    "time": "2024-11-11T19:11:25Z",
+    "user": "quantropi-btank",
+    "branch": "release",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "1.9.3",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
