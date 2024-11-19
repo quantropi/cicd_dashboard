@@ -7174,5 +7174,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": ""
+  },
+  {
+    "id": "11917516759_1",
+    "url": "https://github.com/quantropi/qiserver/actions/runs/11917516759",
+    "repo": "qiserver",
+    "repo_url": "https://github.com/quantropi/qiserver",
+    "workflow_name": "Deploy Quantropi",
+    "workflow_id": 87631112,
+    "run_number": 5,
+    "head_sha": "d15d50825557c6a1ff2240c10e8474e01812a2b5",
+    "time": "2024-11-19T16:34:22Z",
+    "user": "quantropi-minh",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "1.7.3",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
