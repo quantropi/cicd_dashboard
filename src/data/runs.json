@@ -7289,5 +7289,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qc-release/release-qc-b_80.zip"
+  },
+  {
+    "id": "11979744914",
+    "url": "https://github.com/quantropi/qiserver_admin/actions/runs/11979744914",
+    "repo": "qiserver_admin",
+    "repo_url": "https://github.com/quantropi/qiserver_admin",
+    "workflow_name": "build-publish-kds_admin",
+    "workflow_id": 14321066,
+    "run_number": 393,
+    "head_sha": "b22c8016187ee20d344bc337314750c5005126c4",
+    "time": "2024-11-22T20:34:37Z",
+    "user": "quantropi-yyang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
