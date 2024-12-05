@@ -7542,5 +7542,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qes-release/qes_release_v65bf16805d97cf5327c93658a24fb3bcd4acef61_79.tar.gz"
+  },
+  {
+    "id": "12188191104",
+    "url": "https://github.com/quantropi/eds_qes_installer/actions/runs/12188191104",
+    "repo": "eds_qes_installer",
+    "repo_url": "https://github.com/quantropi/eds_qes_installer",
+    "workflow_name": "Build manifest package (QES)",
+    "workflow_id": 102785388,
+    "run_number": 80,
+    "head_sha": "65bf16805d97cf5327c93658a24fb3bcd4acef61",
+    "time": "2024-12-05T21:16:19Z",
+    "user": "quantropi-minh",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "b_80",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://eds-qes-release/qes_release_v65bf16805d97cf5327c93658a24fb3bcd4acef61_80.tar.gz"
   }
 ]
