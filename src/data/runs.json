@@ -1,28 +1,5 @@
 [
   {
-    "id": "10908741620",
-    "url": "https://github.com/quantropi/qiserver/actions/runs/10908741620",
-    "repo": "qiserver",
-    "repo_url": "https://github.com/quantropi/qiserver",
-    "workflow_name": "Build",
-    "workflow_id": 86218728,
-    "run_number": 112,
-    "head_sha": "81266814b5e78dd2d2bbcf29fb064dc1db366cf0",
-    "time": "2024-09-17T18:18:43Z",
-    "user": "quantropi-minh",
-    "branch": "master",
-    "status": "success",
-    "test_result": "",
-    "test_run_url": null,
-    "test_time": null,
-    "build_version": "b_112",
-    "package_version": null,
-    "isRelease": false,
-    "release_version": null,
-    "deploy_target": null,
-    "s3_urls": "s3://qispace-enterprise-release/builds/b_112"
-  },
-  {
     "id": "10948884095",
     "url": "https://github.com/quantropi/qiserver/actions/runs/10948884095",
     "repo": "qiserver",
