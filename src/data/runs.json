@@ -7427,5 +7427,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qc-release/release-qc-b_84.zip"
+  },
+  {
+    "id": "12402121454",
+    "url": "https://github.com/quantropi/qispace_admin/actions/runs/12402121454",
+    "repo": "qispace_admin",
+    "repo_url": "https://github.com/quantropi/qispace_admin",
+    "workflow_name": "build-publish-eds_admin",
+    "workflow_id": 14231019,
+    "run_number": 521,
+    "head_sha": "72f1ed83793bf9d2d6cfc744ff2edf59c9f24f6f",
+    "time": "2024-12-18T22:06:05Z",
+    "user": "quantropi-minh",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
