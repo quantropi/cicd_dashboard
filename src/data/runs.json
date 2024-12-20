@@ -7565,5 +7565,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qes-release/qes_release_v255bd3af6f194527e1b6574b91c898147991abea_102.tar.gz"
+  },
+  {
+    "id": "12438884798",
+    "url": "https://github.com/quantropi/qispace_admin/actions/runs/12438884798",
+    "repo": "qispace_admin",
+    "repo_url": "https://github.com/quantropi/qispace_admin",
+    "workflow_name": "build-publish-eds_admin",
+    "workflow_id": 14231019,
+    "run_number": 523,
+    "head_sha": "80007354931513e5d6190ceb70e9f0e2c2fa9219",
+    "time": "2024-12-20T21:41:29Z",
+    "user": "quantropi-yyang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
