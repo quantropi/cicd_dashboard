@@ -5955,5 +5955,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": ""
+  },
+  {
+    "id": "12775300415_1",
+    "url": "https://github.com/quantropi/eds_qes_installer/actions/runs/12775300415",
+    "repo": "eds_qes_installer",
+    "repo_url": "https://github.com/quantropi/eds_qes_installer",
+    "workflow_name": "Deploy Production",
+    "workflow_id": 15763170,
+    "run_number": 130,
+    "head_sha": "aef6c4d4eb9e6ac13e4be56d0d15f1a6287fe806",
+    "time": "2025-01-14T19:50:52Z",
+    "user": "quantropi-minh",
+    "branch": "prod",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "d44ba673_109",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
