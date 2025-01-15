@@ -6001,5 +6001,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qc-release/release-qc-b_92.zip"
+  },
+  {
+    "id": "12797238665_1",
+    "url": "https://github.com/quantropi/eds_qc_installer/actions/runs/12797238665",
+    "repo": "eds_qc_installer",
+    "repo_url": "https://github.com/quantropi/eds_qc_installer",
+    "workflow_name": "Deploy Production",
+    "workflow_id": 89717008,
+    "run_number": 13,
+    "head_sha": "ce55a207c7ed9980092b64f90b114886d8dab84f",
+    "time": "2025-01-15T21:21:48Z",
+    "user": "quantropi-minh",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "b_30",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
