@@ -5516,7 +5516,7 @@
     "package_version": null,
     "isRelease": true,
     "release_version": "1.7.4_internal_1",
-    "deploy_target": null,
+    "deploy_target": "aws-ca-prod-ext-ent-2",
     "s3_urls": "s3://qispace-enterprise-release/builds/b_171"
   },
   {
@@ -5725,5 +5725,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-enterprise-release/release_v1.7.4_internal_1"
+  },
+  {
+    "id": "13058266782_1",
+    "url": "https://github.com/quantropi/qiserver/actions/runs/13058266782",
+    "repo": "qiserver",
+    "repo_url": "https://github.com/quantropi/qiserver",
+    "workflow_name": "Deploy Quantropi",
+    "workflow_id": 87631112,
+    "run_number": 9,
+    "head_sha": "27c2cc8828f4750bfee5368504d8126846477cea",
+    "time": "2025-01-30T17:56:20Z",
+    "user": "quantropi-dplante",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "1.7.4_internal_1",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
