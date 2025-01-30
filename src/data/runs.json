@@ -5515,7 +5515,7 @@
     "build_version": "b_171",
     "package_version": null,
     "isRelease": true,
-    "release_version": "1.7.4_internal",
+    "release_version": "1.7.4_internal_1",
     "deploy_target": null,
     "s3_urls": "s3://qispace-enterprise-release/builds/b_171"
   },
@@ -5702,5 +5702,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-enterprise-release/builds/b_173"
+  },
+  {
+    "id": "13058016423",
+    "url": "https://github.com/quantropi/qiserver/actions/runs/13058016423",
+    "repo": "qiserver",
+    "repo_url": "https://github.com/quantropi/qiserver",
+    "workflow_name": "Promote version",
+    "workflow_id": 37168070,
+    "run_number": 126,
+    "head_sha": "27c2cc8828f4750bfee5368504d8126846477cea",
+    "time": "2025-01-30T17:40:01Z",
+    "user": "quantropi-minh",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "1.7.4_internal_1",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://qispace-enterprise-release/release_v1.7.4_internal_1"
   }
 ]
