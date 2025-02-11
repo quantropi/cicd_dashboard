@@ -14241,5 +14241,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qc-release/release-qc-b_74.zip"
+  },
+  {
+    "id": "11799445768",
+    "url": "https://github.com/quantropi/SDK_CICD_pipelines/actions/runs/11799445768",
+    "repo": "SDK_CICD_pipelines",
+    "repo_url": "https://github.com/quantropi/SDK_CICD_pipelines",
+    "workflow_name": "cicd_release_promote",
+    "workflow_id": 73625002,
+    "run_number": 46,
+    "head_sha": "38908bee15236126dc00731af3ef52851ae22eac",
+    "time": "2024-11-12T14:34:36Z",
+    "user": "quantropi-btank",
+    "branch": "release",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "1.9.3",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
