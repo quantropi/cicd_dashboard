@@ -5334,5 +5334,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qc-release/release-qc-b_112.zip"
+  },
+  {
+    "id": "13400375344",
+    "url": "https://github.com/quantropi/qispace_admin/actions/runs/13400375344",
+    "repo": "qispace_admin",
+    "repo_url": "https://github.com/quantropi/qispace_admin",
+    "workflow_name": "build-publish-eds_admin",
+    "workflow_id": 14231019,
+    "run_number": 538,
+    "head_sha": "067abf804ee8874ee12b5f82b51eb4a3377dea82",
+    "time": "2025-02-18T21:27:44Z",
+    "user": "quantropi-minh",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
