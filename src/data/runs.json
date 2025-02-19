@@ -5449,5 +5449,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/215/test-415"
+  },
+  {
+    "id": "13422657804",
+    "url": "https://github.com/quantropi/qispace_admin/actions/runs/13422657804",
+    "repo": "qispace_admin",
+    "repo_url": "https://github.com/quantropi/qispace_admin",
+    "workflow_name": "build-publish-eds_admin",
+    "workflow_id": 14231019,
+    "run_number": 539,
+    "head_sha": "4dd8ec408a98eb559cb9b291435e0e01d4427310",
+    "time": "2025-02-19T21:25:21Z",
+    "user": "quantropi-minh",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
