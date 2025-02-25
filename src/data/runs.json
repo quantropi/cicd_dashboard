@@ -5896,7 +5896,7 @@
     "workflow_id": 105910792,
     "run_number": 101,
     "head_sha": "1cb4dc5c42162fd7d0600aa874b75f8108b99d65",
-    "time": "2025-02-25T19:08:28Z",
+    "time": "2025-02-25T19:49:23Z",
     "user": "quantropi-btank",
     "branch": "master",
     "status": "failure",
