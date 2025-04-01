@@ -1721,7 +1721,7 @@
     "package_version": null,
     "isRelease": true,
     "release_version": "b_106",
-    "deploy_target": "AWS-CA-PROD-EXT-QC-SECONDARY, AWS-CA-PROD-EXT-QC, AWS-CA-PROD-EXT-QC, AWS-CA-PROD-EXT-QC-SECONDARY",
+    "deploy_target": "AWS-CA-PROD-EXT-QC-SECONDARY, AWS-CA-PROD-EXT-QC, AWS-CA-PROD-EXT-QC, AWS-CA-PROD-EXT-QC-SECONDARY, AWS-CA-PROD-EXT-QC",
     "s3_urls": "s3://eds-qc-release/release-qc-b_106.zip"
   },
   {
@@ -4966,5 +4966,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qc-release/release-qc-b_119.zip"
+  },
+  {
+    "id": "14203559449_1",
+    "url": "https://github.com/quantropi/eds_qc_installer/actions/runs/14203559449",
+    "repo": "eds_qc_installer",
+    "repo_url": "https://github.com/quantropi/eds_qc_installer",
+    "workflow_name": "Deploy Production",
+    "workflow_id": 89717008,
+    "run_number": 21,
+    "head_sha": "d980c5f3b8a053ad89dd4bba0319b4ec0e7c026a",
+    "time": "2025-04-01T18:44:41Z",
+    "user": "quantropi-yyang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "b_106",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
