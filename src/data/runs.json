@@ -3627,7 +3627,7 @@
     "test_run_url": null,
     "test_time": null,
     "build_version": "latest",
-    "package_version": "b_118",
+    "package_version": "b_119",
     "isRelease": false,
     "release_version": null,
     "deploy_target": null,
@@ -4943,5 +4943,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-enterprise-release/release_v1.7.4"
+  },
+  {
+    "id": "14203554681",
+    "url": "https://github.com/quantropi/eds_qc_installer/actions/runs/14203554681",
+    "repo": "eds_qc_installer",
+    "repo_url": "https://github.com/quantropi/eds_qc_installer",
+    "workflow_name": "build",
+    "workflow_id": 88839412,
+    "run_number": 119,
+    "head_sha": "d980c5f3b8a053ad89dd4bba0319b4ec0e7c026a",
+    "time": "2025-04-01T18:44:22Z",
+    "user": "quantropi-yyang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "b_119",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://eds-qc-release/release-qc-b_119.zip"
   }
 ]
