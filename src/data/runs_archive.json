@@ -18312,5 +18312,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-enterprise-release/builds/b_164"
+  },
+  {
+    "id": "12894247852",
+    "url": "https://github.com/quantropi/eds_qc_installer/actions/runs/12894247852",
+    "repo": "eds_qc_installer",
+    "repo_url": "https://github.com/quantropi/eds_qc_installer",
+    "workflow_name": "build",
+    "workflow_id": 88839412,
+    "run_number": 94,
+    "head_sha": "25be25e4fc13475f58607ce334012514f7d0955d",
+    "time": "2025-01-21T19:18:51Z",
+    "user": "quantropi-minh",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "b_94",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://eds-qc-release/release-qc-b_94.zip"
   }
 ]
