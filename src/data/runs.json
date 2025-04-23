@@ -2960,7 +2960,7 @@
     "test_run_url": null,
     "test_time": null,
     "build_version": "latest",
-    "package_version": "b_193",
+    "package_version": "b_194",
     "isRelease": false,
     "release_version": null,
     "deploy_target": null,
@@ -5081,5 +5081,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/394/test-346"
+  },
+  {
+    "id": "14622130962",
+    "url": "https://github.com/quantropi/qiserver/actions/runs/14622130962",
+    "repo": "qiserver",
+    "repo_url": "https://github.com/quantropi/qiserver",
+    "workflow_name": "Build",
+    "workflow_id": 86218728,
+    "run_number": 194,
+    "head_sha": "0aa8ecb8402b9681e0773ea0448f92215b52c04c",
+    "time": "2025-04-23T15:31:59Z",
+    "user": "quantropi-yyang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "b_194",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://qispace-enterprise-release/builds/b_194"
   }
 ]
