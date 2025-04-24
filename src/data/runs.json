@@ -5242,5 +5242,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-provider-artifacts/105"
+  },
+  {
+    "id": "14651846316",
+    "url": "https://github.com/quantropi/qispace_admin/actions/runs/14651846316",
+    "repo": "qispace_admin",
+    "repo_url": "https://github.com/quantropi/qispace_admin",
+    "workflow_name": "build-publish-eds_admin",
+    "workflow_id": 14231019,
+    "run_number": 550,
+    "head_sha": "5cd699139cb72c12492e93a747e8a30e4874288a",
+    "time": "2025-04-24T21:16:08Z",
+    "user": "quantropi-yyang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
