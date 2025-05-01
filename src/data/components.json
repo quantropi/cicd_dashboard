@@ -365,6 +365,14 @@
             "build_workflow_id": 88839412,
             "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/deploy-production-ansible.yml",
             "category": "deploy_prod"
+          },
+          {
+            "id": 159318430,
+            "file": "package.yml",
+            "name": "Promote onprem release package [QC]",
+            "build_workflow_id": null,
+            "url": "https://github.com/quantropi/eds_qc_installer/actions/workflows/package.yml",
+            "category": "tool"
           }
         ]
       },
