@@ -506,6 +506,14 @@
             "build_workflow_id": null,
             "url": "https://github.com/quantropi/qispace_grpc/actions/workflows/build-gqrnd-server.yml",
             "category": "tool"
+          },
+          {
+            "id": 160767365,
+            "file": "build-grpc-cpp-sysjitter.yml",
+            "name": "build-grpc-cpp-sysjitter",
+            "build_workflow_id": null,
+            "url": "https://github.com/quantropi/qispace_grpc/actions/workflows/build-grpc-cpp-sysjitter.yml",
+            "category": "tool"
           }
         ]
       },
