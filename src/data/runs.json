@@ -5334,5 +5334,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qc-release/qc_onprem_.tar.gz"
+  },
+  {
+    "id": "14981043673",
+    "url": "https://github.com/quantropi/qiserver_admin/actions/runs/14981043673",
+    "repo": "qiserver_admin",
+    "repo_url": "https://github.com/quantropi/qiserver_admin",
+    "workflow_name": "build-publish-kds_admin",
+    "workflow_id": 14321066,
+    "run_number": 420,
+    "head_sha": "de22a43fae67d6ae64f96d203d1cd64e7fe4e678",
+    "time": "2025-05-12T19:38:01Z",
+    "user": "quantropi-yyang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
