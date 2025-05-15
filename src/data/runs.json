@@ -5334,5 +5334,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": ""
+  },
+  {
+    "id": "15049580376",
+    "url": "https://github.com/quantropi/eds_qc_installer/actions/runs/15049580376",
+    "repo": "eds_qc_installer",
+    "repo_url": "https://github.com/quantropi/eds_qc_installer",
+    "workflow_name": "Promote onprem release package [QC]",
+    "workflow_id": 159318430,
+    "run_number": 8,
+    "head_sha": "b174c599141aba0de0c539001b7d7eb1cfc584c5",
+    "time": "2025-05-15T15:54:15Z",
+    "user": "quantropi-devops-agent",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": 8,
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://eds-qc-release/qc_onprem_.tar.gz"
   }
 ]
