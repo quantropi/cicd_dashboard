@@ -514,6 +514,14 @@
             "build_workflow_id": null,
             "url": "https://github.com/quantropi/qispace_grpc/actions/workflows/build-grpc-cpp-sysjitter.yml",
             "category": "tool"
+          },
+          {
+            "id": 163164635,
+            "file": "build-grpc-cpp-alea.yml",
+            "name": "build-grpc-cpp-alea",
+            "build_workflow_id": null,
+            "url": "https://github.com/quantropi/qispace_grpc/actions/workflows/build-grpc-cpp-alea.yml",
+            "category": "tool"
           }
         ]
       },
