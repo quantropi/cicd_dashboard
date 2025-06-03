@@ -3836,7 +3836,7 @@
     "build_version": "b_204",
     "package_version": null,
     "isRelease": true,
-    "release_version": "1.7.5_nrc1",
+    "release_version": "1.7.5",
     "deploy_target": null,
     "s3_urls": "s3://qispace-enterprise-release/builds/b_204"
   },
@@ -4276,5 +4276,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qes-release/.tar.gz"
+  },
+  {
+    "id": "15424731585",
+    "url": "https://github.com/quantropi/qiserver/actions/runs/15424731585",
+    "repo": "qiserver",
+    "repo_url": "https://github.com/quantropi/qiserver",
+    "workflow_name": "Promote version",
+    "workflow_id": 37168070,
+    "run_number": 136,
+    "head_sha": "6a2f4b81bd4ed9eaf5cf268049f9b159d996a54e",
+    "time": "2025-06-03T18:14:24Z",
+    "user": "quantropi-yyang",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "1.7.5",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://qispace-enterprise-release/release_v1.7.5"
   }
 ]
