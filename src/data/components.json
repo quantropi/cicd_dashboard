@@ -522,6 +522,14 @@
             "build_workflow_id": null,
             "url": "https://github.com/quantropi/qispace_grpc/actions/workflows/build-grpc-cpp-alea.yml",
             "category": "tool"
+          },
+          {
+            "id": 79093248,
+            "file": "build-grpc-cpp-base.yml",
+            "name": "build-grpc-cpp-base",
+            "build_workflow_id": null,
+            "url": "https://github.com/quantropi/qispace_grpc/actions/workflows/build-grpc-cpp-base.yml",
+            "category": "tool"
           }
         ]
       },
