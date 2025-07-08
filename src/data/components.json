@@ -59,6 +59,14 @@
             "build_workflow_id": 70319405,
             "category": "qa",
             "url": "https://github.com/quantropi/sdk_qa/actions/workflows/masq_kem.yml"
+          },
+          {
+            "id": 171767960,
+            "file": "tqrnd.yml",
+            "name": "tqrnd_qa_test",
+            "build_workflow_id": null,
+            "url": "https://github.com/quantropi/sdk_qa/actions/workflows/tqrnd.yml",
+            "category": "qa"
           }
         ]
       },
