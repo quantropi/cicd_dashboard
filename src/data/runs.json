@@ -1355,5 +1355,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/tqrnd/71/test-46"
+  },
+  {
+    "id": "16991350798",
+    "url": "https://github.com/quantropi/sdk_qa/actions/runs/16991350798",
+    "repo": "sdk_qa",
+    "repo_url": "https://github.com/quantropi/sdk_qa",
+    "workflow_name": "tqrnd_qa_test",
+    "workflow_id": 171767960,
+    "run_number": 48,
+    "head_sha": "5cc0ec00edfd8fa8ad18e4bb1f2331c49e332f35",
+    "time": "2025-08-15T13:47:42Z",
+    "user": "quantropi-devops-agent",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "72",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/tqrnd/72/test-48"
   }
 ]
