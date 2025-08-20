@@ -1443,8 +1443,8 @@
     "test_time": "2025-08-20T13:28:04Z",
     "build_version": "278",
     "package_version": null,
-    "isRelease": false,
-    "release_version": null,
+    "isRelease": true,
+    "release_version": "2.1.1",
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/278"
   },
@@ -1466,8 +1466,8 @@
     "test_time": "2025-08-20T14:13:10Z",
     "build_version": "233",
     "package_version": null,
-    "isRelease": false,
-    "release_version": null,
+    "isRelease": true,
+    "release_version": "2.1.1",
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/233"
   },
@@ -1604,8 +1604,8 @@
     "test_time": "2025-08-20T15:12:10Z",
     "build_version": "310",
     "package_version": null,
-    "isRelease": false,
-    "release_version": null,
+    "isRelease": true,
+    "release_version": "2.1.1",
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-kem/310"
   },
@@ -1627,8 +1627,8 @@
     "test_time": "2025-08-20T16:02:01Z",
     "build_version": "403",
     "package_version": null,
-    "isRelease": false,
-    "release_version": null,
+    "isRelease": true,
+    "release_version": "2.1.1",
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/403"
   },
@@ -1792,5 +1792,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/403/test-357"
+  },
+  {
+    "id": "17109433149",
+    "url": "https://github.com/quantropi/SDK_CICD_pipelines/actions/runs/17109433149",
+    "repo": "SDK_CICD_pipelines",
+    "repo_url": "https://github.com/quantropi/SDK_CICD_pipelines",
+    "workflow_name": "cicd_release_promote",
+    "workflow_id": 73625002,
+    "run_number": 95,
+    "head_sha": "9c562e2594ce20faff5a6b21463bfdc30ca26b07",
+    "time": "2025-08-20T20:23:10Z",
+    "user": "quantropi-btank",
+    "branch": "release",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "2.1.1",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
