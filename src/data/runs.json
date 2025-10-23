@@ -1442,7 +1442,7 @@
     "test_run_url": null,
     "test_time": null,
     "build_version": "latest",
-    "package_version": null,
+    "package_version": "b_145",
     "isRelease": false,
     "release_version": null,
     "deploy_target": null,
@@ -1516,5 +1516,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qc-release/qc_onprem_.tar.gz"
+  },
+  {
+    "id": "18757177641",
+    "url": "https://github.com/quantropi/eds_qc_installer/actions/runs/18757177641",
+    "repo": "eds_qc_installer",
+    "repo_url": "https://github.com/quantropi/eds_qc_installer",
+    "workflow_name": "build",
+    "workflow_id": 88839412,
+    "run_number": 145,
+    "head_sha": "56f762d4b12858e560700d8d7bd3f12a53468294",
+    "time": "2025-10-23T17:47:09Z",
+    "user": "quantropi-devops-agent",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "b_145",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://eds-qc-release/release-qc-b_145.zip"
   }
 ]
