@@ -615,6 +615,23 @@
             "category": "tool"
           }
         ]
+      },
+      {
+        "name": "bootloader",
+        "level": "repo",
+        "description": "",
+        "category": "product",
+        "url": "https://github.com/quantropi/bootloader",
+        "workflows": [
+          {
+            "id": 196573004,
+            "file": "cicd_build_api.yml",
+            "name": "Build Zephyr Docker Image and mcuboot",
+            "build_workflow_id": null,
+            "url": "https://github.com/quantropi/bootloader/actions/workflows/cicd_build_api.yml",
+            "category": "tool"
+          }
+        ]
       }
     ]
   }
