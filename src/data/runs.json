@@ -1654,5 +1654,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/bootloader/43"
+  },
+  {
+    "id": "18909593320",
+    "url": "https://github.com/quantropi/qiserver_admin/actions/runs/18909593320",
+    "repo": "qiserver_admin",
+    "repo_url": "https://github.com/quantropi/qiserver_admin",
+    "workflow_name": "build-publish-kds_admin",
+    "workflow_id": 14321066,
+    "run_number": 423,
+    "head_sha": "686fbd9977176fb62cc0fcde8649c6358461098b",
+    "time": "2025-10-29T13:30:34Z",
+    "user": "quantropi-yyang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
