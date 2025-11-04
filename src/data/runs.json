@@ -1861,5 +1861,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/bootloader/45"
+  },
+  {
+    "id": "19074125616",
+    "url": "https://github.com/quantropi/bootloader/actions/runs/19074125616",
+    "repo": "bootloader",
+    "repo_url": "https://github.com/quantropi/bootloader",
+    "workflow_name": "Build Zephyr Docker Image",
+    "workflow_id": 203587933,
+    "run_number": 1,
+    "head_sha": "a407282a3b2931ef623f668fb3a42a1ff5a937cd",
+    "time": "2025-11-04T15:37:15Z",
+    "user": "quantropi-btank",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": 1,
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]

@@ -630,6 +630,14 @@
             "build_workflow_id": null,
             "url": "https://github.com/quantropi/bootloader/actions/workflows/cicd_build_api.yml",
             "category": "tool"
+          },
+          {
+            "id": 203587933,
+            "file": "zephyr_ubuntu_image_build.yml",
+            "name": "Build Zephyr Docker Image",
+            "build_workflow_id": null,
+            "url": "https://github.com/quantropi/bootloader/actions/workflows/zephyr_ubuntu_image_build.yml",
+            "category": "tool"
           }
         ]
       }
