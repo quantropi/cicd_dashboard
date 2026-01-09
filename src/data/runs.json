@@ -775,7 +775,7 @@
     "test_run_url": null,
     "test_time": null,
     "build_version": "latest",
-    "package_version": "b_221",
+    "package_version": "b_222",
     "isRelease": false,
     "release_version": null,
     "deploy_target": null,
@@ -2229,5 +2229,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": ""
+  },
+  {
+    "id": "20862056830",
+    "url": "https://github.com/quantropi/qiserver/actions/runs/20862056830",
+    "repo": "qiserver",
+    "repo_url": "https://github.com/quantropi/qiserver",
+    "workflow_name": "Build",
+    "workflow_id": 86218728,
+    "run_number": 222,
+    "head_sha": "17806f069554a211d7038de841e4f9ecaa0d47d2",
+    "time": "2026-01-09T18:46:03Z",
+    "user": "quantropi-devops-agent",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "b_222",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://qispace-enterprise-release/builds/b_222"
   }
 ]
