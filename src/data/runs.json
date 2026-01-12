@@ -2275,5 +2275,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": ""
+  },
+  {
+    "id": "20929622641",
+    "url": "https://github.com/quantropi/eds_qc_installer/actions/runs/20929622641",
+    "repo": "eds_qc_installer",
+    "repo_url": "https://github.com/quantropi/eds_qc_installer",
+    "workflow_name": "build",
+    "workflow_id": 88839412,
+    "run_number": 147,
+    "head_sha": "02cb1c8eb1fe5a4bdba4577c8f7a658d5c21d09a",
+    "time": "2026-01-12T17:56:13Z",
+    "user": "quantropi-yyang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "b_147",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://eds-qc-release/release-qc-b_147.zip"
   }
 ]
