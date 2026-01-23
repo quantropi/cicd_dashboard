@@ -2478,9 +2478,9 @@
     "test_time": null,
     "build_version": "b_151",
     "package_version": null,
-    "isRelease": false,
-    "release_version": null,
-    "deploy_target": null,
+    "isRelease": true,
+    "release_version": "b_151",
+    "deploy_target": "AWS-CA-PROD-EXT-QC",
     "s3_urls": "s3://eds-qc-release/release-qc-b_151.zip"
   },
   {
@@ -2689,5 +2689,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-kem/R3.0.0/test-398"
+  },
+  {
+    "id": "21297953688_1",
+    "url": "https://github.com/quantropi/eds_qc_installer/actions/runs/21297953688",
+    "repo": "eds_qc_installer",
+    "repo_url": "https://github.com/quantropi/eds_qc_installer",
+    "workflow_name": "Deploy Production",
+    "workflow_id": 89717008,
+    "run_number": 27,
+    "head_sha": "5baa5a353b89a39b2e7ff167f4af705367e343ad",
+    "time": "2026-01-23T19:07:48Z",
+    "user": "quantropi-yyang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "b_151",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
