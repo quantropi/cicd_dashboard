@@ -2436,5 +2436,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/bootloader/91"
+  },
+  {
+    "id": "21836088335",
+    "url": "https://github.com/quantropi/MASQ-KEM/actions/runs/21836088335",
+    "repo": "MASQ-KEM",
+    "repo_url": "https://github.com/quantropi/MASQ-KEM",
+    "workflow_name": "masq_kem_build_api",
+    "workflow_id": 70319405,
+    "run_number": 323,
+    "head_sha": "ff3ea15c73807b795e4cf88b68e1e771978cc6e2",
+    "time": "2026-02-09T18:17:48Z",
+    "user": "quantropi-btank",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "323",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-kem/323"
   }
 ]
