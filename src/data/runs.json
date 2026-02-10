@@ -2436,5 +2436,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/bootloader/93"
+  },
+  {
+    "id": "21836069301",
+    "url": "https://github.com/quantropi/MASQ-BN/actions/runs/21836069301",
+    "repo": "MASQ-BN",
+    "repo_url": "https://github.com/quantropi/MASQ-BN",
+    "workflow_name": "masq_bn_build_api",
+    "workflow_id": 67497867,
+    "run_number": 237,
+    "head_sha": "b8613d8b6b3b2c73f4871007f1d1eb386ee5f706",
+    "time": "2026-02-10T12:36:19Z",
+    "user": "quantropi-btank",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "237",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/237"
   }
 ]
