@@ -2229,5 +2229,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-enterprise-release/builds/b_238"
+  },
+  {
+    "id": "22409094450",
+    "url": "https://github.com/quantropi/eds_qes_installer/actions/runs/22409094450",
+    "repo": "eds_qes_installer",
+    "repo_url": "https://github.com/quantropi/eds_qes_installer",
+    "workflow_name": "Build manifest package (QES)",
+    "workflow_id": 102785388,
+    "run_number": 142,
+    "head_sha": "76020ec27f2de027bc58595384f29c5357c3226c",
+    "time": "2026-02-25T17:53:50Z",
+    "user": "quantropi-devops-agent",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": 142,
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://eds-qes-release/.tar.gz"
   }
 ]
