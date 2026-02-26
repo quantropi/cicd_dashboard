@@ -2275,5 +2275,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qes-release/.tar.gz"
+  },
+  {
+    "id": "22450187183",
+    "url": "https://github.com/quantropi/bootloader/actions/runs/22450187183",
+    "repo": "bootloader",
+    "repo_url": "https://github.com/quantropi/bootloader",
+    "workflow_name": "Build Zephyr Docker Image and mcuboot",
+    "workflow_id": 196573004,
+    "run_number": 94,
+    "head_sha": "6ac6525f9bae832267bb734f7f7078b161ba10f1",
+    "time": "2026-02-26T16:02:41Z",
+    "user": "xijian-zhu",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "94",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/bootloader/94"
   }
 ]
