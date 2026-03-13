@@ -2482,5 +2482,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-bn/239/test-439"
+  },
+  {
+    "id": "23059615368",
+    "url": "https://github.com/quantropi/sdk_qa/actions/runs/23059615368",
+    "repo": "sdk_qa",
+    "repo_url": "https://github.com/quantropi/sdk_qa",
+    "workflow_name": "masq_ds_qa_test",
+    "workflow_id": 37459142,
+    "run_number": 480,
+    "head_sha": "e1317f24107fd3e259d021ee44b6495790524575",
+    "time": "2026-03-13T16:08:58Z",
+    "user": "quantropi-devops-agent",
+    "branch": "master",
+    "status": "cancelled",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "425",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/425/test-480"
   }
 ]
