@@ -2321,5 +2321,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/qispace_mbedtls/104/test-80"
+  },
+  {
+    "id": "23358021959",
+    "url": "https://github.com/quantropi/bootloader/actions/runs/23358021959",
+    "repo": "bootloader",
+    "repo_url": "https://github.com/quantropi/bootloader",
+    "workflow_name": "Build Zephyr Docker Image and mcuboot",
+    "workflow_id": 196573004,
+    "run_number": 102,
+    "head_sha": "f58bb05952d14b1db68fc4eca91ec096c866e4fb",
+    "time": "2026-03-20T18:54:33Z",
+    "user": "xijian-zhu",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "102",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/bootloader/102"
   }
 ]
