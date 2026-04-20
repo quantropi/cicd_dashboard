@@ -2137,5 +2137,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/bootloader/106"
+  },
+  {
+    "id": "24669100207",
+    "url": "https://github.com/quantropi/libqeep/actions/runs/24669100207",
+    "repo": "libqeep",
+    "repo_url": "https://github.com/quantropi/libqeep",
+    "workflow_name": "libqeep_build_api",
+    "workflow_id": 71075656,
+    "run_number": 287,
+    "head_sha": "23b0e82a2bec0e9d8a4b610479a93261c66d3354",
+    "time": "2026-04-20T13:25:45Z",
+    "user": "xijian-zhu",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "287",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/287"
   }
 ]
