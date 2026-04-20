@@ -2160,5 +2160,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/287"
+  },
+  {
+    "id": "24679544323",
+    "url": "https://github.com/quantropi/libqeep/actions/runs/24679544323",
+    "repo": "libqeep",
+    "repo_url": "https://github.com/quantropi/libqeep",
+    "workflow_name": "libqeep_build_api",
+    "workflow_id": 71075656,
+    "run_number": 288,
+    "head_sha": "69a62a385fbf422243d10f8df039db6499ef6620",
+    "time": "2026-04-20T17:01:51Z",
+    "user": "xijian-zhu",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "288",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/288"
   }
 ]
