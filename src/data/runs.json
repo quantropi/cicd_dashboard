@@ -2551,5 +2551,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qes-release/.tar.gz"
+  },
+  {
+    "id": "24847342960",
+    "url": "https://github.com/quantropi/qiserver_qrnd/actions/runs/24847342960",
+    "repo": "qiserver_qrnd",
+    "repo_url": "https://github.com/quantropi/qiserver_qrnd",
+    "workflow_name": "build-publish-qrnd",
+    "workflow_id": 14317472,
+    "run_number": 223,
+    "head_sha": "0b70342ad5cd27c6d9d2c5c905e2c39363a5c305",
+    "time": "2026-04-23T16:44:59Z",
+    "user": "quantropi-twang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
