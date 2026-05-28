@@ -2689,5 +2689,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-enterprise-release/builds/b_247"
+  },
+  {
+    "id": "26601065726",
+    "url": "https://github.com/quantropi/qes_stream/actions/runs/26601065726",
+    "repo": "qes_stream",
+    "repo_url": "https://github.com/quantropi/qes_stream",
+    "workflow_name": "build-publish-qes_stream",
+    "workflow_id": 31968585,
+    "run_number": 104,
+    "head_sha": "76ab2db661323175fa43e024f728fb9f74a75d5d",
+    "time": "2026-05-28T20:42:47Z",
+    "user": "quantropi-dlou",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": 104,
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
