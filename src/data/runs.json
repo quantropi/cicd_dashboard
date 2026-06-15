@@ -3209,7 +3209,30 @@
     "user": "quantropi-btank",
     "branch": "master",
     "status": "success",
-    "test_result": "",
+    "test_result": "FAILED",
+    "test_run_url": "https://github.com/quantropi/sdk_qa/actions/runs/27579375595",
+    "test_time": "2026-06-15T22:03:29Z",
+    "build_version": "296",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/296"
+  },
+  {
+    "id": "27579375595",
+    "url": "https://github.com/quantropi/sdk_qa/actions/runs/27579375595",
+    "repo": "sdk_qa",
+    "repo_url": "https://github.com/quantropi/sdk_qa",
+    "workflow_name": "libqeep_qa_test",
+    "workflow_id": 71048646,
+    "run_number": 352,
+    "head_sha": "50c2eb0e53083b21772f9ece4c541c06993d2c51",
+    "time": "2026-06-15T22:03:29Z",
+    "user": "quantropi-devops-agent",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "FAILED",
     "test_run_url": null,
     "test_time": null,
     "build_version": "296",
@@ -3217,6 +3240,6 @@
     "isRelease": false,
     "release_version": null,
     "deploy_target": null,
-    "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/296"
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/296/test-352"
   }
 ]
