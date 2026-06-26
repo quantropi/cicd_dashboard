@@ -3655,5 +3655,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": ""
+  },
+  {
+    "id": "28254636985",
+    "url": "https://github.com/quantropi/openssl_provider/actions/runs/28254636985",
+    "repo": "openssl_provider",
+    "repo_url": "https://github.com/quantropi/openssl_provider",
+    "workflow_name": "Build openssl provider",
+    "workflow_id": 105910792,
+    "run_number": 124,
+    "head_sha": "21da0162f1d6eff392b6015331fa15e69d6f4c12",
+    "time": "2026-06-26T17:32:55Z",
+    "user": "quantropi-btank",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "124",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://qispace-provider-artifacts/124"
   }
 ]
