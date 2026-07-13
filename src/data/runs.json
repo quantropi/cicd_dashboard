@@ -3678,5 +3678,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://eds-qc-release/release-qc-b_155.zip"
+  },
+  {
+    "id": "29266381815",
+    "url": "https://github.com/quantropi/qiserver_qe2qk_service/actions/runs/29266381815",
+    "repo": "qiserver_qe2qk_service",
+    "repo_url": "https://github.com/quantropi/qiserver_qe2qk_service",
+    "workflow_name": "build-publish-kds_qe2qk",
+    "workflow_id": 14321686,
+    "run_number": 216,
+    "head_sha": "f75ff3c40b4070ed8cb7d92f9ff2266114037978",
+    "time": "2026-07-13T16:25:54Z",
+    "user": "quantropi-twang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
