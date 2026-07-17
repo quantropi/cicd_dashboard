@@ -4299,5 +4299,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/441"
+  },
+  {
+    "id": "29596491841",
+    "url": "https://github.com/quantropi/qispace_admin/actions/runs/29596491841",
+    "repo": "qispace_admin",
+    "repo_url": "https://github.com/quantropi/qispace_admin",
+    "workflow_name": "build-publish-eds_admin",
+    "workflow_id": 14231019,
+    "run_number": 571,
+    "head_sha": "4f7707be177bef313fe1a8ba55b9c59c89b108cc",
+    "time": "2026-07-17T16:31:25Z",
+    "user": "quantropi-yyang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
