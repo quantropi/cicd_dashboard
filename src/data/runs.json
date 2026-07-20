@@ -4276,5 +4276,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/tqrnd/99/test-116"
+  },
+  {
+    "id": "29745220758",
+    "url": "https://github.com/quantropi/qispace_grpc/actions/runs/29745220758",
+    "repo": "qispace_grpc",
+    "repo_url": "https://github.com/quantropi/qispace_grpc",
+    "workflow_name": "build-qrnd_grpc_quside",
+    "workflow_id": 84698615,
+    "run_number": 42,
+    "head_sha": "31a2783a36996916c3389aa8dd21f45fc286d769",
+    "time": "2026-07-20T13:12:01Z",
+    "user": "quantropi-yyang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
