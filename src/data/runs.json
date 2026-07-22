@@ -4713,5 +4713,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/446/test-526"
+  },
+  {
+    "id": "29918754713",
+    "url": "https://github.com/quantropi/qiserver_qe2qk_service/actions/runs/29918754713",
+    "repo": "qiserver_qe2qk_service",
+    "repo_url": "https://github.com/quantropi/qiserver_qe2qk_service",
+    "workflow_name": "build-publish-kds_qe2qk",
+    "workflow_id": 14321686,
+    "run_number": 223,
+    "head_sha": "2b95a3a2842b6bdabde46d34339df239b31122af",
+    "time": "2026-07-22T12:13:25Z",
+    "user": "quantropi-twang",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": 223,
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
