@@ -4690,5 +4690,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-enterprise-release/builds/b_266"
+  },
+  {
+    "id": "30281045128",
+    "url": "https://github.com/quantropi/qiserver_admin/actions/runs/30281045128",
+    "repo": "qiserver_admin",
+    "repo_url": "https://github.com/quantropi/qiserver_admin",
+    "workflow_name": "build-publish-kds_admin",
+    "workflow_id": 14321066,
+    "run_number": 440,
+    "head_sha": "9ae5a07fa3eec1aaecfff09c00450d3718cc0d94",
+    "time": "2026-07-27T15:39:35Z",
+    "user": "quantropi-twang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
