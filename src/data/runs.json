@@ -4897,5 +4897,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": ""
+  },
+  {
+    "id": "30483102872",
+    "url": "https://github.com/quantropi/qiserver_qe2qk_service/actions/runs/30483102872",
+    "repo": "qiserver_qe2qk_service",
+    "repo_url": "https://github.com/quantropi/qiserver_qe2qk_service",
+    "workflow_name": "build-publish-kds_qe2qk",
+    "workflow_id": 14321686,
+    "run_number": 236,
+    "head_sha": "574648bb52ecb62068be8e509f930b63447a3fcb",
+    "time": "2026-07-29T19:08:39Z",
+    "user": "quantropi-twang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
