@@ -4943,5 +4943,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-enterprise-release/builds/b_273"
+  },
+  {
+    "id": "30919158024",
+    "url": "https://github.com/quantropi/qiserver_qe2qk_service/actions/runs/30919158024",
+    "repo": "qiserver_qe2qk_service",
+    "repo_url": "https://github.com/quantropi/qiserver_qe2qk_service",
+    "workflow_name": "build-publish-kds_qe2qk",
+    "workflow_id": 14321686,
+    "run_number": 238,
+    "head_sha": "a0400d03276bff0404f415a940789b62b0f98e78",
+    "time": "2026-08-04T14:28:52Z",
+    "user": "quantropi-twang",
+    "branch": "master",
+    "status": "failure",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
