@@ -4299,5 +4299,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/455"
+  },
+  {
+    "id": "33108745145",
+    "url": "https://github.com/quantropi/SDK_CICD_pipelines/actions/runs/33108745145",
+    "repo": "SDK_CICD_pipelines",
+    "repo_url": "https://github.com/quantropi/SDK_CICD_pipelines",
+    "workflow_name": "cicd_release_promote",
+    "workflow_id": 73625002,
+    "run_number": 111,
+    "head_sha": "9e5c9da5533be7a9d4d0db2c6aba3bc209bbe362",
+    "time": "2026-08-27T19:30:15Z",
+    "user": "quantropi-btank",
+    "branch": "release",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "3.1.0",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
