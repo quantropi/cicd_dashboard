@@ -3517,5 +3517,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/libqeep/314/test-432"
+  },
+  {
+    "id": "37322373155",
+    "url": "https://github.com/quantropi/MASQ-KEM/actions/runs/37322373155",
+    "repo": "MASQ-KEM",
+    "repo_url": "https://github.com/quantropi/MASQ-KEM",
+    "workflow_name": "masq_kem_build_api",
+    "workflow_id": 70319405,
+    "run_number": 360,
+    "head_sha": "6e483ec989ba0c7072cb2e7cdabda361990f3653",
+    "time": "2026-10-05T14:09:02Z",
+    "user": "quantropi-devops-agent",
+    "branch": "master",
+    "status": "cancelled",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "360",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-kem/360"
   }
 ]
