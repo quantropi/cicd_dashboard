@@ -1700,5 +1700,28 @@
     "release_version": null,
     "deploy_target": null,
     "s3_urls": "s3://qispace-sdk-artifacts/builds/masq-ds/486/test-604"
+  },
+  {
+    "id": "42653629357",
+    "url": "https://github.com/quantropi/qispace_grpc/actions/runs/42653629357",
+    "repo": "qispace_grpc",
+    "repo_url": "https://github.com/quantropi/qispace_grpc",
+    "workflow_name": "build-qrnd_grpc_qlab",
+    "workflow_id": 84698614,
+    "run_number": 52,
+    "head_sha": "2ecdba1761b1d0d1fd88ce3747ef46f388754562",
+    "time": "2026-11-09T16:19:52Z",
+    "user": "quantropi-yyang",
+    "branch": "master",
+    "status": "success",
+    "test_result": "",
+    "test_run_url": null,
+    "test_time": null,
+    "build_version": "latest",
+    "package_version": null,
+    "isRelease": false,
+    "release_version": null,
+    "deploy_target": null,
+    "s3_urls": ""
   }
 ]
