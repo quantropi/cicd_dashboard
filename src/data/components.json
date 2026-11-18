@@ -640,6 +640,23 @@
             "category": "tool"
           }
         ]
+      },
+      {
+        "name": "CTR-DRBG",
+        "level": "repo",
+        "description": "",
+        "category": "product",
+        "url": "https://github.com/quantropi/CTR-DRBG",
+        "workflows": [
+          {
+            "id": 394126755,
+            "file": "build.yml",
+            "name": "ctr-drbg-build",
+            "build_workflow_id": null,
+            "url": "https://github.com/quantropi/CTR-DRBG/actions/workflows/build.yml",
+            "category": "tool"
+          }
+        ]
       }
     ]
   }
